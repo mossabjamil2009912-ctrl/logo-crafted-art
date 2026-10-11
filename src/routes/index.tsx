@@ -1481,7 +1481,7 @@ function Feature({ icon, text }: { icon: ReactNode; text: string }) {
 
 function ServiceCard({ image, icon, title, description, action, tone, onClick }: { image: string; icon: ReactNode; title: string; description: string; action: string; tone: "brand" | "energy" | "skyline" | "navy"; onClick: () => void }) {
   const circle = tone === "brand" ? "bg-brand text-brand-foreground" : tone === "energy" ? "bg-energy text-energy-foreground" : tone === "navy" ? "bg-navy text-skyline-foreground" : "bg-skyline text-skyline-foreground";
-  const btn = tone === "skyline" ? "bg-navy-soft text-navy" : circle;
+  const btn = tone === "skyline" ? "bg-skyline text-skyline-foreground" : circle;
 
   return (
     <button type="button" onClick={onClick} aria-label={title} className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card text-right shadow-sm transition hover:shadow-md">
