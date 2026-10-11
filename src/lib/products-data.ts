@@ -61,6 +61,8 @@ import deyeLp3Image from "@/assets/products/deye-sun-5-12k-sg04lp3.webp";
 import deyeSeG5Image from "@/assets/products/deye-se-g5-1-pro-b.webp";
 import deyeRwM6Image from "@/assets/products/deye-rw-m6-1-b.webp";
 import deyeBosImage from "@/assets/products/deye-bos-g-pro.webp";
+import deyeAiEssImage from "@/assets/products/deye-ai-w5-1-b-ess.webp";
+import deyeGeF60Image from "@/assets/products/deye-ge-f60.webp";
 
 export type ProductCategory = "panels" | "inverters" | "batteries" | "storage";
 export type SpecGroup = { title: string; rows: [string, string][] };
@@ -871,6 +873,62 @@ export const PRODUCTS: Product[] = [
     ],
     image: deyeBosImage,
     files: [{ kind: "Datasheet", label: "الكتالوج الرسمي", url: "https://deye.com/wp-content/uploads/2026/01/deye-bos-g-pro-series_brochure-20260113au1.0.pdf" }],
+  },
+  {
+    id: "deye-ai-w5-1-b-ess",
+    category: "storage",
+    brand: "Deye",
+    name: "نظام تخزين Deye المتكامل AI-W5.1-B-ESS (إنفرتر + بطاريات)",
+    model: "AI-W5.1-B-ESS (Spring Series)",
+    power: "3.6–12 kW / 5–50 kWh",
+    description: "نظام منزلي متكامل يجمع إنفرتر هجين وبطاريات LFP مكدّسة في وحدة واحدة أنيقة.",
+    about:
+      "AI-W5.1-B-ESS من Deye نظام تخزين «الكل في واحد» يضم إنفرتر هجين أحادي أو ثلاثي الطور (3.6–12kW) مع وحدات بطارية LiFePO4 بقدرة 5.12kWh/51.2V/100Ah تُكدّس بدون أدوات. يتوسع من 5 حتى 50kWh، ويتحول للاحتياط خلال 4ms، بحماية IP65 وتبريد طبيعي.",
+    features: [
+      "إنفرتر هجين + بطاريات + EMS في نظام واحد",
+      "تكديس بدون أدوات وبدون أسلاك خارجية",
+      "تحويل للاحتياط خلال 4ms",
+      "حماية IP65 للداخل والخارج",
+      "≥6000 دورة وضمان 10 سنوات",
+    ],
+    uses: ["المنازل والفلل", "المحلات والمكاتب", "الاستهلاك الذاتي وتقليم الذروة"],
+    suitableFor: "مناسب لمن يريد نظاماً منزلياً جاهزاً ومرتباً في وحدة واحدة.",
+    specs: [
+      { title: "البطارية", rows: [["الكيمياء", "LiFePO4"], ["طاقة الوحدة", "5.12 kWh"], ["جهد الوحدة", "51.2 V"], ["سعة الوحدة", "100 Ah"], ["عمق التفريغ الموصى", "90%"]] },
+      { title: "الإنفرتر", rows: [["القدرة", "3.6 – 12 kW"], ["أقصى جهد شمسي", "500 V"], ["نطاق MPPT", "125 – 425 V"], ["جهد الخرج", "230/240 V"]] },
+      { title: "عام", rows: [["السعة", "5 – 50 kWh"], ["الحماية", "IP65"], ["حرارة التشغيل", "−20 إلى 55 °C"], ["الضمان", "10 سنوات"]] },
+    ],
+    image: deyeAiEssImage,
+    files: [{ kind: "Datasheet", label: "الكتالوج الرسمي", url: "https://deye.com/wp-content/uploads/2026/05/deye-ai-w5.1-b-ess-series_brochure-_au_20260514v1.0.pdf" }],
+    certificates: "UN38.3, IEC62619, CE, VDE2510-50, CEC, UL1973, UL9540A",
+  },
+  {
+    id: "deye-ge-f60",
+    category: "storage",
+    brand: "Deye",
+    name: "خزانة تخزين Deye GE-F60 التجارية 61.44kWh",
+    model: "GE-F60",
+    power: "61.44 kWh",
+    description: "خزانة تخزين تجارية وصناعية صغيرة بـ12 وحدة LFP، قابلة للتوسعة حتى 360kWh.",
+    about:
+      "GE-F60 من Deye خزانة تخزين خارجية للمنشآت التجارية والصناعية الصغيرة، تضم 12 وحدة بطارية LiFePO4 (5.12kWh لكل وحدة) على التوالي بجهد اسمي 614.4V. مزودة بكشف الغاز والدخان والحرارة وإطفاء إيروسول، وتدعم التشغيل خارج الشبكة والبدء الأسود.",
+    features: [
+      "61.44 kWh في خزانة واحدة IP55",
+      "توسعة حتى 360kWh",
+      "كشف غاز ودخان وحرارة + إطفاء إيروسول",
+      "تكامل EMS والإنفرتر الهجين وBMS",
+      "≥6000 دورة وضمان 10 سنوات",
+    ],
+    uses: ["المصانع والورش", "المستشفيات والفنادق", "المزارع والمضخات"],
+    suitableFor: "مناسبة للمنشآت التي تحتاج تخزيناً كبيراً بجهد عالٍ.",
+    specs: [
+      { title: "المنظومة", rows: [["الكيمياء", "LiFePO4"], ["عدد الوحدات", "12"], ["الجهد الاسمي", "614.4 V"], ["جهد التشغيل", "480 – 700 V"], ["الطاقة", "61.44 kWh"], ["الطاقة القابلة للاستخدام", "55.29 kWh"]] },
+      { title: "التيار", rows: [["الموصى", "50 A"], ["الاسمي", "100 A"], ["الذروة (دقيقتان)", "125 A"]] },
+      { title: "عام", rows: [["الحماية", "IP55"], ["الأبعاد", "780×1056×2235 mm"], ["الوزن", "≈1.2 طن"], ["الاتصال", "CAN2.0 / RS485"], ["الضمان", "10 سنوات"]] },
+    ],
+    image: deyeGeF60Image,
+    files: [{ kind: "Datasheet", label: "الكتالوج الرسمي", url: "https://deyeess.com/wp-content/uploads/2025/12/Deye-GE-F60New-Datasheet-EN.pdf" }],
+    certificates: "CE, IEC62619, IEC62040, UN38.3",
   },
 
   // ───────────── الإنفرترات: Li-Power ─────────────
