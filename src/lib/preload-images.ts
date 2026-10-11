@@ -1,9 +1,9 @@
 // تحميل مسبق فوري للصور الخفيفة المستخدمة في الشاشات الأولى،
 // حتى تظهر بطاقات نوع المشروع وبطاقات الخدمات بصورها بلا أي انتظار.
-import residentialImage from "@/assets/actes-residential.webp";
-import commercialImage from "@/assets/actes-commercial.webp";
-import industrialImage from "@/assets/actes-industrial.webp";
-import agricultureImage from "@/assets/actes-agriculture.webp";
+import residentialImage from "@/assets/arsh-residential.webp";
+import commercialImage from "@/assets/arsh-commercial.webp";
+import industrialImage from "@/assets/arsh-industrial.webp";
+import agricultureImage from "@/assets/arsh-agriculture.webp";
 import cardQuote from "@/assets/card-quote.webp";
 import cardEnergy from "@/assets/card-energy.webp";
 import cardSupport from "@/assets/card-support.webp";
