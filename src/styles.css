@@ -344,3 +344,7 @@ html.corporate button, html.corporate a { transition: background-color .15s, col
   -ms-overflow-style: none;
   &::-webkit-scrollbar { display: none; }
 }
+
+/* Dark glass theme: navy text tokens must stay readable on dark surfaces */
+.text-navy, .text-navy-soft { color: var(--foreground); }
+.dark-safe-photo, [data-product-image] { background-color: transparent; }
