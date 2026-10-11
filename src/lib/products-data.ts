@@ -1276,7 +1276,12 @@ function applyOverride(p: Product): Product {
   const { modelTable: _m, ...rest } = p;
   return { ...rest, description: o.description, specs: o.specs, ...(o.features ? { features: o.features } : {}) };
 }
-export const CATALOG_PRODUCTS: Product[] = PRODUCTS.flatMap(expandProduct).filter(inverterAllowed).map(applyOverride);
+/** الوكالات المعروضة في «تعرف على منتجاتنا». */
+export const ACTIVE_BRANDS = ["Deye", "Jinko", "Felicity"];
+export const CATALOG_PRODUCTS: Product[] = PRODUCTS.flatMap(expandProduct)
+  .filter(inverterAllowed)
+  .filter((p) => ACTIVE_BRANDS.includes(p.brand))
+  .map(applyOverride);
 
 function capacityKWh(p: Product) {
   const src = `${p.power ?? ""} ${p.name ?? ""}`;

@@ -71,10 +71,7 @@ function BackButton({ onClick, label }: { onClick: () => void; label: string }) 
 }
 
 /** صور المعاينة المختارة لكل فئة على بطاقات الأقسام (صور المنتجات الحقيقية). */
-const PREVIEW_IDS: Partial<Record<ProductCategory, string[]>> = {
-  batteries: ["pylontech-powercube-m1c", "hithium-heroee-maxpower-16", "pylontech-rv12100ch"],
-  inverters: ["deye-sun-3-6k-sg04lp1--3-6k-sm2", "solis-s6-eh2p-5-8k--5k", "lipower-2012emh"],
-};
+const PREVIEW_IDS: Partial<Record<ProductCategory, string[]>> = {};
 
 /** المستوى الأول: ثلاث بطاقات ضخمة للأقسام. */
 function CategoriesScreen({ onPick, onBack }: { onPick: (c: ProductCategory | "all") => void; onBack: () => void }) {
