@@ -51,6 +51,7 @@ import c20 from "@/assets/products/c20.pdf.asset.json";
 import c21 from "@/assets/products/c21.pdf.asset.json";
 import jinkoTigerNeoImage from "@/assets/products/jinko-tiger-neo-72hl4.webp";
 import felicityLpba48100Image from "@/assets/products/felicity-lpba48100-ol.webp";
+import felicityLpba48200Image from "@/assets/products/felicity-lpba48200wg1.webp";
 
 export type ProductCategory = "panels" | "inverters" | "batteries" | "storage";
 export type SpecGroup = { title: string; rows: [string, string][] };
@@ -557,6 +558,34 @@ export const PRODUCTS: Product[] = [
     certificates: "UN38.3، CE-EMC، IEC62619، CB",
     image: felicityLpba48100Image,
     files: sheet("/catalogs/felicity-lpba48100-ol.pdf"),
+  },
+  {
+    id: "felicity-lpba48200wg1",
+    category: "batteries",
+    brand: "Felicity",
+    name: "بطارية Felicity ليثيوم 10.24kWh ‏(48V 200Ah)",
+    model: "LPBA48200WG1",
+    power: "10.24 kWh",
+    description: "بطارية LiFePO4 بجهد 51.2V وطاقة 10.24kWh، بقدرة شحن وتفريغ 9200W ومراقبة WiFi وبلوتوث.",
+    about:
+      "بطارية ليثيوم فوسفات الحديد منزلية من Felicity Solar بطاقة 10.24kWh، بقدرة شحن وتفريغ حتى 9200W وتيار 180A، مع حماية BMS ذكية وقاطع وفيوز، ومراقبة عن بعد عبر WiFi وبلوتوث. تُركب على الجدار أو الأرض وتتوسع حتى 32 بطارية على التوازي.",
+    features: [
+      "طاقة 10.24kWh في بطارية واحدة",
+      "عمر أكثر من 6000 دورة عند 25 °C",
+      "قدرة شحن وتفريغ 9200W وتيار حتى 180A",
+      "حماية متعددة: BMS ذكي، قاطع، فيوز",
+      "WiFi وبلوتوث مدمج للمراقبة من الجوال",
+      "توسعة حتى 32 بطارية على التوازي (327.68kWh)",
+    ],
+    uses: ["تخزين طاقة المنظومات الهجينة والمنفصلة", "المنازل ذات الأحمال الكبيرة", "المحلات والمشاريع"],
+    suitableFor: "مناسبة للمنازل والمشاريع التي تحتاج سعة تخزين كبيرة بجهد 48V مع إنفرترات هجينة.",
+    specs: [
+      { title: "الخصائص الكهربائية", rows: [["نوع البطارية", "LiFePO4"], ["الطاقة الاسمية", "10.24 kWh"], ["الجهد الاسمي", "51.2 V"], ["جهد التشغيل", "44.8–57.6 V"], ["أقصى قدرة شحن/تفريغ", "9200 W / 9200 W"], ["أقصى تيار شحن/تفريغ", "180 A / 180 A"], ["عمق التفريغ", "95%"], ["عمر الدورات", "≥6000 عند 25 °C"], ["التوسعة", "حتى 32 على التوازي (327.68 kWh)"]] },
+      { title: "عام", rows: [["الاتصال", "CAN2.0 / RS485"], ["المراقبة", "WiFi + Bluetooth"], ["التركيب", "جداري / أرضي"]] },
+    ],
+    certificates: "حسب الموقع الرسمي لـ Felicity Solar",
+    image: felicityLpba48200Image,
+    files: [{ kind: "Datasheet", label: "صفحة المنتج الرسمية", url: "https://www.felicitysolar.com/product/lpba48200wg1/" }],
   },
 
   // ───────────── الإنفرترات: Li-Power ─────────────
