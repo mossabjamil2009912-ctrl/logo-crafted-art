@@ -1440,8 +1440,8 @@ function HomeDashboard({ onService, onProducts }: { onService: (kind: "quote" | 
 
 const PARTNER_LINKS = [
   { name: "Deye", url: "https://www.deyeinverter.com", logo: "/brand/makers/deye.png", sub: "Inverters & ESS" },
-  { name: "JinkoSolar", url: "https://www.jinkosolar.com", logo: "", sub: "Solar Panels" },
-  { name: "Felicity Solar", url: "https://www.felicitysolar.com", logo: "", sub: "Inverters & Batteries" },
+  { name: "JinkoSolar", url: "https://www.jinkosolar.com", logo: "/brand/makers/jinko.png", sub: "Solar Panels" },
+  { name: "Felicity Solar", url: "https://www.felicitysolar.com", logo: "/brand/makers/felicity.png", sub: "Inverters & Batteries" },
 ];
 
 function PartnersStrip() {
