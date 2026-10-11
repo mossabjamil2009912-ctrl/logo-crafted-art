@@ -75,6 +75,7 @@ import residentialImage from "@/assets/arsh-residential.webp";
 import commercialImage from "@/assets/arsh-commercial.webp";
 import industrialImage from "@/assets/arsh-industrial.webp";
 import agricultureImage from "@/assets/arsh-agriculture.webp";
+import itemRequestImage from "@/assets/card-products.webp";
 import homeHero from "@/assets/actes-home-hero.webp";
 import partnersStrip from "@/assets/partners-strip.webp";
 
@@ -1944,10 +1945,11 @@ function OptionGrid({ options, selected, projectCards = false, energyCards = fal
       if (/سكن/.test(title)) return { image: residentialImage, icon: House, subtitle: "للمنازل والفلل" };
       if (/تجار/.test(title)) return { image: commercialImage, icon: Building2, subtitle: "للمشاريع التجارية والمنشآت" };
       if (/زراع/.test(title)) return { image: agricultureImage, icon: Sun, subtitle: "للمزارع وأنظمة الري" };
+      if (/صنف|Item/.test(title)) return { image: itemRequestImage, icon: Zap, subtitle: "ألواح، إنفرترات، بطاريات" };
       return { image: industrialImage, icon: Zap, subtitle: "للمشاريع الصناعية والمنشآت الكبرى" };
     };
     return (
-      <div className="stagger-in grid grid-cols-2 gap-2.5 lg:grid-cols-4">
+      <div className="stagger-in grid grid-cols-2 gap-2.5 lg:grid-cols-5">
         {options.map((option, index) => {
           const visual = projectVisual(option.title);
           const Icon = visual.icon;

@@ -3288,7 +3288,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     quote_menu: 'welcome_services',
     energy_menu: 'welcome_services',
     main_menu: 'welcome_services',
-    menu_sys3: 'quote_menu',
+    menu_sys3: 'welcome_services',
     menu_res_com: 'menu_sys3',
     menu_ind_agr: 'menu_sys3',
     res_bill: 'menu_sys3',
@@ -3361,7 +3361,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     con_name: 'welcome_services',
     con_project: 'con_name',
     con_service: 'con_project',
-    item_menu: 'quote_menu',
+    item_menu: 'menu_sys3',
     item_pick: 'item_menu',
     item_qty: 'item_pick',
     item_next: 'item_menu',
@@ -3652,8 +3652,8 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     response = goWelcome();
   } else if (step === 'welcome_services') {
     if (text === 'quote_start' || text === '1') {
-      step = 'quote_menu';
-      response = W(' طلب عرض سعر\n' + SEP + '\nاختر نوع طلبك\n\n1 — منظومة متكاملة\n2 — طلب صنف محدد\n' + SEP);
+      step = 'menu_sys3';
+      response = W(' اختر نوع المنظومة\n' + SEP + '\n1 - النظام السكني\n2 - النظام التجاري\n4 - النظام الصناعي\n3 - النظام الزراعي\n5 - طلب صنف محدد');
     } else if (text === 'renewable_solutions') {
       lang = 'ar';
       menu_choice = '7'; main_loads = ''; city = ''; pvSave({ l: [], c: '', m: '' });
@@ -3723,6 +3723,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     else if (text === '2') { menu_choice = '2'; step = 'com_method'; response = comMethodAsk(); }
     else if (text === '3') { menu_choice = '4'; agrInit(); step = 'agr_pump_type'; response = agrPumpTypeAsk(); }
     else if (text === '4') { menu_choice = '3'; indInit(customer_name || ''); step = 'ind_shifts'; response = indShiftsAsk(); }
+    else if (text === '5' || text === 'item_request') { step = 'item_menu'; response = itemMenuMsg(); }
     else { response = noOpt(W(' اختر نوع المنظومة\n' + SEP + '\n1 - النظام السكني\n2 - النظام التجاري\n4 - النظام الصناعي\n3 - النظام الزراعي')); }
 
 
@@ -4646,7 +4647,8 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     { id: '1', title: 'النظام السكني' },
     { id: '2', title: 'النظام التجاري' },
     { id: '4', title: 'النظام الصناعي' },
-    { id: '3', title: 'النظام الزراعي' }
+    { id: '3', title: 'النظام الزراعي' },
+    { id: '5', title: 'طلب صنف محدد' }
   ];
   var SUB_RES_COM_AR = [
     { id: '1', title: 'النظام السكني' },
@@ -4664,7 +4666,8 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     { id: '1', title: 'Residential System' },
     { id: '2', title: 'Commercial System' },
     { id: '4', title: 'Industrial System' },
-    { id: '3', title: 'Agricultural System' }
+    { id: '3', title: 'Agricultural System' },
+    { id: '5', title: 'Specific Item Request' }
   ];
   var SUB_RES_COM_EN = [
     { id: '1', title: 'Residential System' },
