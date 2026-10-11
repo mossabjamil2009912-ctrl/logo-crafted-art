@@ -122,7 +122,7 @@ export function resultToTurn(r: BotResult): ChatTurn {
     });
   }
   if (r.send_study_file) {
-    messages.push({ id: nextId(), from: "bot", kind: "doc", name: "ACTES-PV-Study.pdf", caption: "دراسة الأداء PVsyst" });
+    messages.push({ id: nextId(), from: "bot", kind: "doc", name: "ARSH-PV-Study.pdf", caption: "دراسة الأداء PVsyst" });
   }
   // المخطط الكهربائي يُرسم داخل الشاشة، فلا تُضاف بطاقة ملف شكلية.
 
