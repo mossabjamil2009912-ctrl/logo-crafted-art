@@ -77,7 +77,6 @@ import industrialImage from "@/assets/arsh-industrial.webp";
 import agricultureImage from "@/assets/arsh-agriculture.webp";
 import itemRequestImage from "@/assets/card-products.webp";
 import homeHero from "@/assets/actes-home-hero.webp";
-import partnersStrip from "@/assets/partners-strip.webp";
 
 import refCardQuote from "@/assets/card-quote.webp";
 import refCardEnergy from "@/assets/card-energy.webp";
