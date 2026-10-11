@@ -52,6 +52,7 @@ import c21 from "@/assets/products/c21.pdf.asset.json";
 import jinkoTigerNeoImage from "@/assets/products/jinko-tiger-neo-72hl4.webp";
 import felicityLpba48100Image from "@/assets/products/felicity-lpba48100-ol.webp";
 import felicityLpba48200Image from "@/assets/products/felicity-lpba48200wg1.webp";
+import felicityIvem12048Image from "@/assets/products/felicity-ivem12048-ii.webp";
 
 export type ProductCategory = "panels" | "inverters" | "batteries" | "storage";
 export type SpecGroup = { title: string; rows: [string, string][] };
@@ -586,6 +587,39 @@ export const PRODUCTS: Product[] = [
     certificates: "حسب الموقع الرسمي لـ Felicity Solar",
     image: felicityLpba48200Image,
     files: [{ kind: "Datasheet", label: "صفحة المنتج الرسمية", url: "https://www.felicitysolar.com/product/lpba48200wg1/" }],
+  },
+
+  // ───────────── الإنفرترات: Felicity ─────────────
+  {
+    id: "felicity-ivem12048-ii",
+    category: "inverters",
+    brand: "Felicity",
+    name: "إنفرتر Felicity هجين 12kW ‏(48V)",
+    model: "IVEM12048-II",
+    power: "12 kW",
+    description: "إنفرتر هجين أحادي الطور 12kW بموجة جيبية نقية، مدخلا PV بقدرة 15kW وشاحن 240A، مع WiFi مدمج.",
+    about:
+      "إنفرتر/شاحن متعدد الوظائف من Felicity Solar بقدرة 12kW، يجمع الإنفرتر وشاحن MPPT الشمسي وشاحن البطارية في جهاز واحد. يقبل مدخلين شمسيين بقدرة 7.5+7.5kW، ويشحن حتى 240A من الشمس أو الشبكة/المولد، ويدعم التوازي حتى 6 وحدات، مع شاشة LCD وWiFi مدمج للمراقبة من الجوال.",
+    features: [
+      "موجة جيبية نقية 230V بقدرة 12000W",
+      "مدخلا PV بقدرة 15kW (7.5+7.5kW) وجهد حتى 500V",
+      "شحن حتى 240A من الشمس أو الشبكة/المولد",
+      "يعمل مع الشبكة أو المولد، وانتقال 10ms في وضع UPS",
+      "توازي حتى 6 وحدات (72kW أحادي الطور أو ثلاثي الطور)",
+      "يعمل بدون بطارية، وتفعيل بطاريات الليثيوم",
+      "شاشة LCD وWiFi مدمج للمراقبة عبر التطبيق",
+      "حماية كاملة: زيادة حمل، حرارة، قصر",
+    ],
+    uses: ["المنازل والفلل ذات الأحمال الكبيرة", "المحلات والمشاريع التجارية", "المنظومات الهجينة والمنفصلة عن الشبكة"],
+    suitableFor: "مناسب للمنازل الكبيرة والمشاريع التي تحتاج قدرة 12kW مع إمكانية التوسعة بالتوازي.",
+    specs: [
+      { title: "الخرج والقدرة", rows: [["القدرة الاسمية", "12000 VA / 12000 W"], ["جهد الخرج", "230 Vac ±5% (L+N+PE)"], ["شكل الموجة", "جيبية نقية"], ["الكفاءة القصوى", "94.5%"], ["زمن الانتقال", "10 ms (وضع UPS)"], ["التوازي", "حتى 6 وحدات (72 kW)"]] },
+      { title: "المدخل الشمسي", rows: [["أقصى قدرة PV", "15000 W (7500 W × 2)"], ["أقصى جهد PV مفتوح", "500 V"], ["نطاق MPPT", "90–450 V"], ["أقصى تيار شحن (PV+شبكة)", "240 A"]] },
+      { title: "البطارية وعام", rows: [["جهد البطارية", "48 V (42–63 V)"], ["أنواع البطاريات", "AGM / Flooded / Li-Ion / مخصص"], ["الاتصال", "WiFi مدمج + LCD"], ["الشهادات", "IEC 62109-1/-2"]] },
+    ],
+    certificates: "IEC 62109-1، IEC 62109-2",
+    image: felicityIvem12048Image,
+    files: [{ kind: "Datasheet", label: "صفحة المنتج الرسمية", url: "https://www.felicitysolar.com/product/ivem8-12kw-ii/" }],
   },
 
   // ───────────── الإنفرترات: Li-Power ─────────────
