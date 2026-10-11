@@ -49,6 +49,8 @@ import c18 from "@/assets/products/c18.pdf.asset.json";
 import c19 from "@/assets/products/c19.pdf.asset.json";
 import c20 from "@/assets/products/c20.pdf.asset.json";
 import c21 from "@/assets/products/c21.pdf.asset.json";
+import jinkoTigerNeoImage from "@/assets/products/jinko-tiger-neo-72hl4.webp";
+import felicityLpba48100Image from "@/assets/products/felicity-lpba48100-ol.webp";
 
 export type ProductCategory = "panels" | "inverters" | "batteries" | "storage";
 export type SpecGroup = { title: string; rows: [string, string][] };
@@ -90,6 +92,47 @@ const sheet = (url: string): ProductFile[] => [{ kind: "Datasheet", label: "ال
 
 export const PRODUCTS: Product[] = [
   // ───────────── الألواح الشمسية ─────────────
+  {
+    id: "jinko-tiger-neo-jkm580-605n-72hl4",
+    category: "panels",
+    brand: "Jinko",
+    name: "لوح شمسي Jinko Tiger Neo ‏600W",
+    model: "JKM600N-72HL4-(V) (سلسلة JKM580–605N-72HL4-(V))",
+    power: "600 W",
+    description: "لوح Jinko Tiger Neo بتقنية N-Type TOPCon وكفاءة تصل إلى 23.42% للموديل 605W.",
+    about:
+      "لوح شمسي أحادي الوجه من سلسلة JinkoSolar Tiger Neo 72HL4-(V) بتقنية N-Type TOPCon وتقنية HOT 3.0 و144 خلية نصفية. يتميز بتدهور منخفض LID/LeTID وأداء أفضل في الإضاءة المنخفضة، ومعتمد لتحمل 5400 Pa من الأمام و2400 Pa من الخلف، مع مقاومة عالية لرذاذ الملح والأمونيا.",
+    features: [
+      "تقنية N-Type TOPCon مع HOT 3.0 لكفاءة واعتمادية أعلى",
+      "تقنية SMBB لتحسين التقاط الضوء وجمع التيار",
+      "ضمان ضد ظاهرة PID",
+      "تحمل حمل أمامي 5400 Pa وخلفي 2400 Pa",
+      "مقاومة عالية لرذاذ الملح والأمونيا",
+      "ضمان منتج 12 سنة وضمان أداء خطي 30 سنة",
+    ],
+    uses: ["منظومات الطاقة الشمسية المنزلية والتجارية", "المنظومات الهجينة مع البطاريات", "منظومات ضخ المياه والآبار", "المحطات بجهد نظام حتى 1500V DC"],
+    suitableFor: "مناسب للمنازل والمشاريع التجارية والزراعية التي تحتاج لوحاً بقدرة ~600W بكفاءة عالية وتحمل للبيئات الحارة والساحلية.",
+    specs: [
+      { title: "الخصائص الكهربائية (STC) — 600W", rows: [["القدرة القصوى Pmax", "600 W"], ["جهد التشغيل الأمثل Vmp", "44.06 V"], ["تيار التشغيل الأمثل Imp", "13.62 A"], ["جهد الدائرة المفتوحة Voc", "52.95 V"], ["تيار القصر Isc", "14.25 A"], ["كفاءة اللوح", "23.23%"], ["تفاوت القدرة", "0~+3%"]] },
+      { title: "الخصائص الميكانيكية", rows: [["نوع الخلية", "N-type Mono-crystalline"], ["عدد الخلايا", "144 (72×2)"], ["الأبعاد", "2278 × 1134 × 30 mm"], ["الوزن", "27.0 kg"], ["الزجاج الأمامي", "3.2 mm مقسّى منخفض الحديد بطبقة مضادة للانعكاس"], ["الإطار", "Anodized Aluminium Alloy"], ["صندوق التوصيل", "IP68"], ["الموصلات", "JK03M/MC4"], ["الكابلات", "4.0 mm² — (+) 400 mm و(−) 200 mm"]] },
+      { title: "الحرارة والحدود", rows: [["معامل حرارة Pmax", "−0.29%/°C"], ["معامل حرارة Voc", "−0.25%/°C"], ["معامل حرارة Isc", "+0.045%/°C"], ["حرارة التشغيل", "−40 °C إلى +70 °C"], ["أقصى جهد للنظام", "1000/1500 V DC (IEC)"], ["أقصى منصهر تسلسلي", "25 A"]] },
+      { title: "الضمان والتعبئة", rows: [["ضمان المنتج", "12 سنة"], ["ضمان الأداء", "30 سنة — تدهور السنة الأولى 1% ثم 0.40% سنوياً"], ["التعبئة", "36 لوح/طبلية — 720 لوح/حاوية 40'HQ"]] },
+    ],
+    modelTable: {
+      models: ["580", "585", "590", "595", "600", "605"],
+      rows: [
+        { label: "Pmax (W)", values: ["580", "585", "590", "595", "600", "605"] },
+        { label: "Vmp (V)", values: ["43.35", "43.53", "43.71", "43.88", "44.06", "44.23"] },
+        { label: "Imp (A)", values: ["13.38", "13.44", "13.50", "13.56", "13.62", "13.68"] },
+        { label: "Voc (V)", values: ["52.31", "52.47", "52.63", "52.79", "52.95", "53.11"] },
+        { label: "Isc (A)", values: ["14.01", "14.07", "14.13", "14.19", "14.25", "14.31"] },
+        { label: "الكفاءة", values: ["22.45%", "22.65%", "22.84%", "23.03%", "23.23%", "23.42%"] },
+      ],
+    },
+    certificates: "IEC61215:2021، IEC61730:2023، IEC61701، IEC62716، IEC60068، IEC62804، ISO9001، ISO14001، ISO45001",
+    image: jinkoTigerNeoImage,
+    files: sheet("/catalogs/jinko-tiger-neo-72hl4-v.pdf"),
+  },
   {
     id: "suntech-stp595s-c72-nsh",
     category: "panels",
