@@ -84,7 +84,7 @@ import refCardSupport from "@/assets/card-support.webp";
 import refCardProducts from "@/assets/card-products.webp";
 import ProductsCatalog from "@/components/products-catalog";
 
-import actesAvatar from "@/assets/actes-a-mark.webp";
+import appIcon from "@/assets/arsh-app-icon.webp";
 import actesMark from "@/assets/actes-a-mark.webp";
 import actesWordmark from "@/assets/actes-logo-full.webp";
 
@@ -1247,15 +1247,14 @@ function BrandMark({ compact = false, className, white = false }: { inverse?: bo
 
 function TopBar({ isAdmin, clientName = "", onExitAdmin, onSettings, onExit }: { isAdmin: boolean; clientName?: string; onExitAdmin: () => void; onSettings: () => void; onExit: () => void }) {
   return (
-    <header className="grid h-[60px] shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center border-b border-border bg-card px-3 sm:px-4 lg:px-4">
-      <div className="flex min-w-0 items-center gap-3">
-        <button type="button" onClick={onSettings} aria-label="الإعدادات" title="الإعدادات" className="grid size-10 place-items-center text-foreground lg:hidden"><Settings className="size-6" /></button>
-        <div className="grid size-10 shrink-0 place-items-center overflow-hidden rounded-full border border-navy-soft bg-navy">
-          <img src={actesAvatar} alt="ARSH SMART TECH" className="size-8 object-contain" />
-        </div>
-        <div className="min-w-0">
-          <p className="truncate text-[12px] font-bold text-muted-foreground">مرحباً بك</p>
-          <p className="truncate text-[13px] font-black text-navy">{isAdmin ? "الإدارة" : clientName || "عميل"}<span className="hidden sm:inline"> في نظام عرش التقنية الذكية</span></p>
+    <header className="relative grid h-[64px] shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center bg-sidebar px-3 text-sidebar-foreground shadow-[var(--shadow-soft)] sm:px-4">
+      <span aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-l from-transparent via-primary to-transparent" />
+      <div className="flex min-w-0 items-center gap-2.5">
+        <button type="button" onClick={onSettings} aria-label="الإعدادات" title="الإعدادات" className="grid size-9 place-items-center rounded-full text-sidebar-foreground/90 transition hover:bg-sidebar-foreground/10 lg:hidden"><Settings className="size-5" /></button>
+        <img src={appIcon} alt="ARSH SMART TECH" className="size-11 shrink-0 rounded-xl object-cover ring-2 ring-primary/60" />
+        <div className="min-w-0 leading-tight">
+          <p className="truncate text-[14px] font-black">عرش التقنية الذكية</p>
+          <p className="truncate text-[11px] font-semibold text-sidebar-foreground/70">مرحباً، <span className="font-black text-sidebar-foreground">{isAdmin ? "الإدارة" : clientName || "عميل"}</span></p>
         </div>
         {isAdmin && (
           <span className="ms-2 hidden shrink-0 items-center gap-1 rounded-full bg-brand px-3 py-1 text-[11px] font-black text-brand-foreground sm:inline-flex" dir="ltr">
