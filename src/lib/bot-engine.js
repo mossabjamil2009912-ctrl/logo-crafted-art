@@ -4650,7 +4650,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     { id: '2', title: 'حلول المتاجر والشركات' },
     { id: '4', title: 'محطات المصانع والمنشآت' },
     { id: '3', title: 'طاقة الآبار والري الزراعي' },
-    { id: '5', title: 'طلب صنف محدد' }
+    { id: '5', title: 'تجهيز معدات فردية' }
   ];
   var SUB_RES_COM_AR = [
     { id: '1', title: 'منظومات المنازل والفلل' },
@@ -4746,7 +4746,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     if (st === 'quote_menu') {
       return { kind: 'buttons', buttons: [
         { id: '1', title: 'منظومة متكاملة' },
-        { id: '2', title: 'طلب صنف محدد' }
+        { id: '2', title: 'تجهيز معدات فردية' }
       ] };
     }
     if (st === 'main_menu') {
