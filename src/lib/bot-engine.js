@@ -1651,7 +1651,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
   function actesFooter() {
     var t = '';
     t += ' المبيعات: 770229994\n';
-    t += ' الموقع: www.actesgroup.com\n';
+    t += ' البريد: Arsh.Smart.Tech@gmail.com\n';
     t += ' عرش التقنية الذكية\n';
     return t;
   }
@@ -2017,7 +2017,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     t += '(Pylontech)بطاريات: ' + r.bat + 'كيلو وات \n\n';
     t += SEP + '\n\n';
     t += ' المبيعات:770229994*\n\n';
-    t += ' الموقع: www.actesgroup.com\n\n';
+    t += ' البريد: Arsh.Smart.Tech@gmail.com\n\n';
     t += '_' + AC.replace('','').replace('','') + '_\n\n';
     t += comVisitAsk();
     return t;
