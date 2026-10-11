@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DownloadsRouteImport } from './routes/downloads'
+import { Route as HithiumRouteImport } from './routes/hithium'
+import { Route as LipowerRouteImport } from './routes/lipower'
+import { Route as PylontechRouteImport } from './routes/pylontech'
+import { Route as SuntechRouteImport } from './routes/suntech'
+import { Route as ApiTtsRouteImport } from './routes/api/tts'
+import { Route as ApiPublicOrdersRouteImport } from './routes/api/public/orders'
+import { Route as ApiPublicWaInvoiceRouteImport } from './routes/api/public/wa-invoice'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DownloadsRoute = DownloadsRouteImport.update({
+  id: '/downloads',
+  path: '/downloads',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HithiumRoute = HithiumRouteImport.update({
+  id: '/hithium',
+  path: '/hithium',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LipowerRoute = LipowerRouteImport.update({
+  id: '/lipower',
+  path: '/lipower',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PylontechRoute = PylontechRouteImport.update({
+  id: '/pylontech',
+  path: '/pylontech',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SuntechRoute = SuntechRouteImport.update({
+  id: '/suntech',
+  path: '/suntech',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiTtsRoute = ApiTtsRouteImport.update({
+  id: '/api/tts',
+  path: '/api/tts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicOrdersRoute = ApiPublicOrdersRouteImport.update({
+  id: '/api/public/orders',
+  path: '/api/public/orders',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicWaInvoiceRoute = ApiPublicWaInvoiceRouteImport.update({
+  id: '/api/public/wa-invoice',
+  path: '/api/public/wa-invoice',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/downloads': typeof DownloadsRoute
+  '/hithium': typeof HithiumRoute
+  '/lipower': typeof LipowerRoute
+  '/pylontech': typeof PylontechRoute
+  '/suntech': typeof SuntechRoute
+  '/api/tts': typeof ApiTtsRoute
+  '/api/public/orders': typeof ApiPublicOrdersRoute
+  '/api/public/wa-invoice': typeof ApiPublicWaInvoiceRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/downloads': typeof DownloadsRoute
+  '/hithium': typeof HithiumRoute
+  '/lipower': typeof LipowerRoute
+  '/pylontech': typeof PylontechRoute
+  '/suntech': typeof SuntechRoute
+  '/api/tts': typeof ApiTtsRoute
+  '/api/public/orders': typeof ApiPublicOrdersRoute
+  '/api/public/wa-invoice': typeof ApiPublicWaInvoiceRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/downloads': typeof DownloadsRoute
+  '/hithium': typeof HithiumRoute
+  '/lipower': typeof LipowerRoute
+  '/pylontech': typeof PylontechRoute
+  '/suntech': typeof SuntechRoute
+  '/api/tts': typeof ApiTtsRoute
+  '/api/public/orders': typeof ApiPublicOrdersRoute
+  '/api/public/wa-invoice': typeof ApiPublicWaInvoiceRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/downloads'
+    | '/hithium'
+    | '/lipower'
+    | '/pylontech'
+    | '/suntech'
+    | '/api/tts'
+    | '/api/public/orders'
+    | '/api/public/wa-invoice'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/downloads'
+    | '/hithium'
+    | '/lipower'
+    | '/pylontech'
+    | '/suntech'
+    | '/api/tts'
+    | '/api/public/orders'
+    | '/api/public/wa-invoice'
+  id:
+    | '__root__'
+    | '/'
+    | '/downloads'
+    | '/hithium'
+    | '/lipower'
+    | '/pylontech'
+    | '/suntech'
+    | '/api/tts'
+    | '/api/public/orders'
+    | '/api/public/wa-invoice'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DownloadsRoute: typeof DownloadsRoute
+  HithiumRoute: typeof HithiumRoute
+  LipowerRoute: typeof LipowerRoute
+  PylontechRoute: typeof PylontechRoute
+  SuntechRoute: typeof SuntechRoute
+  ApiTtsRoute: typeof ApiTtsRoute
+  ApiPublicOrdersRoute: typeof ApiPublicOrdersRoute
+  ApiPublicWaInvoiceRoute: typeof ApiPublicWaInvoiceRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/downloads': {
+      id: '/downloads'
+      path: '/downloads'
+      fullPath: '/downloads'
+      preLoaderRoute: typeof DownloadsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hithium': {
+      id: '/hithium'
+      path: '/hithium'
+      fullPath: '/hithium'
+      preLoaderRoute: typeof HithiumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lipower': {
+      id: '/lipower'
+      path: '/lipower'
+      fullPath: '/lipower'
+      preLoaderRoute: typeof LipowerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pylontech': {
+      id: '/pylontech'
+      path: '/pylontech'
+      fullPath: '/pylontech'
+      preLoaderRoute: typeof PylontechRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/suntech': {
+      id: '/suntech'
+      path: '/suntech'
+      fullPath: '/suntech'
+      preLoaderRoute: typeof SuntechRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/tts': {
+      id: '/api/tts'
+      path: '/api/tts'
+      fullPath: '/api/tts'
+      preLoaderRoute: typeof ApiTtsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/orders': {
+      id: '/api/public/orders'
+      path: '/api/public/orders'
+      fullPath: '/api/public/orders'
+      preLoaderRoute: typeof ApiPublicOrdersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/wa-invoice': {
+      id: '/api/public/wa-invoice'
+      path: '/api/public/wa-invoice'
+      fullPath: '/api/public/wa-invoice'
+      preLoaderRoute: typeof ApiPublicWaInvoiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DownloadsRoute: DownloadsRoute,
+  HithiumRoute: HithiumRoute,
+  LipowerRoute: LipowerRoute,
+  PylontechRoute: PylontechRoute,
+  SuntechRoute: SuntechRoute,
+  ApiTtsRoute: ApiTtsRoute,
+  ApiPublicOrdersRoute: ApiPublicOrdersRoute,
+  ApiPublicWaInvoiceRoute: ApiPublicWaInvoiceRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
