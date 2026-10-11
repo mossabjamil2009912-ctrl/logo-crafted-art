@@ -39,7 +39,7 @@ export function downloadQuotePdf(quote: Quote) {
   .meta{text-align:left;font-size:11px;font-weight:700;line-height:1.6}
   table{width:100%;border-collapse:collapse;font-size:12px}
   th,td{border:1px solid #000;padding:6px}
-  thead th{background:#e8202a;text-align:center;font-weight:700;font-size:13px}
+  thead th{background:#3B5BFF;text-align:center;font-weight:700;font-size:13px}
   .c{text-align:center;font-weight:700}
   .r{text-align:right}
   .n{margin:0;font-weight:700;font-size:12px}

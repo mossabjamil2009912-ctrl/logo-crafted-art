@@ -342,7 +342,7 @@ function brandColor(b: string) {
   if (k.includes("lipower")) return "#e60045";
   if (k.includes("pylontech")) return "#002b66";
   if (k.includes("hithium")) return "#10b981";
-  if (k.includes("suntech")) return "#dc2626";
+  if (k.includes("suntech")) return "#3B5BFF";
   return "#1f2937";
 }
 
