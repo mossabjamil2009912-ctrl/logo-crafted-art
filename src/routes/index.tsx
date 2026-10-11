@@ -1270,9 +1270,9 @@ function TopBar({ isAdmin, clientName = "", onExitAdmin, onSettings, onExit }: {
         )}
         <ReplayVoiceButton />
         <span className="hidden lg:inline-flex"><CorporateToggle /></span>
-        <span className="text-navy [&_svg]:size-5"><OrderCenterButton isAdmin={isAdmin} /></span>
-        <span className="text-navy [&_svg]:size-5"><NotificationsBell isAdmin={isAdmin} /></span>
-        <button type="button" onClick={onExit} aria-label="خروج" title="خروج" className="grid size-9 place-items-center rounded-md text-foreground transition hover:bg-muted lg:hidden"><LogOut className="size-5" /></button>
+        <span className="text-sidebar-foreground [&_svg]:size-5"><OrderCenterButton isAdmin={isAdmin} /></span>
+        <span className="text-sidebar-foreground [&_svg]:size-5"><NotificationsBell isAdmin={isAdmin} /></span>
+        <button type="button" onClick={onExit} aria-label="خروج" title="خروج" className="grid size-9 place-items-center rounded-md text-sidebar-foreground transition hover:bg-sidebar-foreground/10 lg:hidden"><LogOut className="size-5" /></button>
         <LangSwitch />
         <img src={actesWordmark} alt="ARSH SMART TECH — عرش التقنية الذكية" className="hidden h-9 w-auto object-contain lg:block" />
 
