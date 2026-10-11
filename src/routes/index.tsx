@@ -1253,7 +1253,7 @@ function TopBar({ isAdmin, clientName = "", onExitAdmin, onSettings, onExit }: {
         <button type="button" onClick={onSettings} aria-label="الإعدادات" title="الإعدادات" className="grid size-9 place-items-center rounded-full text-sidebar-foreground/90 transition hover:bg-sidebar-foreground/10 lg:hidden"><Settings className="size-5" /></button>
         <img src={appIcon} alt="ARSH SMART TECH" className="size-11 shrink-0 rounded-xl object-cover ring-2 ring-primary/60" />
         <div className="min-w-0 leading-tight">
-          <p className="truncate text-[14px] font-black">عرش التقنية الذكية</p>
+          <p className="truncate text-[13px] font-black sm:text-[15px]">عرش التقنية الذكية</p>
           <p className="truncate text-[11px] font-semibold text-sidebar-foreground/70">مرحباً، <span className="font-black text-sidebar-foreground">{isAdmin ? "الإدارة" : clientName || "عميل"}</span></p>
         </div>
         {isAdmin && (
@@ -1270,7 +1270,7 @@ function TopBar({ isAdmin, clientName = "", onExitAdmin, onSettings, onExit }: {
         )}
         <ReplayVoiceButton />
         <span className="hidden lg:inline-flex"><CorporateToggle /></span>
-        <span className="text-sidebar-foreground [&_svg]:size-5"><OrderCenterButton isAdmin={isAdmin} /></span>
+        <span className="text-sidebar-foreground [&_svg]:size-5 [&_button]:!text-sidebar-foreground [&_button]:!bg-transparent"><OrderCenterButton isAdmin={isAdmin} /></span>
         <span className="text-sidebar-foreground [&_svg]:size-5"><NotificationsBell isAdmin={isAdmin} /></span>
         <button type="button" onClick={onExit} aria-label="خروج" title="خروج" className="grid size-9 place-items-center rounded-md text-sidebar-foreground transition hover:bg-sidebar-foreground/10 lg:hidden"><LogOut className="size-5" /></button>
         <LangSwitch />
