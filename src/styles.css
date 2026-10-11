@@ -65,26 +65,26 @@
 }
 
 :root {
-  --radius: 0.5rem;
+  --radius: 0.75rem;
   --font-app: "Tajawal", "IBM Plex Sans Arabic", system-ui, sans-serif;
-  --background: oklch(0.996 0.002 250);
-  --foreground: oklch(0.205 0.042 259.5);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.205 0.042 259.5);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.205 0.042 259.5);
-  --primary: oklch(0.55 0.23 268);
+  --background: oklch(0.15 0.04 262);
+  --foreground: oklch(0.97 0.008 245);
+  --card: oklch(0.21 0.05 262 / 0.72);
+  --card-foreground: oklch(0.97 0.008 245);
+  --popover: oklch(0.2 0.05 262);
+  --popover-foreground: oklch(0.97 0.008 245);
+  --primary: oklch(0.6 0.22 268);
   --primary-foreground: oklch(0.985 0.005 260);
-  --secondary: oklch(0.945 0.016 246.5);
-  --secondary-foreground: oklch(0.235 0.05 253.2);
-  --muted: oklch(0.948 0.012 245.4);
-  --muted-foreground: oklch(0.495 0.038 251.8);
-  --accent: oklch(0.923 0.037 204.5);
-  --accent-foreground: oklch(0.275 0.075 238.6);
-  --destructive: oklch(0.577 0.245 27.325);
+  --secondary: oklch(0.26 0.05 260);
+  --secondary-foreground: oklch(0.96 0.01 245);
+  --muted: oklch(0.25 0.045 260);
+  --muted-foreground: oklch(0.74 0.035 250);
+  --accent: oklch(0.32 0.09 240);
+  --accent-foreground: oklch(0.97 0.008 245);
+  --destructive: oklch(0.65 0.22 25);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.895 0.018 242.4);
-  --input: oklch(0.91 0.016 242.4);
+  --border: oklch(0.7 0.12 255 / 0.22);
+  --input: oklch(0.7 0.1 255 / 0.25);
   --ring: oklch(0.55 0.23 268);
   --chart-1: oklch(0.55 0.23 268);
   --chart-2: oklch(0.62 0.14 217.8);
