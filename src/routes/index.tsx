@@ -1247,14 +1247,14 @@ function BrandMark({ compact = false, className, white = false }: { inverse?: bo
 
 function TopBar({ isAdmin, clientName = "", onExitAdmin, onSettings, onExit }: { isAdmin: boolean; clientName?: string; onExitAdmin: () => void; onSettings: () => void; onExit: () => void }) {
   return (
-    <header className="relative grid h-[64px] shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center bg-sidebar px-3 text-sidebar-foreground shadow-[var(--shadow-soft)] sm:px-4">
-      <span aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-l from-transparent via-primary to-transparent" />
-      <div className="flex min-w-0 items-center gap-2.5">
-        <button type="button" onClick={onSettings} aria-label="الإعدادات" title="الإعدادات" className="grid size-9 place-items-center rounded-full text-sidebar-foreground/90 transition hover:bg-sidebar-foreground/10 lg:hidden"><Settings className="size-5" /></button>
-        <img src={appIcon} alt="ARSH SMART TECH" className="size-11 shrink-0 rounded-xl object-cover ring-2 ring-primary/60" />
+    <header className="relative grid h-[68px] shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center border-b border-border bg-background px-2 text-navy shadow-[var(--shadow-soft)] sm:px-4 [&_button]:!text-navy [&_svg]:!text-navy">
+      <span aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-[3px] bg-gradient-to-l from-navy via-primary to-navy" />
+      <div className="flex min-w-0 items-center gap-2">
+        <img src={appIcon} alt="ARSH SMART TECH" className="size-12 shrink-0 rounded-2xl object-cover shadow-md ring-1 ring-primary/40" />
         <div className="min-w-0 leading-tight">
-          <p className="truncate text-[13px] font-black sm:text-[15px]">عرش التقنية الذكية</p>
-          <p className="truncate text-[11px] font-semibold text-sidebar-foreground/70">مرحباً، <span className="font-black text-sidebar-foreground">{isAdmin ? "الإدارة" : clientName || "عميل"}</span></p>
+          <p className="whitespace-nowrap text-[15px] font-black text-navy sm:text-[17px]">عرش التقنية الذكية</p>
+          <p className="whitespace-nowrap text-[10px] font-black tracking-[0.18em] text-primary sm:text-[11px]" dir="ltr">ARSH SMART TECH</p>
+          <p className="truncate text-[10px] font-semibold text-muted-foreground">مرحباً، <span className="font-black text-navy">{isAdmin ? "الإدارة" : clientName || "عميل"}</span></p>
         </div>
         {isAdmin && (
           <span className="ms-2 hidden shrink-0 items-center gap-1 rounded-full bg-brand px-3 py-1 text-[11px] font-black text-brand-foreground sm:inline-flex" dir="ltr">
@@ -1262,7 +1262,8 @@ function TopBar({ isAdmin, clientName = "", onExitAdmin, onSettings, onExit }: {
           </span>
         )}
       </div>
-      <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+      <div className="flex shrink-0 items-center gap-0.5 sm:gap-3 [&_button]:!bg-transparent">
+        <button type="button" onClick={onSettings} aria-label="الإعدادات" title="الإعدادات" className="grid size-8 place-items-center rounded-full transition hover:bg-muted lg:hidden"><Settings className="size-5" /></button>
         {isAdmin && (
           <button type="button" onClick={onExitAdmin} className="inline-flex items-center gap-2 rounded-md border border-border px-3 py-2 text-xs font-bold text-foreground transition hover:bg-muted" dir="ltr">
             <LogOut className="size-4" /> Logout Admin
@@ -1270,11 +1271,10 @@ function TopBar({ isAdmin, clientName = "", onExitAdmin, onSettings, onExit }: {
         )}
         <ReplayVoiceButton />
         <span className="hidden lg:inline-flex"><CorporateToggle /></span>
-        <span className="text-sidebar-foreground [&_svg]:size-5 [&_button]:!text-sidebar-foreground [&_button]:!bg-transparent"><OrderCenterButton isAdmin={isAdmin} /></span>
-        <span className="text-sidebar-foreground [&_svg]:size-5"><NotificationsBell isAdmin={isAdmin} /></span>
-        <button type="button" onClick={onExit} aria-label="خروج" title="خروج" className="grid size-9 place-items-center rounded-md text-sidebar-foreground transition hover:bg-sidebar-foreground/10 lg:hidden"><LogOut className="size-5" /></button>
+        <span className="[&_svg]:size-5"><OrderCenterButton isAdmin={isAdmin} /></span>
+        <span className="[&_svg]:size-5"><NotificationsBell isAdmin={isAdmin} /></span>
+        <button type="button" onClick={onExit} aria-label="خروج" title="خروج" className="grid size-8 place-items-center rounded-md transition hover:bg-muted lg:hidden"><LogOut className="size-5" /></button>
         <LangSwitch />
-        <img src={actesLogoWhite} alt="ARSH SMART TECH — عرش التقنية الذكية" className="hidden h-9 w-auto object-contain lg:block" />
 
       </div>
     </header>
