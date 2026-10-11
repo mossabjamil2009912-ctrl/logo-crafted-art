@@ -1226,6 +1226,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
   // تطبيق نفس معادلة الإنتاج اليومي على جميع المنظومات التجارية
   for (var __ii = 0; __ii < INV_TABLE.length; __ii++) {
     INV_TABLE[__ii].daily = Math.round((INV_TABLE[__ii].panels * PANEL_W * 5.5 / 1000) * 100) / 100;
+    INV_TABLE[__ii].pv = Math.round(INV_TABLE[__ii].panels * PANEL_W / 10) / 100;
   }
 
   // عروض السعر الجاهزة (PDF) للمسار التجاري انفرتر 8 كيلو
@@ -1510,6 +1511,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     [125,6,2,1530,1101.00,[84,96,108,120,132,144],"6 × 250A + Main 1600A",90],
     [125,6,3,1734,1248.00,[96,108,120,132,144,156],"6 × 250A + Main 1600A",102],
     [125,6,4,1938,1395.00,[108,120,132,144,156,168],"6 × 250A + Main 1600A",114]
+  BIG_ROWS.forEach(function (r) { r[4] = Math.round(r[3] * PANEL_W / 10) / 100; });
   ];
 
   var BIG_PRICE = {
