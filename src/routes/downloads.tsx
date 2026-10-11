@@ -42,7 +42,7 @@ function DownloadsPage() {
         </ul>
 
         <a
-          href="/downloads/ACTES-windows-x64.zip"
+          href="/downloads/ARSH-SMART-TECH-windows-x64.zip"
           download
           className="block text-center w-full rounded-xl bg-energy text-primary-foreground font-bold py-4 text-lg hover:opacity-90 transition"
         >
