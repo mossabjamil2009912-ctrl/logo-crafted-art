@@ -348,5 +348,5 @@ html.corporate button, html.corporate a { transition: background-color .15s, col
 }
 
 /* Dark glass theme: navy text tokens must stay readable on dark surfaces */
-.text-navy, .text-navy-soft { color: var(--foreground); }
+.text-navy { color: var(--navy); }
 .dark-safe-photo, [data-product-image] { background-color: transparent; }
