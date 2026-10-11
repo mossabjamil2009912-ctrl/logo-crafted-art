@@ -50,7 +50,7 @@ function DownloadsPage() {
         </a>
 
         <p className="text-xs text-muted-foreground mt-6 text-center">
-          فُكّ ضغط الملف ثم شغّل <span className="font-mono">ARSH SMART TECH.exe</span>
+          فُكّ ضغط الملف ثم شغّل <span className="font-mono">ArshSmartTech.exe</span>
         </p>
       </div>
     </main>
