@@ -65,7 +65,7 @@ function specTables(product: Product): string {
 
 /**
  * يفتح كتالوج الموديل كصفحة طباعة A4 جاهزة للحفظ كـ PDF.
- * التنسيق: ترويسة بشعار أكتس واسم المصنّع، بطاقة الصنف بالقدرة الصريحة، جدول المواصفات، تذييل رسمي.
+ * التنسيق: ترويسة بشعار عرش التقنية الذكية واسم المصنّع، بطاقة الصنف بالقدرة الصريحة، جدول المواصفات، تذييل رسمي.
  */
 export function buildDatasheetHtml(product: Product, autoPrint = false): string {
   const logo = abs(actesLogo.url);
@@ -128,7 +128,7 @@ export function buildDatasheetHtml(product: Product, autoPrint = false): string 
 
 <div class="sheet">
   <div class="hd">
-    <img src="${logo}" alt="ACTES"/>
+    <img src="${logo}" alt="ARSH SMART TECH"/>
     <div class="r">
       <div class="brand">${esc(product.brand)}</div>
       <div class="model">${esc(modelCode(product))}</div>
@@ -159,14 +159,14 @@ export function buildDatasheetHtml(product: Product, autoPrint = false): string 
   ${product.suitableFor ? `<h3>لمن يناسب</h3><p style="font-size:8.2pt;line-height:1.7;margin:0">${esc(product.suitableFor)}</p>` : ""}
 
   <div class="ft">
-    <span><b>شركة أكتس لأنظمة الطاقة وحلولها</b> — ACTES Energy Systems &amp; Solutions</span>
+    <span><b>شركة عرش التقنية الذكية</b> — ARSH SMART TECH Energy Systems &amp; Solutions</span>
     <span>${esc(today)} — صفحة 1</span>
   </div>
 </div>
 
 <div class="sheet">
   <div class="hd">
-    <img src="${logo}" alt="ACTES"/>
+    <img src="${logo}" alt="ARSH SMART TECH"/>
     <div class="r">
       <div class="brand">المواصفات الفنية</div>
       <div class="model">${esc(modelCode(product))} — ${esc(product.power)}</div>
@@ -176,7 +176,7 @@ export function buildDatasheetHtml(product: Product, autoPrint = false): string 
   <div style="margin-top:3mm">${specTables(product)}</div>
   <p class="note">جميع القيم الواردة أعلاه تخص موديل ${esc(modelCode(product))} بقدرة ${esc(product.power)} حصراً، ومصدرها الكتالوج الرسمي للشركة المصنّعة. هذا المستند للأغراض الفنية والمعلوماتية فقط.</p>
   <div class="ft">
-    <span><b>شركة أكتس لأنظمة الطاقة وحلولها</b> — الدعم الفني والاستشارات الهندسية</span>
+    <span><b>شركة عرش التقنية الذكية</b> — الدعم الفني والاستشارات الهندسية</span>
     <span>${esc(today)} — صفحة 2</span>
   </div>
 </div>

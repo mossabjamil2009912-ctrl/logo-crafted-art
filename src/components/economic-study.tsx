@@ -251,7 +251,7 @@ export default function EconomicStudy({ study, actions }: Props) {
 
       {/* ==== مقارنة التكلفة المتراكمة ==== */}
       <h4 className="mt-4 rounded-t-md px-2 py-1 text-[11px] font-black text-white" style={{ background: C.blue }}>
-        مقارنة التكلفة المتراكمة: الديزل والشبكة مقابل منظومة ACTES
+        مقارنة التكلفة المتراكمة: الديزل والشبكة مقابل منظومة ARSH SMART TECH
       </h4>
       <div className="border-x border-b p-2" style={{ borderColor: C.grid }}>
         <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img" aria-label="مقارنة التكلفة المتراكمة">
@@ -273,7 +273,7 @@ export default function EconomicStudy({ study, actions }: Props) {
         </svg>
         <div className="flex justify-center gap-4 text-[9.5px] font-bold">
           <span style={{ color: C.red }}>■ تكلفة الديزل والشبكة</span>
-          <span style={{ color: C.green }}>■ تكلفة منظومة ACTES</span>
+          <span style={{ color: C.green }}>■ تكلفة منظومة ARSH SMART TECH</span>
         </div>
       </div>
 

@@ -69,7 +69,7 @@ export function AgencyBadge({ brand }: { brand: BrandKey }) {
       <div dir="rtl" className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-2 px-4 py-2 text-xs sm:text-sm">
         <BadgeCheck className="h-4 w-4 text-primary" />
         <span className="font-semibold">الوكيل المعتمد لـ {CFG[brand].name} في الجمهورية اليمنية</span>
-        <span className="text-muted-foreground">— ACTES لحلول أنظمة الطاقة</span>
+        <span className="text-muted-foreground">— ARSH SMART TECH لحلول أنظمة الطاقة</span>
       </div>
     </div>
   );
@@ -104,7 +104,7 @@ export function AgencyShowcase({ brand }: { brand: BrandKey }) {
       <section className="mx-auto max-w-6xl px-4 py-12">
         <div className="rounded-3xl border border-border bg-gradient-to-br from-card to-muted p-6 sm:p-10">
           <div className="flex flex-wrap items-center gap-4">
-            <img src={actesLogo} alt="ACTES" className="h-10 w-auto" />
+            <img src={actesLogo} alt="ARSH SMART TECH" className="h-10 w-auto" />
             <span className="h-8 w-px bg-border" />
             <img src={c.logo} alt={c.name} className="h-8 w-auto" />
             <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"><BadgeCheck className="h-3.5 w-3.5" /> وكيل معتمد</span>
@@ -132,7 +132,7 @@ export function AgencyShowcase({ brand }: { brand: BrandKey }) {
         </div>
         <div className="rounded-3xl border border-border bg-card p-6 lg:col-span-2">
           <h2 className="text-xl font-bold">تكامل المنظومة</h2>
-          <p className="mt-1 text-sm text-muted-foreground">موقع منتجات {c.name} داخل منظومة ACTES المتكاملة.</p>
+          <p className="mt-1 text-sm text-muted-foreground">موقع منتجات {c.name} داخل منظومة ARSH SMART TECH المتكاملة.</p>
           <ol className="mt-5 space-y-2">
             {flow.map(({ icon: I, t, on }, i) => (
               <li key={t}>

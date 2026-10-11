@@ -263,7 +263,7 @@ export function EcoFeasibility({ mode, onSales, onBuy }: { mode: Mode; onSales?:
       <p className="text-[11px] text-muted-foreground">الأرقام تقديرية: {PSH} ساعات ذروة شمسية، {KWH_PER_L} kWh لكل لتر ديزل، وأسعار معدات متوسطة. السعر النهائي يُحدد في عرض السعر.</p>
       <div className="flex flex-wrap gap-2">
         <button type="button" onClick={() => setStep("data")} className="rounded-md border border-border px-4 py-2 text-xs font-bold">تعديل البيانات</button>
-        {onSales && <button type="button" onClick={onSales} className="rounded-md border border-border px-4 py-2 text-xs font-bold">تواصل مع فريق أكتس</button>}
+        {onSales && <button type="button" onClick={onSales} className="rounded-md border border-border px-4 py-2 text-xs font-bold">تواصل مع فريق عرش التقنية الذكية</button>}
       </div>
       {open !== null && <ReportModal onClose={() => setOpen(null)}>{reportFor(open, {})}</ReportModal>}
       {dl !== null && (
@@ -507,14 +507,14 @@ export function EcoSystemStudy({ onSales }: { onSales?: () => void }) {
       <div className="flex flex-wrap gap-2">
         <button type="button" onClick={() => setShowReport(true)} className="inline-flex items-center gap-2 rounded-md bg-navy px-5 py-2.5 text-xs font-black text-primary-foreground"><FileText className="size-4" /> فتح تقرير الدراسة الاقتصادية</button>
         <button type="button" onClick={() => setDone(false)} className="rounded-md border border-border px-4 py-2 text-xs font-bold">تعديل البيانات</button>
-        {onSales && <button type="button" onClick={onSales} className="rounded-md border border-border px-4 py-2 text-xs font-bold">تواصل مع فريق أكتس</button>}
+        {onSales && <button type="button" onClick={onSales} className="rounded-md border border-border px-4 py-2 text-xs font-bold">تواصل مع فريق عرش التقنية الذكية</button>}
       </div>
       {showReport && typeof document !== "undefined" && createPortal(
         <div className="fixed inset-0 z-[100] flex flex-col bg-navy/80 p-2 backdrop-blur-sm sm:p-4" role="dialog" aria-modal="true">
           <div className="mx-auto flex h-full w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-2xl">
             <div className="flex items-center gap-2 border-b border-border px-3 py-2">
               <FileText className="size-4 shrink-0 text-brand" />
-              <span className="flex-1 truncate text-xs font-black text-navy lg:text-sm">تقرير دراسة الجدوى الاقتصادية — ACTES</span>
+              <span className="flex-1 truncate text-xs font-black text-navy lg:text-sm">تقرير دراسة الجدوى الاقتصادية — ARSH SMART TECH</span>
               <button type="button" onClick={() => setShowReport(false)} aria-label="إغلاق" className="grid size-7 place-items-center rounded-full bg-muted text-navy transition hover:bg-border"><X className="size-4" /></button>
             </div>
             <div className="flex-1 overflow-auto bg-muted p-2 sm:p-4">

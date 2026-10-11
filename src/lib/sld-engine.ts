@@ -227,12 +227,12 @@ export function buildSld(raw: Record<string, unknown> | null): SldModel | null {
 
   const model: SldModel = {
     title: {
-      project: String(p.project || "ACTES SOLAR PV SYSTEM"),
+      project: String(p.project || "ARSH SMART TECH SOLAR PV SYSTEM"),
       customer: String(p.customer_name || ""),
       city: String(p.city_en || ""),
       ref: String(p.quote_number || p.ref || ""),
       date: String(p.date || new Date().toISOString().slice(0, 10)),
-      designer: String(p.designer || "ACTES ENGINEERING"),
+      designer: String(p.designer || "ARSH SMART TECH ENGINEERING"),
       system: `${kwp ? kwp.toFixed(2) + " kWp " : ""}${p.sysLabel || (sysMode === "off" ? "Off-Grid" : sysMode === "hyb" ? "Hybrid" : "On-Grid")} System`,
       phase: phase3 ? "Three Phase 400/230 V — 50 Hz" : "Single Phase 230 V — 50 Hz",
     },

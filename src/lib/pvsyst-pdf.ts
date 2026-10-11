@@ -64,7 +64,7 @@ export function downloadPvsystReport(study: PvsystStudyResult, eco?: EconomicsRe
   const logo = `${origin}${actesLogoPlain.url}`;
 
   /** اسم المشروع = اسم العميل */
-  const project = study.customer || study.reference || "ACTES Project";
+  const project = study.customer || study.reference || "ARSH SMART TECH Project";
   const modeWord = /هجين|Hybrid/i.test(s.sysMode || "")
     ? "Hybrid System"
     : /مستقل|Off/i.test(s.sysMode || "")
@@ -170,10 +170,10 @@ export function downloadPvsystReport(study: PvsystStudyResult, eco?: EconomicsRe
   const pageHead = (n: number) => `<div class="phead">
     <div class="pmark">${PV_MARK}</div>
     <div class="ptitle"><p class="pt1">Project: ${esc(project)}</p><p class="pt2">Variant: ${esc(variant)}</p></div>
-    <div class="plogo"><img src="${logo}" alt="ACTES" /></div>
+    <div class="plogo"><img src="${logo}" alt="ARSH SMART TECH" /></div>
   </div>
   <div class="pver"><b>${PVSYST_VERSION}</b><br/>VC1, Simulation date:<br/>${dstr} ${tstr}<br/>with V8.1.2</div>
-  <div class="pfoot"><span>${dstr}</span><span>PVsyst Licensed to ACTES</span><span>Page ${n}/${totalPages}</span></div>`;
+  <div class="pfoot"><span>${dstr}</span><span>PVsyst Licensed to ARSH SMART TECH</span><span>Page ${n}/${totalPages}</span></div>`;
 
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8" />
 <title>${esc(`PVsyst Simulation report — ${project}`)}</title>
@@ -267,8 +267,8 @@ export function downloadPvsystReport(study: PvsystStudyResult, eco?: EconomicsRe
     <div>Variant: ${esc(variant)}</div>
     ${study.city ? `<div>${esc(study.city)} - Yemen</div>` : ""}
   </div>
-  <div class="cvlogo"><img src="${logo}" alt="ACTES" /></div>
-  <div class="pfoot"><span>${dstr}</span><span>PVsyst Licensed to ACTES</span><span>Page 1/${totalPages}</span></div>
+  <div class="cvlogo"><img src="${logo}" alt="ARSH SMART TECH" /></div>
+  <div class="pfoot"><span>${dstr}</span><span>PVsyst Licensed to ARSH SMART TECH</span><span>Page 1/${totalPages}</span></div>
 </div>
 
 <!-- الصفحة 2: ملخص المشروع -->
@@ -530,7 +530,7 @@ export function downloadPvsystReport(study: PvsystStudyResult, eco?: EconomicsRe
     <div class="plain" style="margin-top:6mm;font-size:8pt;line-height:1.7">
       Simulation based on monthly Meteonorm irradiation data at the project site, with the complete PVsyst loss chain:
       near shadings, soiling, IAM, ground reflection, thermal behaviour, module quality, LID, mismatch, DC wiring,
-      inverter efficiency and system unavailability. Report issued by the Engineering Department — ACTES Energy Systems &amp; Solutions.
+      inverter efficiency and system unavailability. Report issued by the Engineering Department — ARSH SMART TECH Energy Systems &amp; Solutions.
     </div>
   </div>
 </div>
@@ -583,7 +583,7 @@ ${hasEco ? `<div class="page">
       Assumptions: ${LIFETIME_YEARS}-year operating life, 0.5 %/year module degradation, 1 %/year O&amp;M cost,
       2 %/year energy tariff escalation, 6 % discount rate, 0.33 liter of diesel per kWh of generator output and
       0.75 kgCO2 per kWh displaced. Figures are indicative and prepared by the Engineering Department —
-      ACTES Energy Systems &amp; Solutions.
+      ARSH SMART TECH Energy Systems &amp; Solutions.
     </div>
   </div>
 </div>` : ""}

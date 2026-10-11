@@ -1,5 +1,5 @@
 /* eslint-disable */
-// ACTES bot engine — ported verbatim from the n8n "State Machine" node.
+// ARSH SMART TECH bot engine — ported verbatim from the n8n "State Machine" node.
 // Do not reformat: logic must stay identical to the WhatsApp bot.
 
 const Buffer = {
@@ -137,18 +137,18 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
   var BD = '';
   var SEP = '━━━━━━━━━━━━━━━━━━━━';
   var LINE = '────────────────────';
-  var AC = ' أكتس لأنظمة الطاقة وحلولها';
+  var AC = ' عرش التقنية الذكية';
 
   function W(msg) {
     var _wm = String(msg || '');
-    if (_wm.indexOf('أكتس لأنظمة الطاقة وحلولها') >= 0) {
+    if (_wm.indexOf('عرش التقنية الذكية') >= 0) {
       return SEP + '\n' + _wm;
     }
     return AC + '\n' + SEP + '\n' + _wm;
   }
 
-  var WEL_AR = 'أكتس لأنظمة الطاقة وحلولها' + '\n' + SEP + '\n' +
-    ' شركة أكتس' + '\n' +
+  var WEL_AR = 'عرش التقنية الذكية' + '\n' + SEP + '\n' +
+    ' شركة عرش التقنية الذكية' + '\n' +
     ' لأنظمة الطاقة وحلولها' + '\n' +
     ' _ SUNTECH_' + '\n' +
     ' _Li Power_' + '\n' +
@@ -158,7 +158,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     ' أهلاً وسهلاً بكم' + '\n' +
     ' اختر لغتك من الأزرار التالية';
 
-  var WELCOME_SERVICES_AR = 'مرحباً بك في أكتس لأنظمة الطاقة وحلولها \n' +
+  var WELCOME_SERVICES_AR = 'مرحباً بك في عرش التقنية الذكية \n' +
     SEP + '\n' +
     'نحن متخصصون في توفير حلول الطاقة الشمسية، وأنظمة تخزين الطاقة، والبطاريات، والانفرترات، إلى جانب حلول متكاملة للمشاريع السكنية والتجارية والصناعية.\n\n' +
     'يسعدنا خدمتك يرجى اختيار الخدمة المطلوبة من الأزرار التالية:';
@@ -178,11 +178,11 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
   var WELCOME_IMAGE_URL = MSG_HEADER_URL;
   var OTHER_MESSAGES_IMAGE_URL = MSG_HEADER_URL;
   var MENU_IMAGE_URL = MSG_HEADER_URL;
-  var PVSTUDY_IMAGE_URL = MSG_HEADER_URL; // هوية ACTES الموحدة
-  var SLD_IMAGE_URL = MSG_HEADER_URL; // هوية ACTES الموحدة
-  var QUOTE_NEXT_IMAGE_URL = MSG_HEADER_URL; // هوية ACTES الموحدة
-  var PAY_WALLET_IMAGE_URL = MSG_HEADER_URL; // هوية ACTES الموحدة
-  var PAY_NETWORK_IMAGE_URL = MSG_HEADER_URL; // هوية ACTES الموحدة
+  var PVSTUDY_IMAGE_URL = MSG_HEADER_URL; // هوية ARSH SMART TECH الموحدة
+  var SLD_IMAGE_URL = MSG_HEADER_URL; // هوية ARSH SMART TECH الموحدة
+  var QUOTE_NEXT_IMAGE_URL = MSG_HEADER_URL; // هوية ARSH SMART TECH الموحدة
+  var PAY_WALLET_IMAGE_URL = MSG_HEADER_URL; // هوية ARSH SMART TECH الموحدة
+  var PAY_NETWORK_IMAGE_URL = MSG_HEADER_URL; // هوية ARSH SMART TECH الموحدة
   function payWayText() { return String(service_needed || session.service_needed || ''); }
   function payHeaderImage() {
     var w = payWayText();
@@ -599,7 +599,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
   }
 
 
-  // ===== قواعد أكتس المحدّثة: لوحات الحماية والكابلات والكنشات =====
+  // ===== قواعد عرش التقنية الذكية المحدّثة: لوحات الحماية والكابلات والكنشات =====
   var ACTES_DC_PRICES = { 2: 80, 4: 250, 6: 450, 8: 550, 10: 650 };
   var ACTES_ACDC_DET = ['لوحة حماية سنجل فاز AC-DC-32AH-2WY', 'صندوق حماية بلاستيك 8 خط مقاوم للماء درجة الحماية IP65', 'قاطع حماية دخول الألواح DC — MCB DC 2P 500V 32A', 'قاطع خروج كهرباء AC-MCB-2P-32AH', 'صنف أصلي جديد'];
   function ACTES_DC_DET(sz) {
@@ -951,7 +951,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     // 2) ابحث في الاسم والتفاصيل كلها، مع أولوية kWh / كيلو وات ساعة.
     var mk = s.match(/(\d+(?:[.,]\d+)?)\s*(?:كيلو\s*وات\s*ساعة|كيلووات\s*ساعة|كيلو\s*واط\s*ساعة|kWh)(?![a-z])/i);
     if (mk) { return mk[1].replace(',', '.'); }
-    // 3) بعض بيانات ACTES القديمة تكتب "16 كيلو وات" وتقصد سعة البطارية.
+    // 3) بعض بيانات ARSH SMART TECH القديمة تكتب "16 كيلو وات" وتقصد سعة البطارية.
     var mb = s.match(/(?:بطارية|بايلونتك|pylontech|fidus|hthium|heroee)[^0-9]{0,120}(\d+(?:[.,]\d+)?)\s*(?:كيلو\s*وات|كيلووات|كيلو\s*واط|كيلو)(?![a-z])/i);
     if (mb) { return mb[1].replace(',', '.'); }
     // 4) إذا كانت السعة فقط بالـWh، حوّلها إلى kWh.
@@ -1016,7 +1016,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
       lines.push('الكمية: ' + it.qty + ' ' + (it.unit || 'حبة'));
       lines.push('');
     }
-    return 'أكتس لإستيراد أنظمة الطاقة\n\n        المنظومة المناسبة لك\n\n' + lines.join('\n').replace(/\n+$/, '');
+    return 'عرش التقنية الذكية لإستيراد أنظمة الطاقة\n\n        المنظومة المناسبة لك\n\n' + lines.join('\n').replace(/\n+$/, '');
   }
   function quoteAfterPdf(list) {
     var ordered = actesOrderItems(list || []);
@@ -1154,8 +1154,8 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
   }
 
   var MSG = {
-    menu_ar: 'أكتس لأنظمة الطاقة وحلولها\n' + SEP + '\nاختر الزر المناسب لطلبك\n\n' + '1 — السكني والتجاري والصناعي\n2 — عبر دراسة PVsyst\n' + SEP,
-    menu_en: '*ACTES Energy Solutions*\n' + SEP + '\nChoose the button that matches your request\n\n' + '1 — Residential / Commercial / Industrial\n2 — Via PVsyst Study\n' + SEP,
+    menu_ar: 'عرش التقنية الذكية\n' + SEP + '\nاختر الزر المناسب لطلبك\n\n' + '1 — السكني والتجاري والصناعي\n2 — عبر دراسة PVsyst\n' + SEP,
+    menu_en: '*ARSH SMART TECH Energy Solutions*\n' + SEP + '\nChoose the button that matches your request\n\n' + '1 — Residential / Commercial / Industrial\n2 — Via PVsyst Study\n' + SEP,
     invalid_ar: W(' خيار غير صحيح. يرجى إرسال رقم صحيح من القائمة._'),
     invalid_en: W(' _Invalid option. Please send a valid number from the menu._'),
     invalid_num_ar: W(' يرجى إدخال رقم صحيح._'),
@@ -1652,7 +1652,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     var t = '';
     t += ' المبيعات: 770229994\n';
     t += ' الموقع: www.actesgroup.com\n';
-    t += ' أكتس لأنظمة الطاقة وحلولها\n';
+    t += ' عرش التقنية الذكية\n';
     return t;
   }
 
@@ -2088,7 +2088,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
   function comVisitFacilityAsk() { return W(' اسم المنشأة / النشاط التجاري\n' + SEP + '\nاكتب اسم المنشأة أو نوع النشاط _'); }
   function comVisitLocationAsk() { return locGovAsk(' موقع المنشأة التجارية\nحدد المحافظة لترتيب زيارة الفريق الهندسي لمنشأتك.'); }
   function comVisitDone() {
-    return W(' تم تسجيل موعد الزيارة الميدانية بنجاح!*\n' + SEP + '\n الموعد ' + daily_hours + '\n المنشأة ' + main_loads + '\n الموقع ' + city + '\n' + SEP + '\nسيتواصل معك فريق أكتس لتأكيد الموعد._');
+    return W(' تم تسجيل موعد الزيارة الميدانية بنجاح!*\n' + SEP + '\n الموعد ' + daily_hours + '\n المنشأة ' + main_loads + '\n الموقع ' + city + '\n' + SEP + '\nسيتواصل معك فريق عرش التقنية الذكية لتأكيد الموعد._');
   }
   function notifComVisit() {
     var tsn = now.replace('T', ' ').substring(0, 16) + ' UTC';
@@ -2446,7 +2446,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
 
 
   function pvSiteAsk() {
-    return locGovAsk('أكتس لأنظمة الطاقة وحلولها\n\n دراسة المحاكاة الشمسية PVsyst\n\nقبل البدء نحدد موقع المشروع لجلب بيانات الإشعاع الشمسي الخاصة به._');
+    return locGovAsk('عرش التقنية الذكية\n\n دراسة المحاكاة الشمسية PVsyst\n\nقبل البدء نحدد موقع المشروع لجلب بيانات الإشعاع الشمسي الخاصة به._');
   }
   // Default 24-hour load distribution supplied by the user.
   // The percentages add up to 99%, so generated hourly values are normalized by 99
@@ -2662,7 +2662,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
       quote_items: stripBaseItems(pvQuoteItems(z)),
       quote_source: 'QUOTE_BUILD_DATASET',
       date: new Date().toISOString().slice(0, 10),
-      ref: ref || '', project: 'ACTES SOLAR PV SYSTEM',
+      ref: ref || '', project: 'ARSH SMART TECH SOLAR PV SYSTEM',
       designer: 'SUFYAN JAMIL', send_dxf: false,
       filename: 'ACTES-SLD-' + String(Date.now()).slice(-6)
     };
@@ -2676,7 +2676,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
       kind: 'custom',
       gen: z.gen || null,
       ind: (_io && _io.ind) ? { name: _io.ind.name, act: _io.ind.act, shifts: _io.ind.shifts, tot: _io.ind.tot } : null,
-      customer_name: customer_name || 'عميل أكتس',
+      customer_name: customer_name || 'عميل عرش التقنية الذكية',
       city: cty || 'صنعاء',
       quote_number: qnum,
       peak_load: z.peak,
@@ -3168,7 +3168,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     var __w = payWayText();
     var __h = /محفظة|محافظ/.test(__w) ? ' التحويل عبر المحافظ الإلكترونية' : (/شبكة|شبكات/.test(__w) ? ' التحويل عبر الشبكات المحلية' : ' بيانات الحساب للتحويل');
     return W(__h + '\n' + SEP +
-      '\nالاسم:* أكتس لأستيراد أنظمة الطاقة\nرقم الجوال:* 773903901\n' + SEP +
+      '\nالاسم:* عرش التقنية الذكية لأستيراد أنظمة الطاقة\nرقم الجوال:* 773903901\n' + SEP +
       '\nحوّل المبلغ المستحق على الرقم أعلاه._\n' +
       'ثم أرسل إشعار التحويل هنا (صورة أو نص)._');
   }
@@ -3235,7 +3235,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     step = session.step || 'done';
     if (ok) {
       extra_payloads.push(waTo(cust, ' *' + BRAND_TXT + '\n' + SEP +
-        '\nشكراً لك، لقد تم تأكيد فاتورتك._\nستتواصل معك إدارة المبيعات في شركة أكتس خلال لحظات._'));
+        '\nشكراً لك، لقد تم تأكيد فاتورتك._\nستتواصل معك إدارة المبيعات في شركة عرش التقنية الذكية خلال لحظات._'));
       extra_payloads.push(waTo(SALES_PHONE, ' تأكيد وصول إشعار الحوالة\n' + SEP +
         '\nتم تأكيد الفاتورة للعميل: ' + (customer_name || session.customer_name || '-') +
         '\nرقم العميل: ' + cust +
@@ -3260,7 +3260,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
   }
   function salesLinkMsg() {
     return W(' تم استلام طلبك\n' + SEP +
-      '\nنشكرك على ثقتك بشركة أكتس لأنظمة الطاقة وحلولها._\n' +
+      '\nنشكرك على ثقتك بشركة عرش التقنية الذكية._\n' +
       'تم إرسال طلبك إلى فريق المبيعات، وسيتواصل بك أحد مندوبينا خلال لحظات لإتمام كل التفاصيل._\n' + SEP +
       '\nأرسل 0 للعودة إلى البداية._');
   }
@@ -3583,7 +3583,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     response = msg;
   }
 
-  var BRAND_TXT = 'أكتس لأنظمة الطاقة وحلولها';
+  var BRAND_TXT = 'عرش التقنية الذكية';
 
 
   function __flatRows(ui) {
@@ -3675,7 +3675,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
       lang = 'ar'; step = 'eco_mode'; response = ecoModeMsg();
     } else if (text === 'team') {
       lang = 'ar'; menu_choice = '5'; step = 'sup_name';
-      response = ' فريق أكتس الدعم الفني وخدمات ما بعد البيع\n' + SEP + '\nيرجى إدخال اسم العميل. إذا كان الاسم المسجل في طلبك السابق صحيحاً، يمكنك اختياره من الزر أدناه:_';
+      response = ' فريق عرش التقنية الذكية الدعم الفني وخدمات ما بعد البيع\n' + SEP + '\nيرجى إدخال اسم العميل. إذا كان الاسم المسجل في طلبك السابق صحيحاً، يمكنك اختياره من الزر أدناه:_';
     } else {
       response = noOpt(energyWelcome());
     }
@@ -3715,7 +3715,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     if (text === '1') { step = 'menu_sys3'; response = W(' اختر نوع المنظومة\n' + SEP + '\n1 - النظام السكني\n2 - النظام التجاري\n4 - النظام الصناعي\n3 - النظام الزراعي'); }
     else if (text === '2' || text === 'pv_study') { menu_choice = '7'; main_loads = ''; city = ''; pvSave({ l: [], c: '', m: '' }); step = 'pv_loads'; response = loadsTableMsg(); }
     else if (text === '3' || text === 'item_request') { step = 'item_menu'; response = itemMenuMsg(); }
-    else if (text === 'team' || text === 'فريق أكتس') { menu_choice = '5'; step = 'sup_name'; response = ' الدعم الفني وخدمات ما بعد البيع\n' + SEP + '\nيرجى إدخال اسم العميل. إذا كان الاسم المسجل في طلبك السابق صحيحاً، يمكنك اختياره من الزر أدناه:_'; }
+    else if (text === 'team' || text === 'فريق عرش التقنية الذكية') { menu_choice = '5'; step = 'sup_name'; response = ' الدعم الفني وخدمات ما بعد البيع\n' + SEP + '\nيرجى إدخال اسم العميل. إذا كان الاسم المسجل في طلبك السابق صحيحاً، يمكنك اختياره من الزر أدناه:_'; }
     else { response = noOpt(mainMenu()); }
 
   } else if (step === 'menu_sys3') {
@@ -4540,7 +4540,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
   }
   function payMethodAsk() {
     return W(' اتمام الشراء\n' + SEP +
-      '\nنشكرك على ثقتك بشركة أكتس لأنظمة الطاقة وحلولها._\n' +
+      '\nنشكرك على ثقتك بشركة عرش التقنية الذكية._\n' +
       SEP +
       '\nخيارات الدفع\n1 - التحويل عبر شركة محلية\n2 - التحويل عبر محافظ إلكترونية\n3 - الدفع عند الاستلام');
   }
@@ -4555,7 +4555,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
   }
   function buyDoneMsg(payLabel) {
     return W(' اتمام الشراء\n' + SEP +
-      '\nنشكرك على ثقتك بشركة أكتس لأنظمة الطاقة وحلولها._\n' + SEP +
+      '\nنشكرك على ثقتك بشركة عرش التقنية الذكية._\n' + SEP +
       '\n الموقع : ' + (city || '-') + '\n طريقة الدفع : ' + payLabel + '\n' + SEP +
       '\nتم استلام طلبك بنجاح، وسيتم التواصل معك خلال لحظات من إدارة المبيعات لإتمام التفاصيل._');
   }
@@ -4726,7 +4726,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
       return { kind: 'buttons', buttons: [
         { id: 'pv_study', title: 'دراسة PVsyst' },
         { id: 'eco_study', title: 'دراسة الجدوى الاقتصادية' },
-        { id: 'team', title: 'فريق أكتس' }
+        { id: 'team', title: 'فريق عرش التقنية الذكية' }
       ] };
     }
     if (st === 'eco_mode') {
@@ -5285,8 +5285,8 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
         body: { text: bodyText },
         action: { button: truncate(ui.button || 'اختر من القائمة', 20), sections: secs }
       };
-      if (String(bodyText).indexOf('أكتس لأنظمة الطاقة وحلولها') < 0) {
-        _listInteractive.header = { type: 'text', text: truncate('أكتس لأنظمة الطاقة وحلولها', 60) };
+      if (String(bodyText).indexOf('عرش التقنية الذكية') < 0) {
+        _listInteractive.header = { type: 'text', text: truncate('عرش التقنية الذكية', 60) };
       }
       return Object.assign(base, { type: 'interactive', interactive: _listInteractive });
     }
@@ -5577,7 +5577,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
 
   // بنود العروض الجاهزة (PDF جاهز) تُبنى من QUOTE_IMG_ITEMS لأن quote_items لا تُملأ في تلك المسارات
   var quote_images = [];
-  if (false) { // صور مكونات العرض معطلة؛ تُستخدم هوية ACTES فقط
+  if (false) { // صور مكونات العرض معطلة؛ تُستخدم هوية ARSH SMART TECH فقط
     var __qi = stripBaseItems(Array.isArray(quote_items) ? quote_items.slice(0) : []);
     if (!__qi.length && quote_number && QUOTE_IMG_ITEMS[quote_number]) {
       __qi = stripBaseItems(QUOTE_IMG_ITEMS[quote_number].slice(0));
@@ -5684,7 +5684,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
   }
   has_pre_text = !!pre_payload;
 
-  // هوية ACTES في رأس الرسالة نفسها؛ النص القصير يكون تعليق الصورة لا رسالة ثانية.
+  // هوية ARSH SMART TECH في رأس الرسالة نفسها؛ النص القصير يكون تعليق الصورة لا رسالة ثانية.
   function __applyActesIdentity(p) {
     if (!p) { return p; }
     if (p.type === 'interactive' && p.interactive && p.interactive.type === 'button') {
@@ -6035,13 +6035,13 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
       peak: parseFloat(peak_load) || 0, daily: (parseFloat(monthly_consumption) || 0) / 30,
       sysLabel: 'HYBRID', city_en: cityEn,
       date: new Date().toISOString().slice(0, 10),
-      ref: qref, project: 'ACTES SOLAR PV SYSTEM',
+      ref: qref, project: 'ARSH SMART TECH SOLAR PV SYSTEM',
       send_dxf: false, // لا يُرسل ملف DXF للعميل نهائياً
       filename: 'ACTES-SLD-' + String(Date.now()).slice(-6)
     };
   }
 
-  // ===== ACTES Formal WhatsApp Formatting =====
+  // ===== ARSH SMART TECH Formal WhatsApp Formatting =====
   // تنسيق بصري فقط: لا يتم تغيير أي كلمة أو رقم أو رابط أو قيمة من محتوى الرسالة.
   // يتم توحيد المسافات، الأسطر الفارغة، والفواصل الرسمية، مع إبقاء نص الرسالة نفسه.
   function noBlank(s) {

@@ -8,7 +8,7 @@ const TERMS: [RegExp, string][] = [
   // منع تكرار «بالريال بالريال»، وتوحيد العملة إلى «بالريال اليمني» دائماً
   [new RegExp(`(?:${RIYAL}\\s+)+(?=${RIYAL})`, "g"), ""],
   [new RegExp(`${RIYAL}(?!${D}\\s*${YEMENI})`, "g"), "بِالرِّيَالِ اليَمَنِيّ"],
-  [/\bACTES\b|أكتس|اكتس/gi, "أَكْتِسْ"],
+  [/\bACTES\b|عرش التقنية الذكية|اكتس/gi, "أَكْتِسْ"],
   [/دايا\s+(هايبرد\s+)?DEYE/gi, "دايا $1"],
   [/\bDEYE\b/gi, "دَايَا"],
   [/\bExcel\b|\bxlsx\b/gi, "إِكْسِل"],
@@ -140,7 +140,7 @@ export function prepareArabicSpeech(text: string): string {
       const nums = digits.split("").map((c) => ONES[Number(c)]).join(" ");
       return `أَكْتِسْ ${spelled} ${nums} `;
     })
-    .replace(/\bACTES\s*-\s*/gi, "ACTES، ")
+    .replace(/\bACTES\s*-\s*/gi, "ARSH SMART TECH، ")
     .replace(/(\d)(?=[A-Za-z\u0621-\u064A])/g, "$1 ")
     .replace(/([A-Za-z])(?=\d)/g, "$1 ")
     .replace(/(\d)\s*A\b/g, "$1 أمبير")

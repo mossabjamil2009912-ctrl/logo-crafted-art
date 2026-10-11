@@ -116,7 +116,7 @@ export function resultToTurn(r: BotResult): ChatTurn {
       id: nextId(),
       from: "bot",
       kind: "doc",
-      name: String(r.quote_file_name || `${r.quote_number || "ACTES"}.pdf`),
+      name: String(r.quote_file_name || `${r.quote_number || "ARSH SMART TECH"}.pdf`),
       caption: r.quote_caption || undefined,
       url: r.quote_file_url || undefined,
     });
