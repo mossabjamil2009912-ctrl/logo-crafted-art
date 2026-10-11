@@ -53,6 +53,8 @@ import jinkoTigerNeoImage from "@/assets/products/jinko-tiger-neo-72hl4.webp";
 import felicityLpba48100Image from "@/assets/products/felicity-lpba48100-ol.webp";
 import felicityLpba48200Image from "@/assets/products/felicity-lpba48200wg1.webp";
 import felicityIvem12048Image from "@/assets/products/felicity-ivem12048-ii.webp";
+import felicityIvem8048Image from "@/assets/products/felicity-ivem8048-ii.webp";
+import jinkoTigerNeo78Image from "@/assets/products/jinko-tiger-neo-78hl4-bdv.webp";
 
 export type ProductCategory = "panels" | "inverters" | "batteries" | "storage";
 export type SpecGroup = { title: string; rows: [string, string][] };
@@ -134,6 +136,39 @@ export const PRODUCTS: Product[] = [
     certificates: "IEC61215:2021، IEC61730:2023، IEC61701، IEC62716، IEC60068، IEC62804، ISO9001، ISO14001، ISO45001",
     image: jinkoTigerNeoImage,
     files: sheet("/catalogs/jinko-tiger-neo-72hl4-v.pdf"),
+  },
+  {
+    id: "jinko-tiger-neo-jkm615-635n-78hl4-bdv",
+    category: "panels",
+    brand: "Jinko",
+    name: "لوح شمسي Jinko Tiger Neo ‏635W ثنائي الوجه",
+    model: "JKM635N-78HL4-BDV (سلسلة JKM615–635N-78HL4-BDV)",
+    power: "635 W",
+    description: "لوح Jinko Tiger Neo ثنائي الوجه بزجاج مزدوج وتقنية N-Type TOPCon بقدرة 615–635W.",
+    about:
+      "لوح شمسي ثنائي الوجه (Bifacial) بزجاج مزدوج من سلسلة JinkoSolar Tiger Neo 78HL4-BDV بتقنية N-Type TOPCon و156 خلية نصفية. يولّد من الوجهين معاً فيزيد الإنتاج مع انعكاس الأرضية، ومعتمد لتحمل 5400 Pa من الأمام و2400 Pa من الخلف، مع مقاومة عالية لرذاذ الملح والأمونيا.",
+    features: [
+      "توليد ثنائي الوجه يزيد الإنتاج ويخفض تكلفة الكيلوواط",
+      "تقنية N-Type TOPCon مع HOT 2.0 لاعتمادية أعلى",
+      "تقنية SMBB لتحسين التقاط الضوء وجمع التيار",
+      "زجاج مزدوج 2.0mm وتحمل 5400 Pa أمامي و2400 Pa خلفي",
+      "مقاومة عالية لرذاذ الملح والأمونيا",
+      "ضمان منتج 12 سنة وضمان أداء خطي 30 سنة (87.4% بعد 30 سنة)",
+    ],
+    uses: ["المحطات والمشاريع الكبيرة", "المنظومات التجارية على الأسطح العاكسة", "المشاريع الزراعية وضخ المياه"],
+    suitableFor: "مناسب للمشاريع المتوسطة والكبيرة التي تستفيد من التوليد ثنائي الوجه لزيادة الإنتاج.",
+    specs: [
+      { title: "الخصائص العامة", rows: [["نطاق القدرة", "615–635 W"], ["نوع الخلية", "N-type Mono-crystalline"], ["عدد الخلايا", "156 (78×2)"], ["النوع", "ثنائي الوجه بزجاج مزدوج"], ["تفاوت القدرة", "0~+3%"]] },
+      { title: "الخصائص الميكانيكية", rows: [["الأبعاد", "2465 × 1134 × 30 mm"], ["الوزن", "34.0 kg"], ["الزجاج الأمامي", "2.0 mm بطبقة مضادة للانعكاس"], ["الزجاج الخلفي", "2.0 mm مقسّى حرارياً"], ["الإطار", "Anodized Aluminium Alloy"], ["صندوق التوصيل", "IP68"], ["الكابلات", "4.0 mm² — (+) 400 mm و(−) 200 mm"]] },
+      { title: "التحمل والضمان", rows: [["الحمل الأمامي", "5400 Pa"], ["الحمل الخلفي", "2400 Pa"], ["ضمان المنتج", "12 سنة"], ["ضمان الأداء", "30 سنة — تدهور السنة الأولى 1% ثم 0.40% سنوياً (87.4% بعد 30 سنة)"], ["التعبئة", "36 لوح/طبلية — 576 لوح/حاوية 40'HQ"]] },
+    ],
+    modelTable: {
+      models: ["615", "620", "625", "630", "635"],
+      rows: [{ label: "Pmax (W)", values: ["615", "620", "625", "630", "635"] }],
+    },
+    certificates: "IEC61215 (2016)، IEC61730 (2016)، IEC61701، IEC62716، IEC60068، IEC62804، ISO9001، ISO14001، ISO45001",
+    image: jinkoTigerNeo78Image,
+    files: sheet("/catalogs/jinko-tiger-neo-78hl4-bdv.pdf"),
   },
   {
     id: "suntech-stp595s-c72-nsh",
@@ -619,6 +654,37 @@ export const PRODUCTS: Product[] = [
     ],
     certificates: "IEC 62109-1، IEC 62109-2",
     image: felicityIvem12048Image,
+    files: [{ kind: "Datasheet", label: "صفحة المنتج الرسمية", url: "https://www.felicitysolar.com/product/ivem8-12kw-ii/" }],
+  },
+  {
+    id: "felicity-ivem8048-ii",
+    category: "inverters",
+    brand: "Felicity",
+    name: "إنفرتر Felicity هجين 8kW ‏(48V)",
+    model: "IVEM8048-II",
+    power: "8 kW",
+    description: "إنفرتر هجين أحادي الطور 8kW بموجة جيبية نقية، مدخلا PV بقدرة 10kW وشاحن 150A، مع WiFi مدمج.",
+    about:
+      "إنفرتر/شاحن متعدد الوظائف من Felicity Solar بقدرة 8kW، يجمع الإنفرتر وشاحن MPPT الشمسي وشاحن البطارية في جهاز واحد. يقبل مدخلين شمسيين بقدرة 5+5kW، ويشحن حتى 150A من الشمس أو الشبكة/المولد، ويدعم التوازي حتى 6 وحدات، مع شاشة LCD وWiFi مدمج للمراقبة من الجوال.",
+    features: [
+      "موجة جيبية نقية 230V بقدرة 8000W",
+      "مدخلا PV بقدرة 10kW (5+5kW) وجهد حتى 500V",
+      "شحن حتى 150A من الشمس أو الشبكة/المولد",
+      "يعمل مع الشبكة أو المولد، وانتقال 10ms في وضع UPS",
+      "توازي حتى 6 وحدات (48kW أحادي الطور أو ثلاثي الطور)",
+      "يعمل بدون بطارية، وتفعيل بطاريات الليثيوم",
+      "شاشة LCD وWiFi مدمج للمراقبة عبر التطبيق",
+      "حماية كاملة: زيادة حمل، حرارة، قصر",
+    ],
+    uses: ["المنازل والفلل", "المحلات والمكاتب", "المنظومات الهجينة والمنفصلة عن الشبكة"],
+    suitableFor: "مناسب للمنازل والمحلات التي تحتاج قدرة 8kW مع إمكانية التوسعة بالتوازي.",
+    specs: [
+      { title: "الخرج والقدرة", rows: [["القدرة الاسمية", "8000 VA / 8000 W"], ["جهد الخرج", "230 Vac ±5% (L+N+PE)"], ["شكل الموجة", "جيبية نقية"], ["الكفاءة القصوى", "94.5%"], ["زمن الانتقال", "10 ms (وضع UPS)"], ["التوازي", "حتى 6 وحدات (48 kW)"]] },
+      { title: "المدخل الشمسي", rows: [["أقصى قدرة PV", "10000 W (5000 W × 2)"], ["أقصى جهد PV مفتوح", "500 V"], ["نطاق MPPT", "90–450 V"], ["أقصى تيار شحن (PV+شبكة)", "150 A"]] },
+      { title: "البطارية وعام", rows: [["جهد البطارية", "48 V (42–63 V)"], ["أنواع البطاريات", "AGM / Flooded / Li-Ion / مخصص"], ["الاتصال", "WiFi مدمج + LCD"], ["الشهادات", "IEC 62109-1/-2"]] },
+    ],
+    certificates: "IEC 62109-1، IEC 62109-2",
+    image: felicityIvem8048Image,
     files: [{ kind: "Datasheet", label: "صفحة المنتج الرسمية", url: "https://www.felicitysolar.com/product/ivem8-12kw-ii/" }],
   },
 
