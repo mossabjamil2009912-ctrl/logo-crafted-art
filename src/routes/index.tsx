@@ -71,10 +71,10 @@ import {
   Users,
   Factory,
 } from "lucide-react";
-import residentialImage from "@/assets/actes-residential.webp";
-import commercialImage from "@/assets/actes-commercial.webp";
-import industrialImage from "@/assets/actes-industrial.webp";
-import agricultureImage from "@/assets/actes-agriculture.webp";
+import residentialImage from "@/assets/arsh-residential.webp";
+import commercialImage from "@/assets/arsh-commercial.webp";
+import industrialImage from "@/assets/arsh-industrial.webp";
+import agricultureImage from "@/assets/arsh-agriculture.webp";
 import homeHero from "@/assets/actes-home-hero.webp";
 import partnersStrip from "@/assets/partners-strip.webp";
 
