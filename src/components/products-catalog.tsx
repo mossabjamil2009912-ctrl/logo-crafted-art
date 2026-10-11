@@ -468,7 +468,7 @@ function ShareSheet({ product, onClose }: { product: Product; onClose: () => voi
           <button type="button" onClick={onClose} aria-label="إغلاق" className="grid size-7 place-items-center rounded-full bg-muted text-navy transition hover:bg-border"><X className="size-4" /></button>
         </div>
         <div className="space-y-3 p-4">
-          <div className="grid place-items-center rounded-xl border border-border bg-white p-3">
+          <div className="grid place-items-center rounded-xl border border-border bg-card/40 p-3">
             {qr ? <img src={qr} alt="رمز QR لصفحة المنتج" className="size-40 object-contain" /> : <span className="grid size-40 place-items-center text-xs text-muted-foreground">جارٍ توليد الرمز…</span>}
           </div>
           <p className="text-center text-[11px] leading-5 text-muted-foreground">امسح الرمز بالجوال لفتح مواصفات {product.model} وملفاته الرسمية مباشرة.</p>
