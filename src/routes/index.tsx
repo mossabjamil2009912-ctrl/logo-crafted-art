@@ -1584,12 +1584,12 @@ function QuoteWorkspace({ view, session, step, draft, setDraft, onPick, onBack, 
   useEffect(() => { setVariantId("rec"); }, [view.quote?.number]);
   const variants = useMemo(() => {
     // طلب صنف محدد: العميل اختار الأصناف بنفسه، فلا تُعرض بدائل (اقتصادي/موصى به/أقصى استقلالية)
-    if (view.quote?.itemOrder) return null;
+    if (view.quote?.number?.startsWith("ARSH-Q")) return null;
     const fromStudy = (view.study?.params?.["quote_items"] as QuoteItem[] | undefined) || [];
     const items = view.quote?.items?.length ? view.quote.items : fromStudy;
     const perString = Number((rawSldParams?.["perStr"] as number | undefined) || 0);
     return buildVariants({ items, perString });
-  }, [view.quote?.items, view.quote?.itemOrder, view.study?.params, rawSldParams]);
+  }, [view.quote?.items, view.quote?.number, view.study?.params, rawSldParams]);
   const variant = useMemo(() => variants?.find((v) => v.id === variantId) || null, [variants, variantId]);
   const altered = Boolean(variant && variant.id !== "rec");
   const quoteView = useMemo(() => {
