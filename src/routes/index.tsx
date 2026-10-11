@@ -1711,10 +1711,10 @@ function QuoteWorkspace({ view, session, step, draft, setDraft, onPick, onBack, 
               )}
             </div>
 
-            {view.specs.length > 0 && <SystemSpecs specs={view.specs} hint={[session["phase_type"], session["system_type"]].filter(Boolean).join(" ")} onOpenProduct={onOpenProduct} />}
             {view.quote && variants && variants.length > 1 && (
               <QuoteVariants variants={variants} active={variantId} onPick={setVariantId} study={studyView} />
             )}
+            {view.specs.length > 0 && !view.quote && <SystemSpecs specs={view.specs} hint={[session["phase_type"], session["system_type"]].filter(Boolean).join(" ")} onOpenProduct={onOpenProduct} />}
             {quoteView && <QuoteCard quote={quoteView} />}
             {studyView && studyFresh && !showStudyOnly && <PvsystStudy study={studyView} />}
             {view.sld && (sldParams
