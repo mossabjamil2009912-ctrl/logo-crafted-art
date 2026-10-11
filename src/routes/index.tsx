@@ -900,7 +900,7 @@ function AccountChoice({ onClient, onAdmin }: { onClient: () => void; onAdmin: (
 
       <div className="relative z-10 w-full max-w-md rounded-2xl border border-border bg-card/95 p-7 text-center shadow-2xl backdrop-blur-sm sm:p-8">
         <img src={actesLogo} alt="ARSH SMART TECH — عرش التقنية الذكية" className="mx-auto h-16 w-auto object-contain sm:h-20" />
-        <p className="mt-4 text-[11px] font-black tracking-[0.3em] text-brand" dir="ltr">ARSH SMART TECH</p>
+        <p className="mt-4 text-[11px] font-black tracking-[0.3em] text-navy" dir="ltr">ARSH SMART TECH</p>
         <h1 className="mt-2 text-xl font-black leading-8 text-foreground sm:text-2xl">عرش التقنية الذكية</h1>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">اختر طريقة الدخول للمتابعة</p>
 
@@ -935,7 +935,7 @@ function StartScreen({ clientName, onStart }: { clientName: string; onStart: () 
       <div className="relative z-10 grid h-full place-items-center overflow-y-auto px-6 py-10">
         <div className="flex w-full max-w-lg flex-col items-center text-center">
           <img src={actesSplashLogo} alt="ARSH SMART TECH — عرش التقنية الذكية" className="h-20 w-auto object-contain lg:h-28" />
-          <p className="mt-5 text-[11px] font-black tracking-[0.34em] text-brand lg:text-xs lg:tracking-[0.42em]" dir="ltr">ARSH SMART TECH</p>
+          <p className="mt-5 text-[11px] font-black tracking-[0.34em] text-white lg:text-xs lg:tracking-[0.42em]" dir="ltr">ARSH SMART TECH</p>
           <h1 className="mt-3 text-2xl font-black leading-tight lg:text-4xl">
             {clientName ? `مرحباً بك، ${clientName}` : "مرحباً بك في نظام عرش التقنية الذكية"}
           </h1>
