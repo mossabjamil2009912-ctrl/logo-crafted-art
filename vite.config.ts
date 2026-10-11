@@ -12,4 +12,13 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    resolve: {
+      alias: {
+        // qrcode's node entry pulls fs/pngjs and triggers createRequire(import.meta.url)
+        // which crashes the Cloudflare worker at boot (import.meta.url is undefined there).
+        qrcode: `${process.cwd()}/node_modules/qrcode/lib/browser.js`,
+      },
+    },
+  },
 });
