@@ -241,7 +241,7 @@ export default function PvsystStudy({ study, actions }: Props) {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `ACTES-PVsyst-${result.reference || "study"}.csv`;
+    a.download = `ARSH-PVsyst-${result.reference || "study"}.csv`;
     a.click();
     URL.revokeObjectURL(url);
   };

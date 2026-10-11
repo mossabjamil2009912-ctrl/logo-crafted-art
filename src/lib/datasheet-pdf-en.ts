@@ -32,7 +32,7 @@ const categoryLabelEn = (product: Product) =>
 
 export function datasheetFileNameEn(product: Product): string {
   const model = modelCode(product).replace(/[^A-Za-z0-9.\-]+/g, "-").replace(/(^-|-$)/g, "");
-  return `ACTES-Datasheet-EN-${model}.pdf`;
+  return `ARSH-Datasheet-EN-${model}.pdf`;
 }
 
 function specTablesEn(product: Product): string {
