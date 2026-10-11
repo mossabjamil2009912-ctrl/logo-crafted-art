@@ -2036,7 +2036,7 @@ export default function SldDiagram({ params, number, actions }: Props) {
       ctx.drawImage(img, 0, 0, cv.width, cv.height);
       const a = document.createElement("a");
       a.href = cv.toDataURL("image/png");
-      a.download = `ACTES-SLD-${number || model.title.ref || "diagram"}.png`;
+      a.download = `ARSH-SLD-${number || model.title.ref || "diagram"}.png`;
       a.click();
       done();
     };

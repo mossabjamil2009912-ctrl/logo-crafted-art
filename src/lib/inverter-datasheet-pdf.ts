@@ -41,7 +41,7 @@ const categoryLabel = (product: Product) =>
 /** اسم الملف المقترح عند الحفظ كـ PDF. */
 export function datasheetFileName(product: Product): string {
   const model = modelCode(product).replace(/[^A-Za-z0-9.\-]+/g, "-").replace(/(^-|-$)/g, "");
-  return `ACTES-Datasheet-${model}.pdf`;
+  return `ARSH-Datasheet-${model}.pdf`;
 }
 
 /** يبني صفحات جدول المواصفات: أول مجموعة هي المواصفات الخاصة بهذه القدرة. */

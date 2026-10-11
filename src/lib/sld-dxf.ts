@@ -318,7 +318,7 @@ export function downloadSldDxf(m: SldModel, number?: string, calcs?: CableCalc[]
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = `ACTES-SLD-${number || m.title.ref || "diagram"}.dxf`;
+  a.download = `ARSH-SLD-${number || m.title.ref || "diagram"}.dxf`;
   a.click();
   setTimeout(() => URL.revokeObjectURL(url), 1500);
 }
