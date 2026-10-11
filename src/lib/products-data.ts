@@ -55,6 +55,12 @@ import felicityLpba48200Image from "@/assets/products/felicity-lpba48200wg1.webp
 import felicityIvem12048Image from "@/assets/products/felicity-ivem12048-ii.webp";
 import felicityIvem8048Image from "@/assets/products/felicity-ivem8048-ii.webp";
 import jinkoTigerNeo78Image from "@/assets/products/jinko-tiger-neo-78hl4-bdv.webp";
+import felicityIvem6048Image from "@/assets/products/felicity-ivem6048-ii.webp";
+import felicityIvem4024Image from "@/assets/products/felicity-ivem4024-ii.webp";
+import deyeLp3Image from "@/assets/products/deye-sun-5-12k-sg04lp3.webp";
+import deyeSeG5Image from "@/assets/products/deye-se-g5-1-pro-b.webp";
+import deyeRwM6Image from "@/assets/products/deye-rw-m6-1-b.webp";
+import deyeBosImage from "@/assets/products/deye-bos-g-pro.webp";
 
 export type ProductCategory = "panels" | "inverters" | "batteries" | "storage";
 export type SpecGroup = { title: string; rows: [string, string][] };
@@ -686,6 +692,185 @@ export const PRODUCTS: Product[] = [
     certificates: "IEC 62109-1، IEC 62109-2",
     image: felicityIvem8048Image,
     files: [{ kind: "Datasheet", label: "صفحة المنتج الرسمية", url: "https://www.felicitysolar.com/product/ivem8-12kw-ii/" }],
+  },
+  {
+    id: "felicity-ivem6048-ii",
+    category: "inverters",
+    brand: "Felicity",
+    name: "إنفرتر Felicity هجين 6kW ‏(48V)",
+    model: "IVEM6048-II",
+    power: "6 kW",
+    description: "إنفرتر أحادي الطور 6kW بموجة جيبية نقية، مدخل PV حتى 7500W وشحن 120A، مع WiFi مدمج.",
+    about:
+      "إنفرتر/شاحن متعدد الوظائف من Felicity Solar بقدرة 6kW يجمع الإنفرتر وشاحن MPPT الشمسي وشاحن البطارية في جهاز واحد، ويدعم التوازي حتى 12 وحدة (72kW).",
+    features: [
+      "موجة جيبية نقية 230V بقدرة 6000W",
+      "مدخل PV حتى 7500W وجهد حتى 500V (90–500V)",
+      "شحن حتى 120A من الشمس والشبكة معاً (قابل للضبط 10–120A)",
+      "انتقال 10ms في وضع UPS",
+      "توازي حتى 12 وحدة أحادي الطور (72kW) مع ربط البطارية",
+      "يعمل بدون بطارية، وتفعيل بطاريات الليثيوم",
+      "شاشة LCD وWiFi مدمج",
+      "حماية من زيادة الحمل والحرارة والقصر",
+    ],
+    uses: ["المنازل", "المحلات والمكاتب", "المنظومات المنفصلة عن الشبكة مع مولد"],
+    suitableFor: "مناسب للمنازل والمحلات بأحمال حتى 6kW مع بطارية 48V.",
+    specs: [
+      { title: "الخرج والقدرة", rows: [["القدرة الاسمية", "6000 VA / 6000 W"], ["جهد الخرج", "230 Vac ±5%"], ["شكل الموجة", "جيبية نقية"], ["الكفاءة القصوى", "93%"], ["زمن الانتقال", "10 ms (وضع UPS)"], ["التوازي", "حتى 12 وحدة (72 kW)"]] },
+      { title: "المدخل الشمسي", rows: [["أقصى قدرة PV", "7500 W"], ["أقصى جهد PV مفتوح", "500 V"], ["أقصى تيار PV", "27 A"], ["أقصى تيار شحن (PV+شبكة)", "120 A"]] },
+      { title: "البطارية وعام", rows: [["جهد البطارية", "48 V"], ["الاتصال", "WiFi مدمج + LCD"]] },
+    ],
+    image: felicityIvem6048Image,
+    files: [{ kind: "Datasheet", label: "صفحة المنتج الرسمية", url: "https://www.felicitysolar.com/product/ivem6048-ii/" }],
+  },
+  {
+    id: "felicity-ivem4024-ii",
+    category: "inverters",
+    brand: "Felicity",
+    name: "إنفرتر Felicity هجين 4kW ‏(24V)",
+    model: "IVEM4024-II",
+    power: "4 kW",
+    description: "إنفرتر أحادي الطور 4kW لبطاريات 24V، مدخل PV حتى 6000W وشحن 120A، مع WiFi مدمج.",
+    about:
+      "إنفرتر/شاحن من Felicity Solar بقدرة 4kW يجمع الإنفرتر وشاحن MPPT وشاحن البطارية، مثالي للمنازل الصغيرة والاستخدام الاحتياطي.",
+    features: [
+      "موجة جيبية نقية 230V بقدرة 4000W",
+      "مدخل PV حتى 6000W بنطاق 60–500V",
+      "شحن حتى 120A (قابل للضبط 10–120A)",
+      "انتقال 10ms في وضع UPS",
+      "يعمل مع الشبكة أو المولد، ويعمل بدون بطارية",
+      "شاشة LCD وWiFi مدمج",
+      "حماية من زيادة الحمل والحرارة والقصر",
+    ],
+    uses: ["المنازل الصغيرة", "الاستخدام الاحتياطي عند انقطاع الكهرباء", "المواقع النائية"],
+    suitableFor: "مناسب للمنازل الصغيرة بأحمال حتى 4kW مع بطارية 24V.",
+    specs: [
+      { title: "الخرج والقدرة", rows: [["القدرة الاسمية", "4000 VA / 4000 W"], ["جهد الخرج", "230 Vac ±5%"], ["شكل الموجة", "جيبية نقية"], ["الكفاءة القصوى", "93%"], ["زمن الانتقال", "10 ms (وضع UPS)"]] },
+      { title: "المدخل الشمسي", rows: [["أقصى قدرة PV", "6000 W"], ["أقصى جهد PV مفتوح", "500 V (نطاق 60–500 V)"], ["أقصى تيار PV", "27 A"], ["أقصى تيار شحن (PV+شبكة)", "120 A"]] },
+      { title: "البطارية وعام", rows: [["جهد البطارية", "24 V"], ["الاتصال", "WiFi مدمج + LCD"]] },
+    ],
+    image: felicityIvem4024Image,
+    files: [{ kind: "Datasheet", label: "صفحة المنتج الرسمية", url: "https://www.felicitysolar.com/product/ivem4024-ii/" }],
+  },
+  {
+    id: "deye-sun-5-12k-sg04lp3",
+    category: "inverters",
+    brand: "Deye",
+    name: "إنفرتر هجين Deye ثلاثي الطور 5–12kW ‏(48V)",
+    model: "SUN-5/6/8/10/12K-SG04LP3-EU",
+    power: "5 – 12 kW",
+    description: "إنفرتر هجين ثلاثي الطور لبطاريات 48V بتيار شحن حتى 240A وخرج غير متوازن 100%.",
+    about:
+      "إنفرتر هجين ثلاثي الطور من Deye لبطاريات الجهد المنخفض بتصميم عزل بمحول، يدعم التوازي حتى 10 وحدات، وتخزين طاقة المولد، وربط AC لتحديث المنظومات القائمة.",
+    features: [
+      "بطارية 48V بجهد منخفض وتصميم عزل بمحول",
+      "تيار شحن/تفريغ حتى 240A",
+      "حتى 10 وحدات على التوازي داخل وخارج الشبكة",
+      "خرج غير متوازن 100%، حتى 50% من القدرة لكل طور",
+      "6 فترات زمنية لجدولة شحن وتفريغ البطارية",
+      "دعم تخزين الطاقة من مولد الديزل",
+      "AC couple لتحديث منظومة قائمة",
+    ],
+    uses: ["منازل وفلل بكهرباء ثلاثية الطور", "محلات وورش صغيرة", "منظومات هجينة مع مولد"],
+    suitableFor: "للمنازل والمنشآت ثلاثية الطور من 5 إلى 12kW مع بطاريات 48V.",
+    specs: [
+      { title: "البطارية", rows: [["نوع البطارية", "Lead-acid أو Lithium-ion"], ["جهد البطارية", "40–60 V"], ["استراتيجية الشحن", "Self-adaption to BMS"]] },
+      { title: "مدخل الألواح (PV)", rows: [["الجهد المقنن", "550 V (160–800 V)"], ["جهد البدء", "160 V"], ["نطاق MPPT", "200–650 V"], ["عدد MPPT", "2"]] },
+      { title: "الخرج AC", rows: [["القدرة القصوى Off-grid", "2× القدرة المقننة لمدة 10 s"], ["معامل القدرة", "0.8 leading – 0.8 lagging"]] },
+    ],
+    modelTable: {
+      models: ["5K", "6K", "8K", "10K", "12K"],
+      rows: [
+        { label: "القدرة المقننة (W)", values: ["5000", "6000", "8000", "10000", "12000"] },
+        { label: "أقصى قدرة خرج (W)", values: ["5500", "6600", "8800", "11000", "13200"] },
+        { label: "أقصى تيار شحن/تفريغ (A)", values: ["120", "150", "190", "210", "240"] },
+        { label: "أقصى قدرة DC مدخلة (W)", values: ["6500", "7800", "10400", "13000", "15600"] },
+        { label: "تيار PV (A)", values: ["13+13", "13+13", "13+13", "26+13", "26+13"] },
+      ],
+    },
+    image: deyeLp3Image,
+    files: [{ kind: "Datasheet", label: "الكتالوج الرسمي", url: "https://deye.com/wp-content/uploads/2026/07/%E3%80%90b%E3%80%91datasheet_sun-5-12k-sg04lp3_20260706_en.pdf" }],
+  },
+  {
+    id: "deye-se-g5-1-pro-b",
+    category: "batteries",
+    brand: "Deye",
+    name: "بطارية Deye رفّية 5.12kWh",
+    model: "SE-G5.1 Pro-B",
+    power: "5.12 kWh",
+    description: "بطارية ليثيوم LiFePO4 بجهد 51.2V وسعة 100Ah، توسعة حتى 64 وحدة (327kWh).",
+    about:
+      "بطارية جهد منخفض من Deye بتصميم 19 إنش، تُركّب على رف أو جدار أو أرضية، مع BMS ذكي وقاطع مدمج، ومناسبة للمنازل والمنشآت التجارية الصغيرة.",
+    features: [
+      "كيمياء LiFePO4 خالية من الكوبالت",
+      "توسعة حتى 64 وحدة على التوازي (327kWh)",
+      "≥6000 دورة بعمق تفريغ 90%",
+      "قاطع مدمج 125A",
+      "تركيب رفّي أو جداري أو أرضي",
+      "تحديث عن بعد أو عبر USB",
+    ],
+    uses: ["المنازل", "المحلات والمكاتب", "المنشآت التجارية الصغيرة"],
+    suitableFor: "مناسبة لإنفرترات 48V، ويمكن توسعتها حسب الحاجة.",
+    specs: [
+      { title: "البطارية", rows: [["الكيمياء", "LiFePO4"], ["السعة", "100 Ah"], ["الجهد الاسمي", "51.2 V"], ["نطاق التشغيل", "43.2–57.6 V"], ["الطاقة", "5.12 kWh"], ["تيار الشحن/التفريغ", "50 موصى / 100 أقصى / 150 ذروة (2 دقيقة)"]] },
+      { title: "عام", rows: [["الأبعاد", "440 × 133 × 540 mm"], ["الوزن", "45 kg"], ["الحماية", "IP20"], ["حرارة التشغيل", "شحن 0–55 °C / تفريغ −20–55 °C"], ["الاتصال", "CAN2.0، RS485"], ["الضمان", "10 سنوات"]] },
+    ],
+    certificates: "UN38.3، IEC62619، CE، UK، VDE 2510-50، CEI 0-21، FCC، UL1973، UL9540A",
+    image: deyeSeG5Image,
+    files: [{ kind: "Datasheet", label: "الكتالوج الرسمي", url: "https://deye.com/wp-content/uploads/2026/01/deye-se-g5.1-pro-b-series_brochure-20260115v1.0.pdf" }],
+  },
+  {
+    id: "deye-rw-m6-1-b",
+    category: "batteries",
+    brand: "Deye",
+    name: "بطارية Deye جدارية 6.14kWh",
+    model: "RW-M6.1-B",
+    power: "6.14 kWh",
+    description: "بطارية جدارية LiFePO4 بجهد 51.2V وسعة 120Ah، حماية IP65، توسعة حتى 32 وحدة.",
+    about:
+      "بطارية جدارية مسطحة من Deye بحماية IP65، تُركّب على الجدار أو الأرض لتوفير المساحة، مع BMS ذكي وتوسعة حتى 196kWh.",
+    features: [
+      "كيمياء LiFePO4 خالية من الكوبالت",
+      "حماية IP65 وتبريد طبيعي",
+      "توسعة حتى 32 وحدة على التوازي (196kWh)",
+      "≥6000 دورة",
+      "تركيب جداري أو أرضي بتصميم مسطح",
+    ],
+    uses: ["المنازل والفلل", "المكاتب", "الأماكن ذات المساحة المحدودة"],
+    suitableFor: "مناسبة لإنفرترات 48V في المنازل والمحلات.",
+    specs: [
+      { title: "البطارية", rows: [["الكيمياء", "LiFePO4"], ["السعة", "120 Ah"], ["الجهد الاسمي", "51.2 V"], ["نطاق التشغيل", "43.2–57.6 V"], ["الطاقة", "6.14 kWh"], ["تيار الشحن/التفريغ", "60 موصى / 100 أقصى / 150 ذروة (2 دقيقة)"]] },
+      { title: "عام", rows: [["الأبعاد", "510 × 740 × 145 mm"], ["الوزن", "58 kg"], ["الحماية", "IP65"], ["الاتصال", "CAN2.0، RS485"], ["الضمان", "10 سنوات"]] },
+    ],
+    certificates: "UN38.3، IEC62619، CE، CEI 0-21، VDE2510-50",
+    image: deyeRwM6Image,
+    files: [{ kind: "Datasheet", label: "الكتالوج الرسمي", url: "https://deye.com/wp-content/uploads/2025/11/deye-rw-m6.1-b-series_brochure20251119au.pdf" }],
+  },
+  {
+    id: "deye-bos-g-pro",
+    category: "batteries",
+    brand: "Deye",
+    name: "بطارية Deye جهد عالٍ 25.6–81.9kWh",
+    model: "BOS-G-Pro",
+    power: "25.6 – 81.9 kWh",
+    description: "منظومة بطاريات جهد عالٍ من وحدات 5.12kWh، من 5 إلى 16 وحدة على التوالي.",
+    about:
+      "بطارية رفّية بجهد عالٍ من Deye للمنشآت التجارية الصغيرة، مكوّنة من وحدات LiFePO4 بقدرة 5.12kWh/51.2V/100Ah، تتوافق مع إنفرترات Deye ذات الجهد العالي.",
+    features: [
+      "وحدات LiFePO4 بقدرة 5.12kWh لكل وحدة",
+      "من 5 إلى 16 وحدة (256–819.2V)",
+      "≥6000 دورة",
+      "BMS ذكي بحماية كاملة",
+      "تحديث عن بعد أو عبر USB",
+    ],
+    uses: ["المنشآت التجارية الصغيرة", "المصانع والورش", "الفلل الكبيرة"],
+    suitableFor: "مناسبة لإنفرترات Deye ثلاثية الطور ذات الجهد العالي.",
+    specs: [
+      { title: "الوحدة", rows: [["الكيمياء", "LiFePO4"], ["طاقة الوحدة", "5.12 kWh"], ["جهد الوحدة", "51.2 V"], ["سعة الوحدة", "100 Ah"]] },
+      { title: "المنظومة", rows: [["عدد الوحدات", "5 – 16"], ["الجهد الاسمي", "256 – 819.2 V"], ["الطاقة", "25.6 – 81.92 kWh"], ["حرارة التشغيل", "−20 إلى 55 °C"], ["الضمان", "10 سنوات"]] },
+    ],
+    image: deyeBosImage,
+    files: [{ kind: "Datasheet", label: "الكتالوج الرسمي", url: "https://deye.com/wp-content/uploads/2026/01/deye-bos-g-pro-series_brochure-20260113au1.0.pdf" }],
   },
 
   // ───────────── الإنفرترات: Li-Power ─────────────
