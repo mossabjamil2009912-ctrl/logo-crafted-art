@@ -1612,7 +1612,7 @@ function QuoteWorkspace({ view, session, step, draft, setDraft, onPick, onBack, 
   const title = ecoScreen
     ? "دراسة الجدوى الاقتصادية والوفر البيئي"
     : sldScreen
-    ? "المخطط الكهربائي أحادي الخط (SLD)"
+    ? "المخطط التنفيذي (SLD)"
     : studyScreen
     ? "دراسة المحاكاة الشمسية PVsyst"
     : view.quote ? "عرض سعر رسمي" : hasOutputs ? view.heading : STEP_LABELS[step] || view.heading;
@@ -1719,7 +1719,7 @@ function QuoteWorkspace({ view, session, step, draft, setDraft, onPick, onBack, 
             {studyView && studyFresh && !showStudyOnly && <PvsystStudy study={studyView} />}
             {view.sld && (sldParams
               ? <SldDiagram params={sldParams} number={view.sld.number} />
-              : <DetailCard icon={<Network />} title="المخطط الكهربائي أحادي الخط (SLD)" number={view.sld.number} rows={view.sld.rows} />)}
+              : <DetailCard icon={<Network />} title="المخطط التنفيذي (SLD)" number={view.sld.number} rows={view.sld.rows} />)}
 
             {(() => {
               const visibleDocs = view.quote
