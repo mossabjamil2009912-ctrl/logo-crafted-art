@@ -1511,8 +1511,8 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     [125,6,2,1530,1101.00,[84,96,108,120,132,144],"6 × 250A + Main 1600A",90],
     [125,6,3,1734,1248.00,[96,108,120,132,144,156],"6 × 250A + Main 1600A",102],
     [125,6,4,1938,1395.00,[108,120,132,144,156,168],"6 × 250A + Main 1600A",114]
-  BIG_ROWS.forEach(function (r) { r[4] = Math.round(r[3] * PANEL_W / 10) / 100; });
   ];
+  BIG_ROWS.forEach(function (r) { r[4] = Math.round(r[3] * PANEL_W / 10) / 100; });
 
   var BIG_PRICE = {
     panel: 130, bat: 2000, batCtrl: 1500, batBox: 150,
