@@ -178,8 +178,15 @@
 
   body {
     background-color: var(--color-background);
+    background-image:
+      radial-gradient(60rem 40rem at 85% -10%, color-mix(in oklab, var(--primary) 22%, transparent), transparent 60%),
+      radial-gradient(50rem 35rem at -10% 110%, color-mix(in oklab, oklch(0.7 0.16 230) 16%, transparent), transparent 60%);
+    background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-app);
+  }
+  .bg-card {
+    backdrop-filter: blur(14px);
   }
 }
 
