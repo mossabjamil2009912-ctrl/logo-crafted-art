@@ -212,9 +212,9 @@ const NAME_STEPS = new Set(["quote_name", "com_quote_name", "ind_quote_name", "p
 
 const NAV_ITEMS = [
   { label: "الرئيسية", icon: Home, action: "home" },
-  { label: "طلب عرض سعر", icon: FileText, action: "quote" },
-  { label: "حلول أنظمة الطاقة", icon: Grid2X2, action: "energy" },
-  { label: "الدعم الفني", icon: Headphones, action: "support" },
+  { label: "صمّم منظومتك", icon: FileText, action: "quote" },
+  { label: "الدراسات الهندسية", icon: Grid2X2, action: "energy" },
+  { label: "خدماتنا واستشاراتنا", icon: Headphones, action: "support" },
 ] as const;
 
 function ActesApp() {
@@ -1424,10 +1424,10 @@ function HomeDashboard({ onService, onProducts }: { onService: (kind: "quote" | 
 
 
       <section className="stagger-in grid shrink-0 grid-cols-2 gap-2 sm:grid-cols-4 lg:gap-3">
-        <ServiceCard image={refCardQuote} icon={<FileText />} title="طلب عرض سعر" description="احصل على أفضل العروض والأسعار المناسبة لمشروعك." action="ابدأ الآن" tone="brand" onClick={() => onService("quote")} />
-        <ServiceCard image={refCardEnergy} icon={<Sun />} title="حلول أنظمة الطاقة" description="اكتشف حلولنا المتكاملة لأنظمة الشمسية للمنازل والمنشآت." action="حلول الطاقة" tone="energy" onClick={() => onService("energy")} />
-        <ServiceCard image={refCardSupport} icon={<Headphones />} title="الدعم الفني" description="فريقنا المتخصص جاهز لمساعدتك في أي استفسار أو مشكلة فنية." action="تواصل معنا" tone="skyline" onClick={() => onService("support")} />
-        <ServiceCard image={refCardProducts} icon={<Package />} title="تعرف على منتجاتنا" description="اكتشف منتجات ARSH SMART TECH، وتعرّف على مواصفاتها واستخداماتها واطلع على الكتالوجات والأدلة." action="استكشف المنتجات" tone="navy" onClick={onProducts} />
+        <ServiceCard image={refCardQuote} icon={<FileText />} title="صمّم منظومتك" description="احصل على أفضل العروض والأسعار المناسبة لمشروعك." action="انطلق للتكوين" tone="brand" onClick={() => onService("quote")} />
+        <ServiceCard image={refCardEnergy} icon={<Sun />} title="الدراسات الهندسية" description="اكتشف حلولنا المتكاملة لأنظمة الشمسية للمنازل والمنشآت." action="حلول الطاقة" tone="energy" onClick={() => onService("energy")} />
+        <ServiceCard image={refCardSupport} icon={<Headphones />} title="خدماتنا واستشاراتنا" description="فريقنا المتخصص جاهز لمساعدتك في أي استفسار أو مشكلة فنية." action="تواصل معنا" tone="skyline" onClick={() => onService("support")} />
+        <ServiceCard image={refCardProducts} icon={<Package />} title="الأجهزة والمنتجات" description="اكتشف منتجات ARSH SMART TECH، وتعرّف على مواصفاتها واستخداماتها واطلع على الكتالوجات والأدلة." action="استكشف المنتجات" tone="navy" onClick={onProducts} />
       </section>
 
       <footer className="shrink-0 rounded-xl bg-navy px-3 py-2.5 text-center text-[11px] font-bold text-skyline-foreground lg:hidden">
@@ -1612,7 +1612,7 @@ function QuoteWorkspace({ view, session, step, draft, setDraft, onPick, onBack, 
   const title = ecoScreen
     ? "دراسة الجدوى الاقتصادية والوفر البيئي"
     : sldScreen
-    ? "المخطط الكهربائي أحادي الخط (SLD)"
+    ? "المخطط التنفيذي (SLD)"
     : studyScreen
     ? "دراسة المحاكاة الشمسية PVsyst"
     : view.quote ? "عرض سعر رسمي" : hasOutputs ? view.heading : STEP_LABELS[step] || view.heading;
@@ -1719,7 +1719,7 @@ function QuoteWorkspace({ view, session, step, draft, setDraft, onPick, onBack, 
             {studyView && studyFresh && !showStudyOnly && <PvsystStudy study={studyView} />}
             {view.sld && (sldParams
               ? <SldDiagram params={sldParams} number={view.sld.number} />
-              : <DetailCard icon={<Network />} title="المخطط الكهربائي أحادي الخط (SLD)" number={view.sld.number} rows={view.sld.rows} />)}
+              : <DetailCard icon={<Network />} title="المخطط التنفيذي (SLD)" number={view.sld.number} rows={view.sld.rows} />)}
 
             {(() => {
               const visibleDocs = view.quote
@@ -1933,7 +1933,7 @@ function OptionGrid({ options, selected, projectCards = false, energyCards = fal
       if (/سكن/.test(title)) return { image: residentialImage, icon: House, subtitle: "للمنازل والفلل" };
       if (/تجار/.test(title)) return { image: commercialImage, icon: Building2, subtitle: "للمشاريع التجارية والمنشآت" };
       if (/زراع/.test(title)) return { image: agricultureImage, icon: Sun, subtitle: "للمزارع وأنظمة الري" };
-      if (/صنف|Item/.test(title)) return { image: itemRequestImage, icon: Zap, subtitle: "ألواح، إنفرترات، بطاريات" };
+      if (/صنف|معدات|Item/.test(title)) return { image: itemRequestImage, icon: Zap, subtitle: "ألواح، إنفرترات، بطاريات" };
       return { image: industrialImage, icon: Zap, subtitle: "للمشاريع الصناعية والمنشآت الكبرى" };
     };
     return (

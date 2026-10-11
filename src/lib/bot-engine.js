@@ -3452,7 +3452,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     if (st === 'welcome_services') { return goWelcome(); }
     if (st === 'energy_menu') { return energyWelcome(); }
     if (st === 'quote_menu') { return W(' طلب عرض سعر\n' + SEP + '\nاختر نوع طلبك\n\n1 — السكني والتجاري والصناعي\n2 — طلب صنف محدد\n' + SEP); }
-    if (st === 'menu_sys3') { return W(' اختر نوع المنظومة\n' + SEP + '\n1 - النظام السكني\n2 - النظام التجاري\n4 - النظام الصناعي\n3 - النظام الزراعي'); }
+    if (st === 'menu_sys3') { return W(' اختر نوع المنظومة\n' + SEP + '\n1 - منظومات المنازل والفلل\n2 - حلول المتاجر والشركات\n4 - محطات المصانع والمنشآت\n3 - طاقة الآبار والري الزراعي'); }
     if (st === 'menu_res_com' || st === 'menu_ind_agr') { return W('اختر نوع النظام:'); }
     if (st === 'res_bill') { return resMethodAsk(); }
     if (st === 'res_value') { return resValueAsk(res_method || '1'); }
@@ -3553,7 +3553,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     if (st === 'welcome_services') { return goWelcome(); }
     if (st === 'energy_menu') { return energyWelcome(); }
     if (st === 'quote_menu') { return W(' طلب عرض سعر\n' + SEP + '\nاختر نوع طلبك\n\n1 — السكني والتجاري والصناعي\n2 — طلب صنف محدد\n' + SEP); }
-    if (st === 'menu_sys3') { return W(' اختر نوع المنظومة\n' + SEP + '\n1 - النظام السكني\n2 - النظام التجاري\n4 - النظام الصناعي\n3 - النظام الزراعي'); }
+    if (st === 'menu_sys3') { return W(' اختر نوع المنظومة\n' + SEP + '\n1 - منظومات المنازل والفلل\n2 - حلول المتاجر والشركات\n4 - محطات المصانع والمنشآت\n3 - طاقة الآبار والري الزراعي'); }
     if (st === 'menu_res_com' || st === 'menu_ind_agr') { return W('اختر نوع النظام:'); }
     if (st === 'res_bill') { return resMethodAsk(); }
     if (st === 'res_value') { return resValueAsk(res_method || '1'); }
@@ -3655,7 +3655,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
   } else if (step === 'welcome_services') {
     if (text === 'quote_start' || text === '1') {
       step = 'menu_sys3';
-      response = W(' اختر نوع المنظومة\n' + SEP + '\n1 - النظام السكني\n2 - النظام التجاري\n4 - النظام الصناعي\n3 - النظام الزراعي\n5 - طلب صنف محدد');
+      response = W(' اختر نوع المنظومة\n' + SEP + '\n1 - منظومات المنازل والفلل\n2 - حلول المتاجر والشركات\n4 - محطات المصانع والمنشآت\n3 - طاقة الآبار والري الزراعي\n5 - تجهيز معدات فردية');
     } else if (text === 'renewable_solutions') {
       lang = 'ar';
       menu_choice = '7'; main_loads = ''; city = ''; pvSave({ l: [], c: '', m: '' });
@@ -3709,12 +3709,12 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
       response = ecoHoursMsg(step === 'eco_diesel_hours' ? 'diesel' : 'loads');
     }
   } else if (step === 'quote_menu') {
-    if (text === '1') { step = 'menu_sys3'; response = W(' اختر نوع المنظومة\n' + SEP + '\n1 - النظام السكني\n2 - النظام التجاري\n4 - النظام الصناعي\n3 - النظام الزراعي'); }
+    if (text === '1') { step = 'menu_sys3'; response = W(' اختر نوع المنظومة\n' + SEP + '\n1 - منظومات المنازل والفلل\n2 - حلول المتاجر والشركات\n4 - محطات المصانع والمنشآت\n3 - طاقة الآبار والري الزراعي'); }
     else if (text === '2' || text === 'item_request' || text === '3') { step = 'item_menu'; response = itemMenuMsg(); }
     else { response = noOpt(W(' طلب عرض سعر\n' + SEP + '\nاختر نوع طلبك\n\n1 — السكني والتجاري والصناعي\n2 — طلب صنف محدد\n' + SEP)); }
 
   } else if (step === 'main_menu') {
-    if (text === '1') { step = 'menu_sys3'; response = W(' اختر نوع المنظومة\n' + SEP + '\n1 - النظام السكني\n2 - النظام التجاري\n4 - النظام الصناعي\n3 - النظام الزراعي'); }
+    if (text === '1') { step = 'menu_sys3'; response = W(' اختر نوع المنظومة\n' + SEP + '\n1 - منظومات المنازل والفلل\n2 - حلول المتاجر والشركات\n4 - محطات المصانع والمنشآت\n3 - طاقة الآبار والري الزراعي'); }
     else if (text === '2' || text === 'pv_study') { menu_choice = '7'; main_loads = ''; city = ''; pvSave({ l: [], c: '', m: '' }); step = 'pv_loads'; response = loadsTableMsg(); }
     else if (text === '3' || text === 'item_request') { step = 'item_menu'; response = itemMenuMsg(); }
     else if (text === 'team' || text === 'فريق عرش التقنية الذكية') { menu_choice = '5'; step = 'sup_name'; response = ' الدعم الفني وخدمات ما بعد البيع\n' + SEP + '\nيرجى إدخال اسم العميل. إذا كان الاسم المسجل في طلبك السابق صحيحاً، يمكنك اختياره من الزر أدناه:_'; }
@@ -3726,7 +3726,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     else if (text === '3') { menu_choice = '4'; agrInit(); step = 'agr_pump_type'; response = agrPumpTypeAsk(); }
     else if (text === '4') { menu_choice = '3'; indInit(customer_name || ''); step = 'ind_shifts'; response = indShiftsAsk(); }
     else if (text === '5' || text === 'item_request') { step = 'item_menu'; response = itemMenuMsg(); }
-    else { response = noOpt(W(' اختر نوع المنظومة\n' + SEP + '\n1 - النظام السكني\n2 - النظام التجاري\n4 - النظام الصناعي\n3 - النظام الزراعي')); }
+    else { response = noOpt(W(' اختر نوع المنظومة\n' + SEP + '\n1 - منظومات المنازل والفلل\n2 - حلول المتاجر والشركات\n4 - محطات المصانع والمنشآت\n3 - طاقة الآبار والري الزراعي')); }
 
 
   } else if (step === 'pv_loads') {
@@ -4646,19 +4646,19 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     { id: '2', title: 'عبر دراسة PVsyst' }
   ];
   var SUB_SYS3_AR = [
-    { id: '1', title: 'النظام السكني' },
-    { id: '2', title: 'النظام التجاري' },
-    { id: '4', title: 'النظام الصناعي' },
-    { id: '3', title: 'النظام الزراعي' },
-    { id: '5', title: 'طلب صنف محدد' }
+    { id: '1', title: 'منظومات المنازل والفلل' },
+    { id: '2', title: 'حلول المتاجر والشركات' },
+    { id: '4', title: 'محطات المصانع والمنشآت' },
+    { id: '3', title: 'طاقة الآبار والري الزراعي' },
+    { id: '5', title: 'تجهيز معدات فردية' }
   ];
   var SUB_RES_COM_AR = [
-    { id: '1', title: 'النظام السكني' },
-    { id: '2', title: 'النظام التجاري' }
+    { id: '1', title: 'منظومات المنازل والفلل' },
+    { id: '2', title: 'حلول المتاجر والشركات' }
   ];
   var SUB_IND_AGR_AR = [
-    { id: '1', title: 'النظام الصناعي' },
-    { id: '2', title: 'النظام الزراعي' }
+    { id: '1', title: 'محطات المصانع والمنشآت' },
+    { id: '2', title: 'طاقة الآبار والري الزراعي' }
   ];
   var MENU_BTNS_EN = [
     { id: '1', title: 'Res / Com / Ind' },
@@ -4746,7 +4746,7 @@ export function runStateMachine(__session, __parsed, __itemPrices) {
     if (st === 'quote_menu') {
       return { kind: 'buttons', buttons: [
         { id: '1', title: 'منظومة متكاملة' },
-        { id: '2', title: 'طلب صنف محدد' }
+        { id: '2', title: 'تجهيز معدات فردية' }
       ] };
     }
     if (st === 'main_menu') {
