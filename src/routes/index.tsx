@@ -1440,47 +1440,36 @@ function HomeDashboard({ onService, onProducts }: { onService: (kind: "quote" | 
 }
 
 const PARTNER_LINKS = [
-  { name: "Li-Power", url: "/lipower", from: 100, to: 245 },
-  { name: "PYLONTECH", url: "/pylontech", from: 270, to: 468 },
-  { name: "SUNTECH", url: "/suntech", from: 492, to: 686 },
-  { name: "HiTHIUM", url: "/hithium", from: 716, to: 886 },
-  { name: "sunways", url: "https://www.sunways-tech.com", from: 918, to: 1110 },
+  { name: "Deye", url: "https://www.deyeinverter.com", logo: "/brand/makers/deye.png", sub: "Inverters & ESS" },
+  { name: "JinkoSolar", url: "https://www.jinkosolar.com", logo: "", sub: "Solar Panels" },
+  { name: "Felicity Solar", url: "https://www.felicitysolar.com", logo: "", sub: "Inverters & Batteries" },
 ];
 
 function PartnersStrip() {
-  const trackRef = useRef<HTMLDivElement>(null);
   return (
     <section
       aria-label="وكلاء وشركاء ARSH SMART TECH"
       className="shrink-0 overflow-hidden rounded-2xl border border-border bg-card shadow-sm"
     >
-      <div className="flex items-stretch">
-
-        <div ref={trackRef} className="min-w-0 flex-1 px-1 py-1">
-          <div className="relative w-full">
-            <img
-              src={partnersStrip}
-              alt="وكلاء ARSH SMART TECH: Li Power، PYLONTECH، SUNTECH، HTHIUM، sunways"
-              loading="eager"
-              decoding="sync"
-              fetchPriority="high"
-              className="block h-auto w-full"
-            />
-            {PARTNER_LINKS.map((p) => (
-              <a
-                key={p.name}
-                href={p.url}
-                target={p.url.startsWith("/") ? undefined : "_blank"}
-                rel="noopener noreferrer"
-                aria-label={`موقع ${p.name} الرسمي`}
-                title={p.name}
-                className="absolute inset-y-0 rounded-lg transition hover:bg-navy/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold"
-                style={{ left: `${(p.from / 1200) * 100}%`, width: `${((p.to - p.from) / 1200) * 100}%` }}
-              />
-            ))}
-          </div>
-        </div>
-
+      <div className="grid grid-cols-3 divide-x divide-border" dir="ltr">
+        {PARTNER_LINKS.map((p) => (
+          <a
+            key={p.name}
+            href={p.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`موقع ${p.name} الرسمي`}
+            title={p.name}
+            className="flex flex-col items-center justify-center gap-0.5 px-2 py-2.5 transition hover:bg-muted"
+          >
+            {p.logo ? (
+              <img src={p.logo} alt={p.name} loading="eager" className="h-6 w-auto object-contain sm:h-8" />
+            ) : (
+              <span className="text-base font-black tracking-tight text-foreground sm:text-xl">{p.name}</span>
+            )}
+            <span className="text-[10px] text-muted-foreground sm:text-xs">{p.sub}</span>
+          </a>
+        ))}
       </div>
     </section>
   );
