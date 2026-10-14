@@ -1929,8 +1929,8 @@ function OptionGrid({ options, selected, projectCards = false, energyCards = fal
   if (projectCards) {
 
     const projectVisual = (title: string) => {
-      if (/سكن/.test(title)) return { image: residentialImage, icon: House, subtitle: "للمنازل والفلل" };
-      if (/تجار/.test(title)) return { image: commercialImage, icon: Building2, subtitle: "للمشاريع التجارية والمنشآت" };
+      if (/سكن|منازل|فلل/.test(title)) return { image: residentialImage, icon: House, subtitle: "للمنازل والفلل" };
+      if (/تجار|متاجر|شركات/.test(title)) return { image: commercialImage, icon: Building2, subtitle: "للمتاجر والمكاتب والشركات" };
       if (/زراع/.test(title)) return { image: agricultureImage, icon: Sun, subtitle: "للمزارع وأنظمة الري" };
       if (/صنف|معدات|Item/.test(title)) return { image: itemRequestImage, icon: Zap, subtitle: "ألواح، إنفرترات، بطاريات" };
       return { image: industrialImage, icon: Zap, subtitle: "للمشاريع الصناعية والمنشآت الكبرى" };
