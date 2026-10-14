@@ -1252,8 +1252,8 @@ function TopBar({ isAdmin, clientName = "", onExitAdmin, onSettings, onExit }: {
       <div className="flex min-w-0 items-center gap-2">
         <img src={appIcon} alt="ARSH ENGINEERING" className="size-12 shrink-0 rounded-2xl object-cover shadow-md ring-1 ring-primary/40" />
         <div className="min-w-0 leading-tight">
-          <p className="whitespace-nowrap text-[15px] font-black text-navy sm:text-[17px]">عرش الهندسة للحلول التقنية الذكية</p>
-          <p className="whitespace-nowrap text-[10px] font-black tracking-[0.18em] text-primary sm:text-[11px]" dir="ltr">ARSH ENGINEERING</p>
+          <p className="whitespace-nowrap text-[15px] font-black text-navy sm:text-[17px]">عرش الهندسة</p>
+          <p className="whitespace-nowrap text-[10px] font-black text-primary sm:text-[11px]">للحلول التقنية الذكية</p>
           <p className="truncate text-[10px] font-semibold text-muted-foreground">مرحباً، <span className="font-black text-navy">{isAdmin ? "الإدارة" : clientName || "عميل"}</span></p>
         </div>
         {isAdmin && (
