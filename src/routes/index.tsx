@@ -85,6 +85,7 @@ import refCardProducts from "@/assets/card-products.webp";
 import ProductsCatalog from "@/components/products-catalog";
 
 import appIcon from "@/assets/arsh-app-icon.webp";
+import logoMark from "@/assets/arsh-logo-mark.webp";
 import actesMark from "@/assets/actes-a-mark.webp";
 import actesWordmark from "@/assets/actes-logo-full.webp";
 
@@ -1250,7 +1251,7 @@ function TopBar({ isAdmin, clientName = "", onExitAdmin, onSettings, onExit }: {
     <header className="relative grid h-[84px] shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center border-b border-border bg-background px-2 text-navy shadow-[var(--shadow-soft)] sm:h-[92px] sm:px-4 [&_button]:!text-navy [&_svg]:!text-navy">
       <span aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-[3px] bg-gradient-to-l from-navy via-primary to-navy" />
       <div className="flex min-w-0 items-center gap-2">
-        <img src={appIcon} alt="ARSH ENGINEERING" className="size-[68px] shrink-0 rounded-2xl object-cover shadow-md ring-1 ring-primary/40 sm:size-[76px]" />
+        <img src={logoMark} alt="ARSH ENGINEERING" className="h-[74px] w-auto shrink-0 object-contain drop-shadow-md sm:h-[84px]" />
         <div className="min-w-0 leading-tight">
           <p className="whitespace-nowrap text-[15px] font-black text-navy sm:text-[17px]">عرش الهندسة</p>
           <p className="whitespace-nowrap text-[10px] font-black text-primary sm:text-[11px]">للحلول التقنية الذكية</p>
