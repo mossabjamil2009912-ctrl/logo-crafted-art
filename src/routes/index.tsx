@@ -934,7 +934,7 @@ function StartScreen({ clientName, onStart }: { clientName: string; onStart: () 
 
       <div className="relative z-10 grid h-full place-items-center overflow-y-auto px-6 py-10">
         <div className="flex w-full max-w-lg flex-col items-center text-center">
-          <img src={actesSplashLogo} alt="ARSH ENGINEERING — عرش الهندسة للحلول التقنية الذكية" className="h-20 w-auto object-contain lg:h-28" />
+          <img src={actesSplashLogo} alt="ARSH ENGINEERING — عرش الهندسة للحلول التقنية الذكية" className="h-36 w-auto object-contain lg:h-44" />
           <p className="mt-5 text-[11px] font-black tracking-[0.34em] text-white lg:text-xs lg:tracking-[0.42em]" dir="ltr">ARSH ENGINEERING</p>
           <h1 className="mt-3 text-2xl font-black leading-tight lg:text-4xl">
             {clientName ? `مرحباً بك، ${clientName}` : "مرحباً بك في نظام عرش الهندسة للحلول التقنية الذكية"}
