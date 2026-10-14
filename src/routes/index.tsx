@@ -1239,8 +1239,9 @@ function BrandLockup() {
 
 function BrandMark({ compact = false, className, white = false }: { inverse?: boolean; compact?: boolean; className?: string; white?: boolean }) {
   return (
-    <div className="flex items-center" aria-label="ARSH ENGINEERING">
+    <div className="flex flex-col items-center" aria-label="ARSH ENGINEERING">
       <img src={white ? actesLogoWhite : actesLogo} alt="ARSH ENGINEERING — عرش الهندسة للحلول التقنية الذكية" className={className ?? (compact ? "h-12 w-auto" : "h-16 w-auto")} />
+      <span className="mt-1 whitespace-nowrap text-[11px] font-bold text-primary">للحلول التقنية الذكية</span>
     </div>
   );
 }
