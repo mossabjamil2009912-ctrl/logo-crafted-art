@@ -67,9 +67,9 @@ const C = {
 /** لوحان لونيان: الورقي القياسي للطباعة، والهندسي الأزرق للشاشة. */
 const THEMES = {
   paper: {
-    "--sld-dc": "#b4231f",
+    "--sld-dc": "#8A6A28",
     "--sld-dcn": "#1b1b1b",
-    "--sld-ac": "#0f3f9e",
+    "--sld-ac": "#9C7A2E",
     "--sld-earth": "#1a8a2a",
     "--sld-comm": "#7a3bbf",
     "--sld-ink": "#111111",
@@ -77,23 +77,23 @@ const THEMES = {
     "--sld-soft": "#6b7280",
     "--sld-fill": "#ffffff",
     "--sld-band": "#eef2f7",
-    "--sld-brand": "#3B5BFF",
+    "--sld-brand": "#C9A24A",
     "--sld-ok": "#167544",
     "--sld-ok-bg": "#e9f8ef",
-    "--sld-warn": "#b4231f",
+    "--sld-warn": "#8A6A28",
     "--sld-warn-bg": "#fff0ee",
   },
   blueprint: {
     "--sld-dc": "#ff9a93",
-    "--sld-dcn": "#dbe7ff",
+    "--sld-dcn": "#EFE3C4",
     "--sld-ac": "#8ec0ff",
     "--sld-earth": "#7ce58e",
     "--sld-comm": "#d0a6ff",
-    "--sld-ink": "#eaf2ff",
+    "--sld-ink": "#F7F1E3",
     "--sld-frame": "#9fc4ff",
     "--sld-soft": "#a7bfdd",
-    "--sld-fill": "#0b2545",
-    "--sld-band": "#14355f",
+    "--sld-fill": "#1a1712",
+    "--sld-band": "#2a2418",
     "--sld-brand": "#ff8078",
     "--sld-ok": "#7ce5a7",
     "--sld-ok-bg": "#123f38",
@@ -2006,7 +2006,7 @@ export default function SldDiagram({ params, number, actions }: Props) {
     const src = boxRef.current?.querySelector("svg");
     if (!src) return;
     setSaving(true);
-    const bgColor = theme === "paper" ? "#ffffff" : "#0b2545";
+    const bgColor = theme === "paper" ? "#ffffff" : "#1a1712";
     const clone = src.cloneNode(true) as SVGSVGElement;
     const vb = (clone.getAttribute("viewBox") || "0 0 1560 520").split(/\s+/).map(Number);
     const vw = vb[2] || 1560;
@@ -2214,7 +2214,7 @@ export default function SldDiagram({ params, number, actions }: Props) {
       onPointerCancel={onUp}
       style={{
         cursor: "grab",
-        background: theme === "paper" ? "#ffffff" : "#0b2545",
+        background: theme === "paper" ? "#ffffff" : "#1a1712",
         ...(full || !fitH ? {} : { height: fitH }),
       }}
 
