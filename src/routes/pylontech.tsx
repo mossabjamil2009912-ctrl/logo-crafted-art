@@ -14,8 +14,8 @@ import resBess from "@/assets/pylon/residential-bess.jpg";
 export const Route = createFileRoute("/pylontech")({
   head: () => ({
     meta: [
-      { title: "بايلونتك العالمية — أنظمة تخزين الطاقة بالبطاريات | ARSH SMART TECH" },
-      { name: "description", content: "بايلونتك: المورّد الرائد عالمياً لأنظمة تخزين الطاقة بالبطاريات للمنازل والمرافق والقطاع التجاري والصناعي — بالعربية عبر ARSH SMART TECH." },
+      { title: "بايلونتك العالمية — أنظمة تخزين الطاقة بالبطاريات | ARSH ENGINEERING" },
+      { name: "description", content: "بايلونتك: المورّد الرائد عالمياً لأنظمة تخزين الطاقة بالبطاريات للمنازل والمرافق والقطاع التجاري والصناعي — بالعربية عبر ARSH ENGINEERING." },
       { property: "og:title", content: "بايلونتك العالمية — حرّر طاقتك بشكل مستدام" },
       { property: "og:description", content: "أنظمة تخزين الطاقة من بايلونتك للمنازل والمشاريع التجارية والصناعية والمرافق." },
       { property: "og:type", content: "website" },
@@ -58,7 +58,7 @@ const FOOTER = [
   { t: "الخدمة والدعم", l: ["كن شريكاً لنا", "مركز الخدمة", "تسجيل البطارية", "التحميلات"] },
   { t: "من نحن", l: ["نبذة عن الشركة", "ثقافة الشركة", "البحث والتطوير", "التصنيع", "الاستدامة"] },
   { t: "المركز الإعلامي", l: ["الأخبار", "المعارض", "الندوات الإلكترونية", "أخبار Voltdeer"] },
-  { t: "اتصل بنا", l: ["تواصل معنا", "انضم إلينا", "المبيعات: sales@pylontech.com.cn", "الخدمة: service@pylontech.com.cn", "ARSH SMART TECH — الوكيل المعتمد"] },
+  { t: "اتصل بنا", l: ["تواصل معنا", "انضم إلينا", "المبيعات: sales@pylontech.com.cn", "الخدمة: service@pylontech.com.cn", "ARSH ENGINEERING — الوكيل المعتمد"] },
 ];
 
 function PylontechPage() {
@@ -113,7 +113,7 @@ function PylontechPage() {
       <section id="solutions" className="scroll-mt-16 bg-muted/50 py-20">
         <div className="mx-auto max-w-7xl px-5">
           <h2 className="text-center text-3xl font-bold sm:text-4xl">المنتجات والحلول</h2>
-          <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-muted-foreground">حلول بايلونتك المتوفرة لدى عرش التقنية الذكية — اضغط على أي حل لعرض منتجاته والتكامل الهندسي والكتالوجات</p>
+          <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-muted-foreground">حلول بايلونتك المتوفرة لدى عرش الهندسة للحلول التقنية الذكية — اضغط على أي حل لعرض منتجاته والتكامل الهندسي والكتالوجات</p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {PYLON_SOLUTIONS.map((x) => (
               <button key={x.id} onClick={() => setSol(x.id)} className="group relative block h-[340px] overflow-hidden rounded-2xl text-right">
@@ -195,8 +195,8 @@ function PylontechPage() {
         <div className="border-t border-background/15">
           <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-6 text-sm opacity-80">
             <div className="flex items-center gap-3">
-              <span className="rounded-lg bg-background p-1.5"><img src={actesLogo} alt="ARSH SMART TECH" className="h-8 w-auto" /></span>
-              <span>ARSH SMART TECH — الوكيل المعتمد لمنتجات بايلونتك</span>
+              <span className="rounded-lg bg-background p-1.5"><img src={actesLogo} alt="ARSH ENGINEERING" className="h-8 w-auto" /></span>
+              <span>ARSH ENGINEERING — الوكيل المعتمد لمنتجات بايلونتك</span>
             </div>
             <span>© Pylon Technologies Co., Ltd.</span>
           </div>

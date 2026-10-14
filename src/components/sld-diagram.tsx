@@ -2337,9 +2337,9 @@ export default function SldDiagram({ params, number, actions }: Props) {
           ))}
         </div>
         <div className="flex items-center justify-between gap-3 border-t border-border bg-muted/40 px-2.5 py-2">
-          <img src={logoAsset.url} alt="ARSH SMART TECH" className="h-8 w-auto" />
+          <img src={logoAsset.url} alt="ARSH ENGINEERING" className="h-8 w-auto" />
           <p className="text-[9px] font-bold text-muted-foreground">
-            ARSH SMART TECH &amp; SOLUTIONS — SINGLE LINE DIAGRAM — REV 01
+            ARSH ENGINEERING &amp; SOLUTIONS — SINGLE LINE DIAGRAM — REV 01
           </p>
         </div>
       </div>

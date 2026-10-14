@@ -117,7 +117,7 @@ const DOC_NO = `ACT-FS-${new Date().getFullYear()}-${String(new Date().getMonth(
 const Page = ({ n, children }: { n: number; children: React.ReactNode }) => (
   <div className="report-page flex flex-col rounded-xl border shadow-sm sm:min-h-[1123px]" style={{ background: R.paper, borderColor: R.line, breakAfter: n < TOTAL ? "page" : "auto" }}>
     <div className="flex items-center justify-between gap-3 border-b bg-white px-4 py-3 sm:px-6" style={{ borderColor: R.line }}>
-      <div className="flex items-center gap-3"><img src={LOGO} alt="ARSH SMART TECH" className="h-14 w-auto object-contain" /><span dir="ltr" className="hidden text-[11px] font-black tracking-wide sm:inline" style={{ color: "#4b5563" }}>ENERGY SYSTEMS & SOLUTIONS</span></div>
+      <div className="flex items-center gap-3"><img src={LOGO} alt="ARSH ENGINEERING" className="h-14 w-auto object-contain" /><span dir="ltr" className="hidden text-[11px] font-black tracking-wide sm:inline" style={{ color: "#4b5563" }}>ENERGY SYSTEMS & SOLUTIONS</span></div>
       <span className="rounded-md border bg-white px-3 py-1.5 text-[11px]" style={{ borderColor: R.line, color: "#4b5563" }}><i className="me-1.5 inline-block size-2 rounded-full" style={{ background: R.green }} />دراسة جدوى تنفيذية</span>
     </div>
     <div className="flex flex-1 flex-col gap-5 p-4 sm:p-5">{children}</div>
@@ -224,7 +224,7 @@ export function EcoReport({ kw, price: price0, onBuy, onEdit, onSales, system, p
     const node = ref.current; if (!node || busy) return;
     setBusy(true);
     try {
-      const name = (project || "ARSH SMART TECH").replace(/[\\/:*?"<>|]+/g, " ").trim();
+      const name = (project || "ARSH ENGINEERING").replace(/[\\/:*?"<>|]+/g, " ").trim();
       const title = `دراسة_الجدوى_الاقتصادية-${name}${scenarioLabel ? `-${scenarioLabel}` : ""}`;
       const heads = Array.from(document.querySelectorAll('link[rel="stylesheet"], style')).map((n) => {
         if (n instanceof HTMLLinkElement) return `<link rel="stylesheet" href="${new URL(n.href, location.href).href}">`;
@@ -278,7 +278,7 @@ export function EcoReport({ kw, price: price0, onBuy, onEdit, onSales, system, p
             <div>
               <h2 className="text-2xl font-extrabold leading-snug sm:text-4xl" style={{ color: R.ink }}>{project || "منظومة الطاقة الشمسية والتخزين"}</h2>
               <p className="mt-2 text-2xl font-extrabold leading-snug sm:text-4xl" style={{ color: R.red }}>دراسة الجدوى الاقتصادية</p>
-              <p className="mt-4 text-sm" style={{ color: R.sub }}>دراسة فنية ومالية تنفيذية مقدمة من ARSH SMART TECH • إصدار {new Date().getFullYear()}</p>
+              <p className="mt-4 text-sm" style={{ color: R.sub }}>دراسة فنية ومالية تنفيذية مقدمة من ARSH ENGINEERING • إصدار {new Date().getFullYear()}</p>
             </div>
             <div className="rounded-xl border bg-white p-5 shadow-md lg:order-first" style={{ borderColor: R.line, borderTop: `5px solid ${R.red}` }}>
               <p className="text-[13px] font-semibold" style={{ color: "#1f2937" }}>ملخص الاستثمار</p>
@@ -515,8 +515,8 @@ export function EcoReport({ kw, price: price0, onBuy, onEdit, onSales, system, p
         </Sec>
         </div>
         <footer className="flex flex-wrap items-center justify-between gap-3 rounded-xl px-5 py-4" style={{ background: R.ink }}>
-          <div className="flex items-center gap-3"><span className="rounded bg-white px-2 py-1"><img src={LOGO} alt="ARSH SMART TECH" className="h-12 w-auto" /></span><b dir="ltr" className="text-sm" style={{ color: "#fff" }}>ARSH SMART TECH Energy Systems & Solutions</b></div>
-          <span className="text-[12px]" style={{ color: "#9ca3af" }}>من إعداد شركة عرش التقنية الذكية</span>
+          <div className="flex items-center gap-3"><span className="rounded bg-white px-2 py-1"><img src={LOGO} alt="ARSH ENGINEERING" className="h-12 w-auto" /></span><b dir="ltr" className="text-sm" style={{ color: "#fff" }}>ARSH ENGINEERING Energy Systems & Solutions</b></div>
+          <span className="text-[12px]" style={{ color: "#9ca3af" }}>من إعداد شركة عرش الهندسة للحلول التقنية الذكية</span>
         </footer>
         </Page>
       </div>
@@ -525,7 +525,7 @@ export function EcoReport({ kw, price: price0, onBuy, onEdit, onSales, system, p
         <button type="button" onClick={() => void download()} disabled={busy} className="inline-flex items-center gap-2 rounded-md bg-navy px-5 py-3 text-sm font-black text-primary-foreground disabled:opacity-60"><Download className="size-4" /> {busy ? "جارٍ التجهيز..." : "حفظ التقرير PDF (عالي الدقة)"}</button>
         {onBuy && <button type="button" onClick={onBuy} className="inline-flex items-center gap-2 rounded-md border border-border bg-card text-foreground hover:border-energy px-5 py-3 text-sm font-black transition"><ShoppingCart className="size-4 text-energy" />متابعة الشراء</button>}
         {onEdit && <button type="button" onClick={onEdit} className="rounded-md border border-border px-4 py-2 text-xs font-bold">رجوع</button>}
-        {onSales && <button type="button" onClick={onSales} className="rounded-md border border-border px-4 py-2 text-xs font-bold">تواصل مع فريق عرش التقنية الذكية</button>}
+        {onSales && <button type="button" onClick={onSales} className="rounded-md border border-border px-4 py-2 text-xs font-bold">تواصل مع فريق عرش الهندسة للحلول التقنية الذكية</button>}
       </div>}
     </div>
   );

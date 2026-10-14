@@ -3,12 +3,12 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/downloads")({
   head: () => ({
     meta: [
-      { title: "تحميل تطبيق ARSH SMART TECH لويندوز" },
+      { title: "تحميل تطبيق ARSH ENGINEERING لويندوز" },
       {
         name: "description",
-        content: "تحميل تطبيق ARSH SMART TECH Desktop الخفيف لنظام ويندوز — أقل من 2 ميغابايت.",
+        content: "تحميل تطبيق ARSH ENGINEERING Desktop الخفيف لنظام ويندوز — أقل من 2 ميغابايت.",
       },
-      { property: "og:title", content: "تحميل تطبيق ARSH SMART TECH لويندوز" },
+      { property: "og:title", content: "تحميل تطبيق ARSH ENGINEERING لويندوز" },
       {
         property: "og:description",
         content: "تطبيق سطح مكتب خفيف لويندوز 10 و11 بحجم أقل من 2 ميغابايت.",
@@ -28,9 +28,9 @@ function DownloadsPage() {
     >
       <div className="w-full max-w-xl bg-card border border-border rounded-3xl p-8 sm:p-10 shadow-lg">
         <div className="flex items-center gap-4 mb-6">
-          <img src="/brand/app-icon.png" alt="ARSH SMART TECH" className="w-16 h-16 rounded-2xl" />
+          <img src="/brand/app-icon.png" alt="ARSH ENGINEERING" className="w-16 h-16 rounded-2xl" />
           <div>
-            <h1 className="text-2xl font-bold">تطبيق ARSH SMART TECH لويندوز</h1>
+            <h1 className="text-2xl font-bold">تطبيق ARSH ENGINEERING لويندوز</h1>
             <p className="text-sm text-muted-foreground mt-1">نسخة سطح المكتب — 64 بت</p>
           </div>
         </div>

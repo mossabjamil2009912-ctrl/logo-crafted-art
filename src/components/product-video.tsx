@@ -5,7 +5,7 @@ import { videoNarration } from "@/lib/product-video";
 import { isVoiceOn, speak, stopSpeaking, unlockVoice } from "@/lib/voice-guide";
 import { useResolvedVideoSrc } from "@/lib/video-source";
 
-/** مشغّل فيديو تعريف المنتج — فيديو حقيقي داخل معرض ARSH SMART TECH مع تعليق صوتي عربي وبطاقات مواصفات متزامنة. */
+/** مشغّل فيديو تعريف المنتج — فيديو حقيقي داخل معرض ARSH ENGINEERING مع تعليق صوتي عربي وبطاقات مواصفات متزامنة. */
 export default function ProductVideoPlayer({
   video,
   title,
@@ -143,7 +143,7 @@ export default function ProductVideoPlayer({
 
         {/* هوية المعرض */}
         <div className="pointer-events-none absolute right-3 top-3 rounded-full bg-navy/70 px-3 py-1 text-[10px] font-black tracking-wide text-skyline-foreground backdrop-blur">
-          معرض ARSH SMART TECH
+          معرض ARSH ENGINEERING
         </div>
 
 

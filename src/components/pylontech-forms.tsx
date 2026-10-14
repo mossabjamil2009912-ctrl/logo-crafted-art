@@ -39,7 +39,7 @@ export function ServicePanel() {
     <div className="grid gap-5 md:grid-cols-2">
       <div>
         <p className="mb-2 flex items-center gap-1 text-sm font-semibold text-[#00a5b0]"><Headphones className="h-4 w-4" />مركز الخدمة Service Center</p>
-        <p className="text-xs leading-6 text-muted-foreground">افتح طلب دعم فني أو صيانة أو ضمان لدى فريق خدمة بايلونتك، أو تواصل مع فريق ARSH SMART TECH المحلي.</p>
+        <p className="text-xs leading-6 text-muted-foreground">افتح طلب دعم فني أو صيانة أو ضمان لدى فريق خدمة بايلونتك، أو تواصل مع فريق ARSH ENGINEERING المحلي.</p>
         <a href="https://pylontechsupport.zendesk.com/hc/en-us/requests/new" target="_blank" rel="noreferrer" className="mt-2 flex items-center gap-1 text-sm text-primary hover:underline"><ExternalLink className="h-3.5 w-3.5" />فتح تذكرة دعم فني</a>
         <a href="mailto:service@pylontech.com.cn" className="mt-1 flex items-center gap-1 text-sm hover:text-primary" dir="ltr"><Mail className="h-3.5 w-3.5" />service@pylontech.com.cn</a>
       </div>

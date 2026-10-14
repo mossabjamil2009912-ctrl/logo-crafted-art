@@ -77,13 +77,13 @@ const PREVIEW_IDS: Partial<Record<ProductCategory, string[]>> = {};
 function CategoriesScreen({ onPick, onBack }: { onPick: (c: ProductCategory | "all") => void; onBack: () => void }) {
   useScreenVoice(
     "catalog-home",
-    "قسم منتجات عرش التقنية الذكية. اختر الفئة التي تريد استعراضها: الألواح الشمسية، أو الإنفرترات، أو بطاريات الليثيوم، أو أنظمة التخزين.",
+    "قسم منتجات عرش الهندسة للحلول التقنية الذكية. اختر الفئة التي تريد استعراضها: الألواح الشمسية، أو الإنفرترات، أو بطاريات الليثيوم، أو أنظمة التخزين.",
   );
   return (
     <div className="screen-enter w-full space-y-5 pb-4">
       <header className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <p className="text-[10px] font-black tracking-[0.3em] text-brand" dir="ltr">ARSH SMART TECH PRODUCTS</p>
+          <p className="text-[10px] font-black tracking-[0.3em] text-brand" dir="ltr">ARSH ENGINEERING PRODUCTS</p>
           <h1 className="mt-1 text-xl font-black text-navy lg:text-3xl">تعرّف على منتجاتنا</h1>
           <p className="mt-0.5 text-xs text-muted-foreground lg:text-sm">اختر الفئة لاستعراض الموديلات ومواصفاتها وملفاتها الرسمية.</p>
         </div>
@@ -275,7 +275,7 @@ function BrandBadge({ brand, large = false }: { brand: string; large?: boolean }
       <span className={`flex items-center font-black tracking-wide text-navy ${large ? "text-base" : "text-[10px]"}`}>
         {logo ? <img src={logo} alt={brandLabel(brand)} className={large ? "h-7 w-auto max-w-36" : "h-3.5 w-auto max-w-16"} /> : brandLabel(brand)}
       </span>
-      <img src="/brand/actes-logo-full.png" alt="ARSH SMART TECH" className={large ? "h-10 w-auto" : "h-4 w-auto"} />
+      <img src="/brand/actes-logo-full.png" alt="ARSH ENGINEERING" className={large ? "h-10 w-auto" : "h-4 w-auto"} />
     </span>
   );
 }
@@ -486,7 +486,7 @@ function ShareSheet({ product, onClose }: { product: Product; onClose: () => voi
 }
 
 function ProductDetail({ product, onOpen, onBack, backLabel }: { product: Product; onOpen: (id: string) => void; onBack: () => void; backLabel?: string | undefined }) {
-  // فيديو تعريفي حقيقي داخل معرض ARSH SMART TECH يبدأ أولاً (إن توفر لهذا الموديل)، ثم تظهر تفاصيل المنتج.
+  // فيديو تعريفي حقيقي داخل معرض ARSH ENGINEERING يبدأ أولاً (إن توفر لهذا الموديل)، ثم تظهر تفاصيل المنتج.
   const videoKey = product.baseId ?? product.id;
   const video = useMemo(() => getProductVideo(videoKey), [videoKey]);
   const [reelDone, setReelDone] = useState(!video);
@@ -611,7 +611,7 @@ function ProductDetail({ product, onOpen, onBack, backLabel }: { product: Produc
             </div>
             {linked.length > 0 && (
               <div className="mt-3">
-                <p className="mb-1.5 text-xs font-black text-navy">متوفر في كتالوج ARSH SMART TECH — اضغط للانتقال:</p>
+                <p className="mb-1.5 text-xs font-black text-navy">متوفر في كتالوج ARSH ENGINEERING — اضغط للانتقال:</p>
                 <div className="grid gap-2 sm:grid-cols-2">
                   {linked.map((lp) => (
                     <button key={lp.id} type="button" onClick={() => onOpen(lp.id)} className="flex items-center gap-2 rounded-xl border border-border bg-card p-2 text-right transition hover:-translate-y-0.5 hover:shadow-md">

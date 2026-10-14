@@ -145,7 +145,7 @@ export function buildSldDxf(m: SldModel, number?: string, calcs?: CableCalc[]): 
     text(b, "SLD-TITLEBLOCK", tbX + 2.5, y, 2.4, `${k}:`);
     text(b, "SLD-TITLEBLOCK", tbX + 34, y, 2.4, v);
   });
-  text(b, "SLD-TITLEBLOCK", tbX + 2.5, tbY + tbH + 4, 4.2, "ARSH SMART TECH & SOLUTIONS");
+  text(b, "SLD-TITLEBLOCK", tbX + 2.5, tbY + tbH + 4, 4.2, "ARSH ENGINEERING & SOLUTIONS");
   text(b, "SLD-TITLEBLOCK", tbX + 2.5, tbY + tbH + 10, 3, "SINGLE LINE DIAGRAM - REV 01");
 
   // ── مسار الطاقة الرئيسي ───────────────────────────────────────────────
