@@ -8,7 +8,16 @@ const TERMS: [RegExp, string][] = [
   // منع تكرار «بالريال بالريال»، وتوحيد العملة إلى «بالريال اليمني» دائماً
   [new RegExp(`(?:${RIYAL}\\s+)+(?=${RIYAL})`, "g"), ""],
   [new RegExp(`${RIYAL}(?!${D}\\s*${YEMENI})`, "g"), "بِالرِّيَالِ اليَمَنِيّ"],
-  [/\bACTES\b|اكتس/gi, "عَرْشُ التِّقْنِيَةِ الذَّكِيَّة"],
+  [/\bACTES\b|اكتس|أكتس/gi, "عَرْشُ الهَنْدَسَة"],
+  [/\bARSH\s+ENGINEERING\b/gi, "عَرْشُ الهَنْدَسَة"],
+  [/\bARSH\b/gi, "عَرْش"],
+  [/\bJinko\s*Solar\b|\bJinkoSolar\b/gi, "جِينْكُو سُولَار"],
+  [/\bJinko\b|جينكو/gi, "جِينْكُو"],
+  [/\bFelicity\s*Solar\b/gi, "فِيلِيسِيتِي سُولَار"],
+  [/\bFelicity\b|فليسيتي|فيليسيتي/gi, "فِيلِيسِيتِي"],
+  [/\bTiger\s*Neo\b/gi, "تَايْجَر نِيُو"],
+  [/\bIVEM\b/gi, "آي فِيم"],
+  [/\bLiFePO4\b|\bLFP\b/gi, "لِيثْيُوم فُوسْفَات الحَدِيد"],
   [/دايا\s+(هايبرد\s+)?DEYE/gi, "دايا $1"],
   [/\bDEYE\b/gi, "دَايَا"],
   [/\bExcel\b|\bxlsx\b/gi, "إِكْسِل"],
@@ -49,7 +58,7 @@ const TERMS: [RegExp, string][] = [
   [/كيلو\s*فولت\s*أمبير|\bkVA\b/gi, "كِيلُو فُولْت أَمْبِير"],
   [/\bAh\b/gi, "أَمْبِير سَاعِي"],
   [/أمبير|امبير/g, "أَمْبِير"],
-  [/(\d)\s*(?:V|v)(?![A-Za-z])/g, "$1 فُولْتْ"],
+  [/(\d)\s*(?:V|v)(?![A-Za-z])/g, "$1 فُولْت"],
   [/(\d)\s*Hz\b/gi, "$1 هِرْتْز"],
   [/(?<=\d\s?)2\s*P\b/g, "ثُنَائِيُّ القُطْب"],
   [/(?<![A-Za-z])(?:اثنان|اثنين)\s*P\b/g, "ثُنَائِيُّ القُطْب"],
@@ -138,9 +147,9 @@ export function prepareArabicSpeech(text: string): string {
       const L: Record<string, string> = { A: "إيه", B: "بي", C: "سي", D: "دي", E: "إي", F: "إف", G: "جي", H: "إتش", I: "آي", J: "جيه", K: "كيه", L: "إل", M: "إم", N: "إن", O: "أو", P: "بي", Q: "كيو", R: "آر", S: "إس", T: "تي", U: "يو", V: "في", W: "دبليو", X: "إكس", Y: "واي", Z: "زد" };
       const spelled = letters.toUpperCase().split("").map((c) => L[c] || c).join(" ");
       const nums = digits.split("").map((c) => ONES[Number(c)]).join(" ");
-      return `أَكْتِسْ ${spelled} ${nums} `;
+      return `عَرْشُ الهَنْدَسَة ${spelled} ${nums} `;
     })
-    .replace(/\bACTES\s*-\s*/gi, "ARSH ENGINEERING، ")
+    .replace(/\bACTES\s*-\s*/gi, "عَرْشُ الهَنْدَسَة، ")
     .replace(/(\d)(?=[A-Za-z\u0621-\u064A])/g, "$1 ")
     .replace(/([A-Za-z])(?=\d)/g, "$1 ")
     .replace(/(\d)\s*A\b/g, "$1 أمبير")

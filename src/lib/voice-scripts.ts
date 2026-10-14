@@ -5,7 +5,7 @@ import type { Lang } from "@/lib/i18n";
 export type Script = { ar: string; en: string; zh: string; input?: boolean };
 
 export const WELCOME: Record<Lang, string> = {
-  ar: "أَهْلًا بِكَ فِي نِظَامِ أَكْتِسْ لِأَنْظِمَةِ الطَّاقَةِ وَحُلُولِهَا. تَفَضَّلْ بِاخْتِيَارِ الخِدْمَةِ الَّتِي تُرِيدُهَا.",
+  ar: "أَهْلًا بِكَ فِي عَرْشِ الهَنْدَسَةِ لِلْحُلُولِ التِّقْنِيَّةِ الذَّكِيَّة. تَفَضَّلْ بِاخْتِيَارِ الخِدْمَةِ الَّتِي تُرِيدُهَا.",
   en: "Welcome to the ARSH ENGINEERING system for energy systems and solutions. Please choose the service you want.",
   zh: "欢迎使用ARSH ENGINEERING系统，专注能源系统与解决方案。请选择您想要的服务。",
 };
@@ -15,7 +15,7 @@ const S = (ar: string, en: string, zh: string, input = false): Script => ({ ar, 
 export const SCRIPTS: Record<string, Script> = {
   // ===== القوائم =====
   quote_menu: S("طَلَبُ عَرْضِ سِعْر. حَدِّدْ نَوْعَ طَلَبِكَ.", "Price quote. Choose the type of your request.", "申请报价。请选择您的请求类型。"),
-  energy_menu: S("حُلُولُ أَنْظِمَةِ الطَّاقَة. يُمْكِنُكَ طَلَبُ دِرَاسَةٍ فَنِّيَّة، أَوِ التَّوَاصُلُ مَعَ فَرِيقِ أَكْتِسْ.", "Energy solutions. Explore the available solutions and choose the one that suits you.", "能源系统方案。了解可用方案，选择适合您的方案。"),
+  energy_menu: S("حُلُولُ أَنْظِمَةِ الطَّاقَة. يُمْكِنُكَ طَلَبُ دِرَاسَةٍ فَنِّيَّة، أَوِ التَّوَاصُلُ مَعَ فَرِيقِ عَرْشِ الهَنْدَسَة.", "Energy solutions. Explore the available solutions and choose the one that suits you.", "能源系统方案。了解可用方案，选择适合您的方案。"),
   menu_sys3: S("حَدِّدْ نَوْعَ نِظَامِ المَشْرُوع: النِّظَامُ السَّكَنِيّ، النِّظَامُ التِّجَارِيّ، النِّظَامُ الصِّنَاعِيّ، النِّظَامُ الزِّرَاعِيّ.", "Choose your project system type: the residential system, the commercial system, the industrial system, or the agricultural system.", "请确定项目的系统类型：住宅系统、商业系统、工业系统、农业系统。"),
   main_menu: S("حَدِّدْ نَوْعَ نِظَامِ المَشْرُوع: النِّظَامُ السَّكَنِيّ، النِّظَامُ التِّجَارِيّ، النِّظَامُ الصِّنَاعِيّ، النِّظَامُ الزِّرَاعِيّ.", "Choose your project system type: the residential system, the commercial system, the industrial system, or the agricultural system.", "请确定项目的系统类型：住宅系统、商业系统、工业系统、农业系统。"),
 
@@ -25,7 +25,7 @@ export const SCRIPTS: Record<string, Script> = {
   res_bill_retry: S("يُرْجَى إِدْخَالُ مَبْلَغِ الفَاتُورَةِ بِالأَرْقَامِ فَقَط، أَوْ تَصَفُّحُ المَنْظُومَاتِ الجَاهِزَة.", "Please enter the bill amount in numbers only, or browse the ready systems.", "请仅用数字输入账单金额，或浏览现成系统。", true),
   res_value: S("قِيمَةُ الاسْتِهْلَاك. اكْتُبْ قِيمَةَ اسْتِهْلَاكِكَ الشَّهْرِيِّ.", "Consumption value. Type your monthly consumption.", "用电量。请输入您的月用电量。", true),
   res_tie: S("تَمَّ إِيجَادُ خِيَارَيْنِ لِاسْتِهْلَاكِك: مَنْظُومَةٌ بِتَكْلِفَةٍ اقْتِصَادِيَّة، أَوْ مَنْظُومَةٌ بِسِعَةِ تَخْزِينٍ أَعْلَى.", "Two options fit your consumption: a more economical system, or one with higher storage capacity.", "为您找到两个方案：更经济的一套，或储能容量更高的一套。"),
-  res_browse: S("حَدِّدِ القُدْرَةَ التَّخْزِينِيَّةَ وَالقُدْرَةَ الإِنْتَاجِيَّةَ المُنَاسِبَةَ مَعَ إِنْفِرْتَر {kw} كِيلُو وَاط.", "Choose the storage capacity and production capacity that suit a {kw} kilowatt inverter.", "请选择与{kw}千瓦逆变器匹配的储能容量和发电容量。"),
+  res_browse: S("حَدِّدِ القُدْرَةَ التَّخْزِينِيَّةَ وَالقُدْرَةَ الإِنْتَاجِيَّةَ المُنَاسِبَةَ مَعَ إِنْفِرْتَر {kw} كِيلُووَاط.", "Choose the storage capacity and production capacity that suit a {kw} kilowatt inverter.", "请选择与{kw}千瓦逆变器匹配的储能容量和发电容量。"),
   res_browse_inv: S("حَدِّدْ قُدْرَةَ الإِنْفِرْتَرِ المَطْلُوبَة.", "Choose the inverter capacity you need.", "请选择所需的逆变器容量。"),
   res_quote_ask: S("هَذِهِ هِيَ المَنْظُومَةُ المُقْتَرَحَةُ لَكَ بِنَاءً عَلَى احْتِيَاجِك. يُمْكِنُكَ الاطِّلَاعُ عَلَى مُكَوِّنَاتِ المَنْظُومَةِ وَقُدْرَتِهَا وَإِنْتَاجِيَّتِهَا، وَيُمْكِنُكَ طَلَبُ عَرْضِ سِعْرٍ رَسْمِيٍّ لِلْمَنْظُومَة.", "This is the system proposed for you based on your needs. You can review the system components, capacity and production, and you can request an official quote for the system.", "这是根据您的需求为您建议的系统。您可以查看系统组件、容量和发电量，并可申请该系统的正式报价。"),
   res_quote_ask_browse: S("هَذِهِ هِيَ المَنْظُومَةُ المُقْتَرَحَةُ لَكَ بِنَاءً عَلَى احْتِيَاجِك. يُمْكِنُكَ الاطِّلَاعُ عَلَى مُكَوِّنَاتِ المَنْظُومَةِ وَقُدْرَتِهَا وَإِنْتَاجِيَّتِهَا، وَيُمْكِنُكَ طَلَبُ عَرْضِ سِعْرٍ لِلْمَنْظُومَةِ السَّكَنِيَّةِ الَّتِي اخْتَرْتَهَا.", "This is the system proposed for you based on your needs. You can review the system components, capacity and production, and you can request a quote for the residential system you chose.", "这是根据您的需求为您建议的系统。您可以查看系统组件、容量和发电量，并可为您所选的住宅系统申请报价。"),
@@ -41,10 +41,10 @@ export const SCRIPTS: Record<string, Script> = {
   com_value_kwh: S("أَدْخِلِ اسْتِهْلَاكَ المُنْشَأَةِ الشَّهْرِيَّ بِالكِيلُووَاط.", "Enter your facility's monthly consumption in kilowatts.", "请输入场所每月的用电量（千瓦）。", true),
   com_value_diesel: S("أَدْخِلِ اسْتِهْلَاكَ الدِّيزِلِ الشَّهْرِيَّ بِاللِّتْرِ لِمُنْشَأَتِك.", "Enter your facility's monthly diesel consumption in liters.", "请输入场所每月的柴油消耗量（升）。", true),
   com_value_retry: S("أَدْخِلِ القِيمَةَ بِالأَرْقَامِ فَقَط، وَتَأَكَّدْ مِنْ صِحَّةِ الرَّقَمِ المُدْخَل.", "Enter the value in numbers only, and make sure the amount is correct.", "请仅用数字输入数值，并确认金额正确。", true),
-  com_phase_ask: S("حَدِّدْ نَوْعَ كَهْرَبَاءِ المُنْشَأَة: سِنْجِلْ فِيز، أَوْ ثْرِي فِيز.", "Choose the facility's power type: single phase, or three phase.", "请选择设施的供电类型：单相或三相。"),
+  com_phase_ask: S("حَدِّدْ نَوْعَ كَهْرَبَاءِ المُنْشَأَة: أُحَادِيُّ الطَّوْر، أَوْ ثُلَاثِيُّ الطَّوْر.", "Choose the facility's power type: single phase, or three phase.", "请选择设施的供电类型：单相或三相。"),
   com_inv_ask: S("اخْتَرْ قُدْرَةَ الإِنْفِرْتَرِ المُنَاسِبَةَ لِمُنْشَأَتِك.", "Choose the inverter capacity that suits your facility.", "请选择适合您场所的逆变器功率。"),
   com_quote_ask: S("حُدِّدَتِ المَنْظُومَةُ المُنَاسِبَةُ لِمُنْشَأَتِك. رَاجِعِ المُلَخَّص، وَيُمْكِنُكَ مُتَابَعَةُ الشِّرَاءِ أَوْ طَلَبُ دِرَاسَةٍ فَنِّيَّة.", "The right system for your facility has been selected. Review the summary, then continue to purchase or request a technical study.", "已为您的场所选定合适系统。请查看摘要，可继续购买或申请技术研究。"),
-  com_visit_done: S("تَمَّ تَسْجِيلُ مَوْعِدِ الزِّيَارَةِ المَيْدَانِيَّةِ بِنَجَاح. سَيَتَوَاصَلُ مَعَكَ فَرِيقُ أَكْتِسْ لِتَأْكِيدِ المَوْعِدِ وَالمُعَايَنَة، وَيُمْكِنُكَ طَلَبُ دِرَاسَةِ مُحَاكَاةِ الطَّاقَةِ لِمُنْشَأَتِك.", "Your site visit has been registered. The ARSH ENGINEERING team will contact you to confirm the appointment and survey, and you can request an energy simulation study for your facility.", "现场勘查已登记。ARSH ENGINEERING团队将与您确认时间并进行勘查，您也可为场所申请发电量模拟研究。"),
+  com_visit_done: S("تَمَّ تَسْجِيلُ مَوْعِدِ الزِّيَارَةِ المَيْدَانِيَّةِ بِنَجَاح. سَيَتَوَاصَلُ مَعَكَ فَرِيقُ عَرْشِ الهَنْدَسَة لِتَأْكِيدِ المَوْعِدِ وَالمُعَايَنَة، وَيُمْكِنُكَ طَلَبُ دِرَاسَةِ مُحَاكَاةِ الطَّاقَةِ لِمُنْشَأَتِك.", "Your site visit has been registered. The ARSH ENGINEERING team will contact you to confirm the appointment and survey, and you can request an energy simulation study for your facility.", "现场勘查已登记。ARSH ENGINEERING团队将与您确认时间并进行勘查，您也可为场所申请发电量模拟研究。"),
   com_out_of_range: S("احْتِيَاجُ مُنْشَأَتِكَ يَتَجَاوَزُ المَنْظُومَاتِ التِّجَارِيَّةَ الجَاهِزَة. سَيَتَوَاصَلُ مَعَكَ الفَرِيقُ الهَنْدَسِيُّ لِإِعْدَادِ تَصْمِيمٍ خَاصٍّ بِمَشْرُوعِك.", "Your facility's needs exceed our ready commercial systems. The engineering team will contact you to prepare a custom design for your project.", "您的用电需求超出现成商业系统范围。工程团队将与您联系，为项目定制设计方案。"),
   com_visit_ask: S("هَذِهِ المَنْظُومَةُ التِّجَارِيَّةُ المُقْتَرَحَةُ لِمُنْشَأَتِك. يُمْكِنُكَ إِصْدَارُ عَرْضِ سِعْرٍ رَسْمِيّ، أَوْ حَجْزُ مَوْعِدٍ لِزِيَارَةٍ مَيْدَانِيَّةٍ إِلَى مَوْقِعِ المُنْشَأَة.", "This is the proposed commercial system for your facility. You can issue an official quote, or book an on-site visit to the facility.", "这是为您的场所建议的商业系统。您可出具正式报价，或预约到现场进行实地勘查。"),
   com_visit_facility: S("أَدْخِلِ اسْمَ المُنْشَأَةِ أَوْ نَوْعَ النَّشَاطِ التِّجَارِيِّ لِتَوْثِيقِ طَلَبِ المُعَايَنَةِ المَيْدَانِيَّة.", "Enter the facility name or business activity so we can register your on-site survey request.", "请输入企业名称或经营类型，以登记您的现场勘查申请。", true),
@@ -90,7 +90,7 @@ export const SCRIPTS: Record<string, Script> = {
   agr_quote_ask: S("حُدِّدَتِ المَنْظُومَةُ المُنَاسِبَةُ لِمَزْرَعَتِك. رَاجِعِ المُلَخَّص، وَيُمْكِنُكَ مُتَابَعَةُ الشِّرَاءِ أَوْ طَلَبُ دِرَاسَةٍ فَنِّيَّة.", "The right system for your farm has been selected. Review the summary, then continue to purchase or request a technical study.", "已为您的农场选定合适系统。请查看摘要，可继续购买或申请技术研究。"),
 
   // ===== الأحمال والدراسة =====
-  pv_loads: S("الأَحْمَالُ السَّاعِيَّة. اكْتُبِ الحِمْلَ بِالكِيلُووَات لِكُلِّ سَاعَةٍ مِنَ السَّاعَاتِ الأَرْبَعِ وَالعِشْرِين، وَاكْتُبْ صِفْراً لِلسَّاعَاتِ بِلَا أَحْمَال.", "Hourly loads. Enter the load in kilowatts for each of the 24 hours, and enter zero for hours with no load.", "小时负荷。请为24个小时中的每一小时输入负荷（千瓦），无负荷的小时请输入0。", true),
+  pv_loads: S("الأَحْمَالُ السَّاعِيَّة. اكْتُبِ الحِمْلَ بِالكِيلُووَاط لِكُلِّ سَاعَةٍ مِنَ السَّاعَاتِ الأَرْبَعِ وَالعِشْرِين، وَاكْتُبْ صِفْراً لِلسَّاعَاتِ بِلَا أَحْمَال.", "Hourly loads. Enter the load in kilowatts for each of the 24 hours, and enter zero for hours with no load.", "小时负荷。请为24个小时中的每一小时输入负荷（千瓦），无负荷的小时请输入0。", true),
   pv_sysmode: S("مَنْظُومَةً هَجِينَةً مَعَ بَطَّارِيَّات، أَوْ مُتَّصِلَةً بِالشَّبَكَة، أَوْ مُسْتَقِلَّةً بِالكَامِل.", "A hybrid system with batteries, grid-connected, or fully off-grid.", "混合储能系统、并网系统，或完全离网系统。"),
   pv_site_gov: S("حَدِّدِ المَوْقِعَ لِتَرْتِيبِ إِجْرَاءَاتِ التَّوْرِيدِ وَالتَّرْكِيب.", "Select the location so we can arrange supply and installation.", "请选择地点，以安排供货与安装。"),
   pv_quote_ask: S("اكْتَمَلَتِ الحِسَابَاتُ الهَنْدَسِيَّةُ لِمَنْظُومَتِك. رَاجِعْ تَفَاصِيلَ القُدْرَةِ وَالمُكَوِّنَات، وَيُمْكِنُكَ إِصْدَارُ عَرْضِ سِعْرٍ رَسْمِيّ.", "The engineering calculations for your system are complete. Review the capacity and components, and you can issue an official quote.", "系统工程计算已完成。请查看容量与组件，可出具正式报价。"),
@@ -159,7 +159,7 @@ export const SCRIPTS: Record<string, Script> = {
   con_service: S("الاسْتِشَارَات. اكْتُبْ نَوْعَ الاسْتِشَارَةِ أَوْ خِدْمَةِ الطَّاقَةِ الَّتِي تَحْتَاجُهَا.", "Consulting. Type the consultation or energy service you need.", "咨询。请输入您需要的咨询或能源服务。", true),
   con_project: S("تَفَاصِيلُ المَشْرُوع. اكْتُبْ وَصْفًا مُخْتَصَرًا لِمَشْرُوعِك.", "Project details. Briefly describe your project.", "项目详情。请简要描述您的项目。", true),
   done: S("تَمَّ اسْتِلَامُ طَلَبِك. يُمْكِنُكَ اخْتِيَارُ خِدْمَةٍ أُخْرَى.", "Your request was received. You can choose another service.", "已收到您的请求。您可以选择其他服务。"),
-  pay_notice_done: S("تَمَّ اسْتِلَامُ طَلَبِك. عِنْدَ تَأْكِيدِ فَاتُورَتِكَ سَيَصِلُكَ إِشْعَار، وَسَيَتِمُّ التَّوَاصُلُ مَعَكَ مِنْ مُوَظَّفِي إِدَارَةِ المَبِيعَاتِ فِي شَرِكَةِ أَكْتِس.", "Your request was received. When your invoice is confirmed you will get a notification, and the sales department staff at ARSH ENGINEERING will contact you.", "已收到您的请求。发票确认后您会收到通知，ARSH ENGINEERING销售部门的员工将与您联系。"),
+  pay_notice_done: S("تَمَّ اسْتِلَامُ طَلَبِك. عِنْدَ تَأْكِيدِ فَاتُورَتِكَ سَيَصِلُكَ إِشْعَار، وَسَيَتِمُّ التَّوَاصُلُ مَعَكَ مِنْ مُوَظَّفِي إِدَارَةِ المَبِيعَاتِ فِي شَرِكَةِ عَرْشِ الهَنْدَسَة.", "Your request was received. When your invoice is confirmed you will get a notification, and the sales department staff at ARSH ENGINEERING will contact you.", "已收到您的请求。发票确认后您会收到通知，ARSH ENGINEERING销售部门的员工将与您联系。"),
 };
 
 export const OPTIONS_WORD: Record<Lang, string> = { ar: "الخِيَارَات", en: "Options", zh: "选项" };
