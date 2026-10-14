@@ -1366,7 +1366,7 @@ function AppSidebar({ active, onNavigate, onSettings, onExit }: { active: string
 
 function MobileNav({ active, onNavigate, onSettings }: { active: string; onNavigate: (action: (typeof NAV_ITEMS)[number]["action"]) => void; onSettings: () => void }) {
   return (
-    <nav aria-label="القائمة السفلية" className="fixed inset-x-0 bottom-0 z-40 flex items-stretch justify-between border-t border-navy-soft bg-navy px-1 pb-[env(safe-area-inset-bottom)] text-skyline-foreground lg:hidden">
+    <nav aria-label="القائمة السفلية" className="fixed inset-x-0 bottom-0 z-40 flex items-stretch justify-between border-t border-primary/40 bg-background/85 backdrop-blur-xl px-1 pb-[env(safe-area-inset-bottom)] text-foreground shadow-[0_-8px_24px_-12px_oklch(0.76_0.13_82/0.35)] lg:hidden">
       {NAV_ITEMS.map((item) => {
         const Icon = item.icon;
         const selected = active === item.action;
@@ -1376,7 +1376,7 @@ function MobileNav({ active, onNavigate, onSettings }: { active: string; onNavig
             type="button"
             onClick={() => onNavigate(item.action)}
             aria-current={selected ? "page" : undefined}
-            className={`flex flex-1 flex-col items-center gap-0.5 px-1 py-2 text-[10px] font-bold leading-3 ${selected ? "text-brand" : "text-skyline-foreground/85"}`}
+            className={`flex flex-1 flex-col items-center gap-0.5 px-1 py-2 text-[10px] font-bold leading-3 ${selected ? "text-primary" : "text-muted-foreground"}`}
           >
             <Icon className="size-5" />
             <span className="truncate">{item.label}</span>
@@ -1413,8 +1413,8 @@ function HomeDashboard({ onService, onProducts }: { onService: (kind: "quote" | 
   return (
     <div className="screen-enter flex min-h-0 w-full flex-col gap-2 lg:h-full">
       <CorporateHero />
-      <section data-photo-section className="min-h-0 shrink overflow-hidden rounded-2xl border border-border bg-card shadow-sm lg:flex-1 lg:max-h-[30dvh]">
-        <img src={homeHero} alt="عرش الهندسة للحلول التقنية الذكية" loading="eager" decoding="sync" fetchPriority="high" className="block aspect-[1584/672] w-full object-cover lg:h-full lg:w-full lg:aspect-auto" />
+      <section data-photo-section className="shrink-0 overflow-hidden rounded-2xl border border-border bg-card shadow-sm lg:flex-1 lg:max-h-[30dvh]">
+        <img src={homeHero} alt="عرش الهندسة للحلول التقنية الذكية" loading="eager" decoding="sync" fetchPriority="high" className="block aspect-[1584/672] w-full object-contain bg-background lg:h-full lg:w-full lg:aspect-auto" />
       </section>
 
 
@@ -1479,8 +1479,8 @@ function Feature({ icon, text }: { icon: ReactNode; text: string }) {
 }
 
 function ServiceCard({ image, icon, title, description, action, tone, onClick }: { image: string; icon: ReactNode; title: string; description: string; action: string; tone: "brand" | "energy" | "skyline" | "navy"; onClick: () => void }) {
-  const circle = tone === "brand" ? "bg-brand text-brand-foreground" : tone === "energy" ? "bg-energy text-energy-foreground" : tone === "navy" ? "bg-navy text-skyline-foreground" : "bg-skyline text-skyline-foreground";
-  const btn = tone === "skyline" ? "bg-skyline text-skyline-foreground" : circle;
+  const circle = tone === "brand" ? "bg-brand text-brand-foreground" : tone === "energy" ? "bg-brand text-brand-foreground" : tone === "navy" ? "bg-navy text-skyline-foreground" : "bg-skyline text-skyline-foreground";
+  const btn = "bg-brand text-brand-foreground";
 
   return (
     <button type="button" onClick={onClick} aria-label={title} className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card text-right shadow-sm transition hover:shadow-md">
