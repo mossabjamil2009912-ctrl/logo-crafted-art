@@ -62,7 +62,7 @@ export function PurchaseFlow({ quote, customer, projectType, city }: { quote: Qu
     setBusy(true);
     const created = createOrder({
       quoteNumber: quote.number || "",
-      customer: quote.customer || customer || "عميل ARSH SMART TECH",
+      customer: quote.customer || customer || "عميل ARSH ENGINEERING",
       projectType: projectType || "—",
       city: city || "—",
       items: quote.items.map((item) => ({
@@ -118,7 +118,7 @@ export function PurchaseFlow({ quote, customer, projectType, city }: { quote: Qu
         data: {
           text:
             method === "cod"
-              ? `🔔 *الدفع عند الاستلام*\nطلب من عميل عبر تطبيق ARSH SMART TECH — يرجى التواصل معه، ولا يحتاج تأكيد أو إلغاء فاتورة.\n\n👤 اسم العميل: ${clientName}${clientPhone ? `\n📞 رقم العميل: ${clientPhone}` : ""}${notice.system ? `\n☀️ المنظومة: ${notice.system}` : ""}`
+              ? `🔔 *الدفع عند الاستلام*\nطلب من عميل عبر تطبيق ARSH ENGINEERING — يرجى التواصل معه، ولا يحتاج تأكيد أو إلغاء فاتورة.\n\n👤 اسم العميل: ${clientName}${clientPhone ? `\n📞 رقم العميل: ${clientPhone}` : ""}${notice.system ? `\n☀️ المنظومة: ${notice.system}` : ""}`
               : notice.text,
           clientName,
           clientPhone,
@@ -178,7 +178,7 @@ export function PurchaseFlow({ quote, customer, projectType, city }: { quote: Qu
       {stage === "offer" && (
         <div className="mt-5 space-y-4">
           <p className="text-sm leading-7 text-foreground">
-            راجع بنود عرض السعر أعلاه. عند التأكيد سيتم إرسال طلبك إلى إدارة ARSH SMART TECH لبدء إجراءات الشراء.
+            راجع بنود عرض السعر أعلاه. عند التأكيد سيتم إرسال طلبك إلى إدارة ARSH ENGINEERING لبدء إجراءات الشراء.
           </p>
           <div className="flex flex-wrap gap-3">
             <button type="button" onClick={startPurchase} disabled={busy} className="inline-flex min-w-52 flex-1 items-center justify-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-black text-brand-foreground shadow-md transition hover:opacity-90 disabled:opacity-60 sm:flex-none">
@@ -232,7 +232,7 @@ export function PurchaseFlow({ quote, customer, projectType, city }: { quote: Qu
 
           {method === "network" && (
             <div className="rounded-lg border border-border bg-muted/40 p-4">
-              <p className="text-xs leading-6 text-muted-foreground">حوّل المبلغ إلى حساب ARSH SMART TECH في الشبكة المحلية، ثم اكتب رقم الحوالة هنا.</p>
+              <p className="text-xs leading-6 text-muted-foreground">حوّل المبلغ إلى حساب ARSH ENGINEERING في الشبكة المحلية، ثم اكتب رقم الحوالة هنا.</p>
               <input value={transferRef} onChange={(event) => setTransferRef(event.target.value)} placeholder="اكتب رقم الحوالة هنا" className="mt-3 w-full rounded-md border border-input bg-card px-4 py-3 text-sm outline-none focus:border-brand" />
             </div>
           )}
@@ -249,7 +249,7 @@ export function PurchaseFlow({ quote, customer, projectType, city }: { quote: Qu
           {method === "cod" && (
             <label className="flex cursor-pointer items-start gap-3 rounded-lg border border-border bg-muted/40 p-4">
               <input type="checkbox" checked={codConfirmed} onChange={(event) => setCodConfirmed(event.target.checked)} className="mt-1 size-4 accent-[hsl(var(--brand))]" />
-              <span className="text-xs leading-6 text-muted-foreground">أؤكد رغبتي بالدفع نقداً عند استلام المنظومة، وسيتم تحصيل المبلغ من مندوب ARSH SMART TECH عند التسليم.</span>
+              <span className="text-xs leading-6 text-muted-foreground">أؤكد رغبتي بالدفع نقداً عند استلام المنظومة، وسيتم تحصيل المبلغ من مندوب ARSH ENGINEERING عند التسليم.</span>
             </label>
           )}
 

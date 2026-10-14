@@ -8,7 +8,7 @@ import {
 import actesLogoPlain from "@/assets/actes-logo-plain.png.asset.json";
 
 /**
- * تقرير دراسة الجدوى الاقتصادية والوفر البيئي — مستند رسمي مستقل بهوية ARSH SMART TECH
+ * تقرير دراسة الجدوى الاقتصادية والوفر البيئي — مستند رسمي مستقل بهوية ARSH ENGINEERING
  * يحوي المؤشرات المالية، منحنى التدفق النقدي، مقارنة التكلفة المتراكمة،
  * جدول الـ 25 سنة، تحليل السيناريوهات، والأثر البيئي.
  */
@@ -37,7 +37,7 @@ export function downloadEconomicReport(
   const logo = (actesLogoPlain as { url: string }).url;
   const now = new Date();
   const dstr = now.toLocaleDateString("en-GB");
-  const project = study.customer || "ARSH SMART TECH Project";
+  const project = study.customer || "ARSH ENGINEERING Project";
   const s = study.system;
 
   // ==== منحنى التدفق النقدي ====
@@ -146,7 +146,7 @@ export function downloadEconomicReport(
   <div class="head">
     <div><h1>دراسة الجدوى الاقتصادية والوفر البيئي</h1>
       <p>المرجع: ${esc(study.reference)} — العميل: ${esc(project)} — الموقع: ${esc(study.city || "—")} — التاريخ: ${dstr}</p></div>
-    <img src="${logo}" alt="ARSH SMART TECH" />
+    <img src="${logo}" alt="ARSH ENGINEERING" />
   </div>
 
   <h2>بيانات المنظومة</h2>
@@ -175,16 +175,16 @@ export function downloadEconomicReport(
 
   <h2>مقارنة التكلفة المتراكمة</h2>
   ${compSvg}
-  <div class="legend"><b style="color:#c0392b">■ الديزل والشبكة</b><b style="color:#15803d">■ منظومة ARSH SMART TECH</b></div>
+  <div class="legend"><b style="color:#c0392b">■ الديزل والشبكة</b><b style="color:#15803d">■ منظومة ARSH ENGINEERING</b></div>
 
-  <div class="foot"><span>ARSH SMART TECH Energy Systems &amp; Solutions</span><span>صفحة 1/2</span></div>
+  <div class="foot"><span>ARSH ENGINEERING Energy Systems &amp; Solutions</span><span>صفحة 1/2</span></div>
 </div>
 
 <div class="page">
   <div class="head">
     <div><h1>جدول التدفق النقدي وتحليل الحساسية</h1>
       <p>المرجع: ${esc(study.reference)} — ${esc(project)}</p></div>
-    <img src="${logo}" alt="ARSH SMART TECH" />
+    <img src="${logo}" alt="ARSH ENGINEERING" />
   </div>
 
   <h2>تحليل الحساسية — ثلاثة سيناريوهات</h2>
@@ -212,10 +212,10 @@ export function downloadEconomicReport(
   <div class="note">
     الفرضيات: عمر تشغيلي ${LIFETIME_YEARS} سنة، تدهور أداء الألواح 0.5% سنوياً، تكلفة تشغيل وصيانة 1% من قيمة المنظومة سنوياً،
     تصاعد تعرفة الطاقة ${nf(escalation * 100, 1)}% سنوياً، معدل خصم 6%، استهلاك مولد الديزل 0.33 لتر لكل كيلوواط ساعة،
-    وسعر لتر الديزل ${nf(eco.dieselPrice, 2)} دولار. الأرقام تقديرية أُعدّت بواسطة القسم الهندسي — عرش التقنية الذكية.
+    وسعر لتر الديزل ${nf(eco.dieselPrice, 2)} دولار. الأرقام تقديرية أُعدّت بواسطة القسم الهندسي — عرش الهندسة للحلول التقنية الذكية.
   </div>
 
-  <div class="foot"><span>ARSH SMART TECH Energy Systems &amp; Solutions</span><span>صفحة 2/2</span></div>
+  <div class="foot"><span>ARSH ENGINEERING Energy Systems &amp; Solutions</span><span>صفحة 2/2</span></div>
 </div>
 
 <script>window.onload=function(){window.focus();setTimeout(function(){window.print();},350);};</script>

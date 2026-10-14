@@ -140,7 +140,7 @@ export function prepareArabicSpeech(text: string): string {
       const nums = digits.split("").map((c) => ONES[Number(c)]).join(" ");
       return `أَكْتِسْ ${spelled} ${nums} `;
     })
-    .replace(/\bACTES\s*-\s*/gi, "ARSH SMART TECH، ")
+    .replace(/\bACTES\s*-\s*/gi, "ARSH ENGINEERING، ")
     .replace(/(\d)(?=[A-Za-z\u0621-\u064A])/g, "$1 ")
     .replace(/([A-Za-z])(?=\d)/g, "$1 ")
     .replace(/(\d)\s*A\b/g, "$1 أمبير")

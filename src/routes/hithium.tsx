@@ -10,10 +10,10 @@ import { useResolvedVideoSrc } from "@/lib/video-source";
 export const Route = createFileRoute("/hithium")({
   head: () => ({
     meta: [
-      { title: "HiTHIUM — أنظمة تخزين الطاقة بالبطاريات | ARSH SMART TECH" },
-      { name: "description", content: "HiTHIUM HeroEE: بطاريات منزلية وخزانات تخزين تجارية وصناعية بخلايا 314Ah وعمر 11000 دورة — المواصفات والكتالوجات لدى ARSH SMART TECH." },
+      { title: "HiTHIUM — أنظمة تخزين الطاقة بالبطاريات | ARSH ENGINEERING" },
+      { name: "description", content: "HiTHIUM HeroEE: بطاريات منزلية وخزانات تخزين تجارية وصناعية بخلايا 314Ah وعمر 11000 دورة — المواصفات والكتالوجات لدى ARSH ENGINEERING." },
       { property: "og:title", content: "HiTHIUM — تخزين طاقة آمن وطويل العمر" },
-      { property: "og:description", content: "حلول HiTHIUM لتخزين الطاقة للمنازل والقطاع التجاري والصناعي، بالعربية عبر ARSH SMART TECH." },
+      { property: "og:description", content: "حلول HiTHIUM لتخزين الطاقة للمنازل والقطاع التجاري والصناعي، بالعربية عبر ARSH ENGINEERING." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -66,7 +66,7 @@ function HithiumPage() {
       <AgencyBadge brand="hithium" />
       <header className="sticky top-0 z-10 border-b border-border bg-card/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
-          <div className="flex items-center gap-3"><img src={actesLogo} alt="ARSH SMART TECH" className="h-9 w-auto" /><span className="h-7 w-px bg-border" /><img src="/brand/makers/hithium.png" alt="HiTHIUM" className="h-6 w-auto" /></div>
+          <div className="flex items-center gap-3"><img src={actesLogo} alt="ARSH ENGINEERING" className="h-9 w-auto" /><span className="h-7 w-px bg-border" /><img src="/brand/makers/hithium.png" alt="HiTHIUM" className="h-6 w-auto" /></div>
           <HiNav />
           <Link to="/" className="inline-flex items-center gap-1 rounded-full border border-border px-4 py-1.5 text-sm hover:bg-muted"><ArrowRight className="h-4 w-4" /> الرئيسية</Link>
         </div>
@@ -119,7 +119,7 @@ function HithiumPage() {
       </section>
 
       <AgencyShowcase brand="hithium" />
-      <footer className="border-t border-border bg-card py-8 text-center text-sm text-muted-foreground">HiTHIUM — متوفر لدى ARSH SMART TECH لحلول أنظمة الطاقة</footer>
+      <footer className="border-t border-border bg-card py-8 text-center text-sm text-muted-foreground">HiTHIUM — متوفر لدى ARSH ENGINEERING لحلول أنظمة الطاقة</footer>
       {sel && <BrandProductDetail product={sel} accent="#00a0e9" gallery={["/media/hithium-legend-112s.jpg","/media/hithium-legend-112c.jpg","/media/items/battery-hithium-legnd-16kwh.jpg","/media/items/battery-hithium-12v-314ah.jpg"]} onClose={() => setSel(null)} />}
     </main>
   );

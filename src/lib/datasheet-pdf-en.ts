@@ -1,4 +1,4 @@
-// النسخة الإنجليزية من كتالوج الموديل (Model Datasheet — English) بهوية عرش التقنية الذكية.
+// النسخة الإنجليزية من كتالوج الموديل (Model Datasheet — English) بهوية عرش الهندسة للحلول التقنية الذكية.
 // نفس بيانات المصنّع الواردة في products-data.ts، مترجمة عبر datasheet-en-dictionary.ts فقط.
 import type { Product } from "./products-data";
 import actesLogo from "@/assets/actes-logo.png.asset.json";
@@ -66,42 +66,42 @@ export function buildDatasheetHtmlEn(product: Product, autoPrint = false): strin
 <style>
   @page{size:A4;margin:10mm}
   *{box-sizing:border-box}
-  body{margin:0;background:#fff;color:#14203a;font-family:'Cairo','Segoe UI',Tahoma,sans-serif;font-size:9pt;line-height:1.55}
+  body{margin:0;background:#fff;color:#141210;font-family:'Cairo','Segoe UI',Tahoma,sans-serif;font-size:9pt;line-height:1.55}
   .sheet{width:190mm;margin:0 auto;page-break-after:always}
   .sheet:last-child{page-break-after:auto}
 
-  .hd{display:flex;align-items:center;justify-content:space-between;gap:6mm;border-bottom:2.4pt solid #d81f26;padding-bottom:2mm}
+  .hd{display:flex;align-items:center;justify-content:space-between;gap:6mm;border-bottom:2.4pt solid #B8913F;padding-bottom:2mm}
   .hd img{height:16mm;object-fit:contain}
   .hd .r{text-align:right}
-  .hd .brand{font-size:15pt;font-weight:800;letter-spacing:.5px;color:#14203a}
-  .hd .model{font-size:10pt;font-weight:700;color:#d81f26}
-  .bar{background:#14203a;color:#fff;padding:1.5mm 4mm;font-size:10.5pt;font-weight:800;display:flex;justify-content:space-between;align-items:center}
-  .bar .pw{background:#d81f26;padding:.6mm 3mm;border-radius:2mm;font-size:11pt}
+  .hd .brand{font-size:15pt;font-weight:800;letter-spacing:.5px;color:#141210}
+  .hd .model{font-size:10pt;font-weight:700;color:#B8913F}
+  .bar{background:#141210;color:#fff;padding:1.5mm 4mm;font-size:10.5pt;font-weight:800;display:flex;justify-content:space-between;align-items:center}
+  .bar .pw{background:#B8913F;padding:.6mm 3mm;border-radius:2mm;font-size:11pt}
 
   .top{display:flex;gap:5mm;margin-top:4mm;align-items:stretch}
-  .photo{width:62mm;border:.6pt solid #cfd6e4;border-radius:2mm;display:flex;align-items:center;justify-content:center;padding:2mm;background:#fbfcfe}
+  .photo{width:62mm;border:.6pt solid #E3D6B4;border-radius:2mm;display:flex;align-items:center;justify-content:center;padding:2mm;background:#fbfcfe}
   .photo img{max-width:100%;max-height:62mm;object-fit:contain}
   .info{flex:1}
   .info h2{margin:0 0 2mm;font-size:12pt;font-weight:800;line-height:1.4}
   .kv{width:100%;border-collapse:collapse;font-size:8.4pt}
-  .kv th{background:#eef2f8;border:.5pt solid #cfd6e4;padding:1.2mm 2mm;text-align:left;width:32mm;font-weight:700;white-space:nowrap}
-  .kv td{border:.5pt solid #cfd6e4;padding:1.2mm 2mm;font-weight:700}
+  .kv th{background:#F7F1E3;border:.5pt solid #E3D6B4;padding:1.2mm 2mm;text-align:left;width:32mm;font-weight:700;white-space:nowrap}
+  .kv td{border:.5pt solid #E3D6B4;padding:1.2mm 2mm;font-weight:700}
 
   .dt{width:100%;border-collapse:collapse;font-size:6.8pt;margin-bottom:1.1mm;page-break-inside:avoid}
-  .dt thead th{background:#14203a;color:#fff;padding:1mm 2mm;text-align:left;font-size:7.9pt;font-weight:800}
-  .dt tbody tr:nth-child(even){background:#f6f8fb}
-  .dt .k{border:.5pt solid #cfd6e4;padding:.6mm 2mm;text-align:left;width:52mm;font-weight:700;background:transparent}
-  .dt .v{border:.5pt solid #cfd6e4;padding:.6mm 2mm;font-weight:600}
+  .dt thead th{background:#141210;color:#fff;padding:1mm 2mm;text-align:left;font-size:7.9pt;font-weight:800}
+  .dt tbody tr:nth-child(even){background:#FBF8F1}
+  .dt .k{border:.5pt solid #E3D6B4;padding:.6mm 2mm;text-align:left;width:52mm;font-weight:700;background:transparent}
+  .dt .v{border:.5pt solid #E3D6B4;padding:.6mm 2mm;font-weight:600}
   .dt tr{page-break-inside:avoid}
 
-  .ft{margin-top:2mm;page-break-inside:avoid;border-top:1pt solid #14203a;padding-top:2mm;display:flex;justify-content:space-between;font-size:7.4pt;color:#5a6580}
-  .ft b{color:#14203a}
+  .ft{margin-top:2mm;page-break-inside:avoid;border-top:1pt solid #141210;padding-top:2mm;display:flex;justify-content:space-between;font-size:7.4pt;color:#5a6580}
+  .ft b{color:#141210}
   .note{margin-top:1.5mm;page-break-inside:avoid;font-size:7.2pt;color:#7a8398}
 </style></head><body>
 
 <div class="sheet">
   <div class="hd">
-    <img src="${logo}" alt="ARSH SMART TECH"/>
+    <img src="${logo}" alt="ARSH ENGINEERING"/>
     <div class="r">
       <div class="brand">${esc(product.brand)}</div>
       <div class="model">${esc(modelCode(product))}</div>
@@ -127,7 +127,7 @@ export function buildDatasheetHtmlEn(product: Product, autoPrint = false): strin
 
   <p class="note">All values above apply to model ${esc(modelCode(product))} rated ${esc(powerEn)} only, as published in the manufacturer's official datasheet. This document is for technical and informational purposes only.</p>
   <div class="ft">
-    <span><b>ARSH SMART TECH Energy Systems &amp; Solutions</b> — Technical Support &amp; Engineering Consultancy</span>
+    <span><b>ARSH ENGINEERING Energy Systems &amp; Solutions</b> — Technical Support &amp; Engineering Consultancy</span>
     <span>${esc(today)}</span>
   </div>
 </div>

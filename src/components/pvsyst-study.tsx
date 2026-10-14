@@ -78,7 +78,7 @@ const COL_AR: Record<string, string> = {
 };
 
 /** ألوان تقرير PVsyst الرسمية */
-const C = { blue: "#1c3f94", sun: "#f5a01e", violet: "#7b3fa0", red: "#c0392b", grid: "#b9c0cf", head: "#dfe4ee" };
+const C = { blue: "#9C7A2E", sun: "#f5a01e", violet: "#7b3fa0", red: "#c0392b", grid: "#b9c0cf", head: "#dfe4ee" };
 
 type Props = {
   study: NonNullable<View["study"]>;
@@ -144,7 +144,7 @@ export default function PvsystStudy({ study, actions }: Props) {
       ? ((result.annualEnergy - baseAnnual) / baseAnnual) * 100
       : null;
 
-  const project = result.customer || result.reference || "ARSH SMART TECH Project";
+  const project = result.customer || result.reference || "ARSH ENGINEERING Project";
   const sysTitle = s.batteryKwh ? "Grid-Connected System with storage" : "Grid-Connected System";
   const today = new Date();
   const dstr = `${String(today.getDate()).padStart(2, "0")}/${String(today.getMonth() + 1).padStart(2, "0")}/${String(today.getFullYear()).slice(2)}`;
@@ -317,7 +317,7 @@ export default function PvsystStudy({ study, actions }: Props) {
               {s.kwp ? ` — Variant: ${nf(s.kwp, 0)} kWp` : ""}
             </p>
           </div>
-          <img src={actesLogoPlain.url} alt="ARSH SMART TECH" className="h-9 w-auto shrink-0 object-contain" />
+          <img src={actesLogoPlain.url} alt="ARSH ENGINEERING" className="h-9 w-auto shrink-0 object-contain" />
         </div>
         <div className="flex flex-wrap gap-x-4 gap-y-1 border-t px-3 py-1.5 text-[9.5px] text-neutral-600" dir="ltr" style={{ borderColor: C.grid }}>
           <span>Date: {dstr}</span>
@@ -474,8 +474,8 @@ export default function PvsystStudy({ study, actions }: Props) {
                 <svg viewBox="0 0 300 120" className="h-28 w-full" style={{ direction: "ltr" }}>
                   <defs>
                     <linearGradient id="pvglass" x1="0" y1="0" x2="1" y2="0">
-                      <stop offset="0%" stopColor="#2b4fb5" />
-                      <stop offset="100%" stopColor="#13276a" />
+                      <stop offset="0%" stopColor="#B08D3E" />
+                      <stop offset="100%" stopColor="#2a2418" />
                     </linearGradient>
                   </defs>
                   {/* الشمس */}
@@ -529,7 +529,7 @@ export default function PvsystStudy({ study, actions }: Props) {
                 step={1}
                 value={liveTilt}
                 onChange={(e) => setTilt(Number(e.target.value))}
-                className="mt-2 w-full accent-[#1c3f94]"
+                className="mt-2 w-full accent-[#9C7A2E]"
               />
               <div className="flex justify-between text-[9px] text-muted-foreground" dir="ltr">
                 <span>5°</span>
@@ -853,7 +853,7 @@ export default function PvsystStudy({ study, actions }: Props) {
                   <li key={row.label} className="flex items-center gap-2">
                     <span
                       className="flex size-5 shrink-0 items-center justify-center rounded"
-                      style={{ background: gain ? "#e8eefb" : "#fbeae8", color: gain ? C.blue : C.red }}
+                      style={{ background: gain ? "#F5EDDA" : "#fbeae8", color: gain ? C.blue : C.red }}
                     >
                       <Icon className="size-3" />
                     </span>
@@ -867,7 +867,7 @@ export default function PvsystStudy({ study, actions }: Props) {
                           style={{
                             width: `${width}%`,
                             background: gain
-                              ? `linear-gradient(90deg, ${C.blue}, #4f7adb)`
+                              ? `linear-gradient(90deg, ${C.blue}, #C9A24A)`
                               : `linear-gradient(90deg, ${C.red}, #e8775f)`,
                           }}
                         />

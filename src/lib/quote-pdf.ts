@@ -12,7 +12,7 @@ function esc(value: unknown) {
 /** يبني صفحة عرض السعر ويفتح نافذة الطباعة لحفظها كملف PDF. */
 export function downloadQuotePdf(quote: Quote) {
   if (typeof window === "undefined") return;
-  const title = `عرض سعر ${quote.number || "ARSH SMART TECH"}`;
+  const title = `عرض سعر ${quote.number || "ARSH ENGINEERING"}`;
   const rows = quote.items
     .map((item, index) => {
       const details = (item.details || []).map((detail) => `<p class="d">${esc(detail)}</p>`).join("");
@@ -39,7 +39,7 @@ export function downloadQuotePdf(quote: Quote) {
   .meta{text-align:left;font-size:11px;font-weight:700;line-height:1.6}
   table{width:100%;border-collapse:collapse;font-size:12px}
   th,td{border:1px solid #000;padding:6px}
-  thead th{background:#3B5BFF;text-align:center;font-weight:700;font-size:13px}
+  thead th{background:#C9A24A;text-align:center;font-weight:700;font-size:13px}
   .c{text-align:center;font-weight:700}
   .r{text-align:right}
   .n{margin:0;font-weight:700;font-size:12px}
@@ -56,7 +56,7 @@ export function downloadQuotePdf(quote: Quote) {
   @page{size:A4;margin:12mm}
 </style></head><body>
 <div class="head">
-  <div><p class="t1">عرش التقنية الذكية</p><p class="t2">عرض سعر</p></div>
+  <div><p class="t1">عرش الهندسة للحلول التقنية الذكية</p><p class="t2">عرض سعر</p></div>
   <div class="meta"><p>رقم العرض: ${esc(quote.number || "—")}</p><p>العميل: ${esc(quote.customer || "—")}</p></div>
 </div>
 <table>
@@ -68,7 +68,7 @@ export function downloadQuotePdf(quote: Quote) {
   <div class="box">
     <h3>${esc(CERTIFICATES_TITLE)}</h3>
     ${CERTIFICATES.map((name) => `<span class="cert">${esc(name)}</span>`).join("")}
-    <p class="note">جميع المكونات الموردة من ARSH SMART TECH أصلية ومطابقة للمعايير الدولية أعلاه.</p>
+    <p class="note">جميع المكونات الموردة من ARSH ENGINEERING أصلية ومطابقة للمعايير الدولية أعلاه.</p>
   </div>
 </div>
 

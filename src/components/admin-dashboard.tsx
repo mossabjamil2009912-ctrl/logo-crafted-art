@@ -54,7 +54,7 @@ export function AdminDashboard({ onExit }: { onExit: () => void }) {
           </span>
           <div>
             <p className="text-sm font-black">إشعارات العملاء</p>
-            <p className="text-[11px] text-muted-foreground">وضع الإدارة — ARSH SMART TECH</p>
+            <p className="text-[11px] text-muted-foreground">وضع الإدارة — ARSH ENGINEERING</p>
           </div>
         </div>
         <button

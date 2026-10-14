@@ -38,7 +38,7 @@ export function ProductBody({ product: p, accent, gallery }: { product: Product;
           <div className="flex items-center justify-center"><img src={p.image} alt={p.name} className="max-h-[45svh] object-contain" /></div>
         </div>
       </section>
-      {/* فيديو ووصف ARSH SMART TECH */}
+      {/* فيديو ووصف ARSH ENGINEERING */}
       <section className="mx-auto grid max-w-7xl gap-8 px-5 py-12 md:grid-cols-2">
         <div className="overflow-hidden rounded-2xl bg-muted">
           {video ? (
@@ -65,7 +65,7 @@ export function ProductBody({ product: p, accent, gallery }: { product: Product;
               {gallery.map((g) => <img key={g} src={g} alt={p.model} loading="lazy" className="h-56 w-full rounded-xl bg-background object-cover" />)}
             </div>
             <div className="mt-6 flex flex-wrap gap-2">
-              {ar && <a href={ar} target="_blank" rel="noreferrer" className="flex items-center gap-1 rounded-full px-4 py-2 text-sm text-background" style={{ background: accent }}><FileText className="h-4 w-4" />الكتالوج بالعربية (ARSH SMART TECH)</a>}
+              {ar && <a href={ar} target="_blank" rel="noreferrer" className="flex items-center gap-1 rounded-full px-4 py-2 text-sm text-background" style={{ background: accent }}><FileText className="h-4 w-4" />الكتالوج بالعربية (ARSH ENGINEERING)</a>}
               {en && <a href={en} target="_blank" rel="noreferrer" className="flex items-center gap-1 rounded-full border border-border bg-background px-4 py-2 text-sm"><Download className="h-4 w-4" />الكتالوج بالإنجليزية</a>}
             </div>
           </div>

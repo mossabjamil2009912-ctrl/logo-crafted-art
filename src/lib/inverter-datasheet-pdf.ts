@@ -65,7 +65,7 @@ function specTables(product: Product): string {
 
 /**
  * يفتح كتالوج الموديل كصفحة طباعة A4 جاهزة للحفظ كـ PDF.
- * التنسيق: ترويسة بشعار عرش التقنية الذكية واسم المصنّع، بطاقة الصنف بالقدرة الصريحة، جدول المواصفات، تذييل رسمي.
+ * التنسيق: ترويسة بشعار عرش الهندسة للحلول التقنية الذكية واسم المصنّع، بطاقة الصنف بالقدرة الصريحة، جدول المواصفات، تذييل رسمي.
  */
 export function buildDatasheetHtml(product: Product, autoPrint = false): string {
   const logo = abs(actesLogo.url);
@@ -87,48 +87,48 @@ export function buildDatasheetHtml(product: Product, autoPrint = false): string 
 <style>
   @page{size:A4;margin:10mm}
   *{box-sizing:border-box}
-  body{margin:0;background:#fff;color:#14203a;font-family:'Cairo','Segoe UI',Tahoma,sans-serif;font-size:9pt;line-height:1.55}
+  body{margin:0;background:#fff;color:#141210;font-family:'Cairo','Segoe UI',Tahoma,sans-serif;font-size:9pt;line-height:1.55}
   .sheet{width:190mm;margin:0 auto;page-break-after:always}
   .sheet:last-child{page-break-after:auto}
 
-  .hd{display:flex;align-items:center;justify-content:space-between;gap:6mm;border-bottom:2.4pt solid #d81f26;padding-bottom:2mm}
+  .hd{display:flex;align-items:center;justify-content:space-between;gap:6mm;border-bottom:2.4pt solid #B8913F;padding-bottom:2mm}
   .hd img{height:16mm;object-fit:contain}
   .hd .r{text-align:left}
-  .hd .brand{font-size:15pt;font-weight:800;letter-spacing:.5px;color:#14203a}
-  .hd .model{font-size:10pt;font-weight:700;color:#d81f26;direction:ltr}
-  .bar{background:#14203a;color:#fff;padding:1.5mm 4mm;margin-top:0;font-size:10.5pt;font-weight:800;display:flex;justify-content:space-between;align-items:center}
-  .bar .pw{background:#d81f26;padding:.6mm 3mm;border-radius:2mm;direction:ltr;font-size:11pt}
+  .hd .brand{font-size:15pt;font-weight:800;letter-spacing:.5px;color:#141210}
+  .hd .model{font-size:10pt;font-weight:700;color:#B8913F;direction:ltr}
+  .bar{background:#141210;color:#fff;padding:1.5mm 4mm;margin-top:0;font-size:10.5pt;font-weight:800;display:flex;justify-content:space-between;align-items:center}
+  .bar .pw{background:#B8913F;padding:.6mm 3mm;border-radius:2mm;direction:ltr;font-size:11pt}
 
   .top{display:flex;gap:5mm;margin-top:4mm;align-items:stretch}
-  .photo{width:62mm;border:.6pt solid #cfd6e4;border-radius:2mm;display:flex;align-items:center;justify-content:center;padding:2mm;background:#fbfcfe}
+  .photo{width:62mm;border:.6pt solid #E3D6B4;border-radius:2mm;display:flex;align-items:center;justify-content:center;padding:2mm;background:#fbfcfe}
   .photo img{max-width:100%;max-height:62mm;object-fit:contain}
   .info{flex:1}
   .info h2{margin:0 0 2mm;font-size:12pt;font-weight:800;line-height:1.4}
   .kv{width:100%;border-collapse:collapse;font-size:8.4pt}
-  .kv th{background:#eef2f8;border:.5pt solid #cfd6e4;padding:1.2mm 2mm;text-align:right;width:28mm;font-weight:700;white-space:nowrap}
-  .kv td{border:.5pt solid #cfd6e4;padding:1.2mm 2mm;font-weight:700}
+  .kv th{background:#F7F1E3;border:.5pt solid #E3D6B4;padding:1.2mm 2mm;text-align:right;width:28mm;font-weight:700;white-space:nowrap}
+  .kv td{border:.5pt solid #E3D6B4;padding:1.2mm 2mm;font-weight:700}
   .about{margin-top:2.5mm;font-size:8.2pt;line-height:1.7;text-align:justify;color:#3a4560}
 
-  h3{font-size:10pt;margin:5mm 0 2mm;color:#14203a;border-right:3pt solid #d81f26;padding-right:2.5mm}
+  h3{font-size:10pt;margin:5mm 0 2mm;color:#141210;border-right:3pt solid #B8913F;padding-right:2.5mm}
   .cols{display:flex;gap:6mm}
   .cols>div{flex:1}
   ul{margin:0;padding-inline-start:5mm;font-size:8.2pt;line-height:1.7}
 
   .dt{width:100%;border-collapse:collapse;font-size:6.8pt;margin-bottom:1.1mm;page-break-inside:avoid}
-  .dt thead th{background:#14203a;color:#fff;padding:1mm 2mm;text-align:right;font-size:7.9pt;font-weight:800}
-  .dt tbody tr:nth-child(even){background:#f6f8fb}
-  .dt .k{border:.5pt solid #cfd6e4;padding:.6mm 2mm;text-align:right;width:52mm;font-weight:700;background:transparent}
-  .dt .v{border:.5pt solid #cfd6e4;padding:.6mm 2mm;font-weight:600}
+  .dt thead th{background:#141210;color:#fff;padding:1mm 2mm;text-align:right;font-size:7.9pt;font-weight:800}
+  .dt tbody tr:nth-child(even){background:#FBF8F1}
+  .dt .k{border:.5pt solid #E3D6B4;padding:.6mm 2mm;text-align:right;width:52mm;font-weight:700;background:transparent}
+  .dt .v{border:.5pt solid #E3D6B4;padding:.6mm 2mm;font-weight:600}
   .dt tr{page-break-inside:avoid}
 
-  .ft{margin-top:2mm;page-break-inside:avoid;border-top:1pt solid #14203a;padding-top:2mm;display:flex;justify-content:space-between;font-size:7.4pt;color:#5a6580}
-  .ft b{color:#14203a}
+  .ft{margin-top:2mm;page-break-inside:avoid;border-top:1pt solid #141210;padding-top:2mm;display:flex;justify-content:space-between;font-size:7.4pt;color:#5a6580}
+  .ft b{color:#141210}
   .note{margin-top:1.5mm;page-break-inside:avoid;font-size:7.2pt;color:#7a8398}
 </style></head><body>
 
 <div class="sheet">
   <div class="hd">
-    <img src="${logo}" alt="ARSH SMART TECH"/>
+    <img src="${logo}" alt="ARSH ENGINEERING"/>
     <div class="r">
       <div class="brand">${esc(product.brand)}</div>
       <div class="model">${esc(modelCode(product))}</div>
@@ -159,14 +159,14 @@ export function buildDatasheetHtml(product: Product, autoPrint = false): string 
   ${product.suitableFor ? `<h3>لمن يناسب</h3><p style="font-size:8.2pt;line-height:1.7;margin:0">${esc(product.suitableFor)}</p>` : ""}
 
   <div class="ft">
-    <span><b>شركة عرش التقنية الذكية</b> — ARSH SMART TECH Energy Systems &amp; Solutions</span>
+    <span><b>شركة عرش الهندسة للحلول التقنية الذكية</b> — ARSH ENGINEERING Energy Systems &amp; Solutions</span>
     <span>${esc(today)} — صفحة 1</span>
   </div>
 </div>
 
 <div class="sheet">
   <div class="hd">
-    <img src="${logo}" alt="ARSH SMART TECH"/>
+    <img src="${logo}" alt="ARSH ENGINEERING"/>
     <div class="r">
       <div class="brand">المواصفات الفنية</div>
       <div class="model">${esc(modelCode(product))} — ${esc(product.power)}</div>
@@ -176,7 +176,7 @@ export function buildDatasheetHtml(product: Product, autoPrint = false): string 
   <div style="margin-top:3mm">${specTables(product)}</div>
   <p class="note">جميع القيم الواردة أعلاه تخص موديل ${esc(modelCode(product))} بقدرة ${esc(product.power)} حصراً، ومصدرها الكتالوج الرسمي للشركة المصنّعة. هذا المستند للأغراض الفنية والمعلوماتية فقط.</p>
   <div class="ft">
-    <span><b>شركة عرش التقنية الذكية</b> — الدعم الفني والاستشارات الهندسية</span>
+    <span><b>شركة عرش الهندسة للحلول التقنية الذكية</b> — الدعم الفني والاستشارات الهندسية</span>
     <span>${esc(today)} — صفحة 2</span>
   </div>
 </div>

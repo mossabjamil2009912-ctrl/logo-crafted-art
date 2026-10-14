@@ -46,7 +46,7 @@ const EN_PATTERNS: [RegExp, string | ((...m: string[]) => string)][] = [
   [/^رقم\s*الحوالة\s*:\s*(.+)$/, (_, n) => `Transfer number: ${n}`],
   [/^رقم\s*مرجع\s*العملية\s*:\s*(.+)$/, (_, n) => `Transaction reference: ${n}`],
   [/^تم\s*تحديث\s*حالة\s*طلبك\s*إلى\s*:\s*(.+)$/, (_, n) => `Your order status is now: ${trLine(n, "en")}`],
-  [/^جميع\s*الحقوق\s*محفوظة\s*©\s*(\d+)\s*ARSH SMART TECH$/, (_, y) => `All rights reserved © ${y} ARSH SMART TECH`],
+  [/^جميع\s*الحقوق\s*محفوظة\s*©\s*(\d+)\s*ARSH ENGINEERING$/, (_, y) => `All rights reserved © ${y} ARSH ENGINEERING`],
 ];
 
 const ZH_PATTERNS: typeof EN_PATTERNS = [
@@ -64,7 +64,7 @@ const ZH_PATTERNS: typeof EN_PATTERNS = [
   [/^رقم\s*الحوالة\s*:\s*(.+)$/, (_, n) => `汇款编号：${n}`],
   [/^رقم\s*مرجع\s*العملية\s*:\s*(.+)$/, (_, n) => `交易参考号：${n}`],
   [/^تم\s*تحديث\s*حالة\s*طلبك\s*إلى\s*:\s*(.+)$/, (_, n) => `您的订单状态已更新为：${trLine(n, "zh")}`],
-  [/^جميع\s*الحقوق\s*محفوظة\s*©\s*(\d+)\s*ARSH SMART TECH$/, (_, y) => `版权所有 © ${y} ARSH SMART TECH`],
+  [/^جميع\s*الحقوق\s*محفوظة\s*©\s*(\d+)\s*ARSH ENGINEERING$/, (_, y) => `版权所有 © ${y} ARSH ENGINEERING`],
 ];
 
 const PUNCT = /[.،,!؟?:؛]+$/;
