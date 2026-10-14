@@ -111,9 +111,9 @@ import { AdminDashboard } from "@/components/admin-dashboard";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "ARSH SMART TECH — حلول أنظمة الطاقة الشمسية" },
-      { name: "description", content: "منصة عرش التقنية الذكية لتصميم منظومات الطاقة الشمسية وإعداد عروض الأسعار ودراسات الأداء والمخططات." },
-      { property: "og:title", content: "ARSH SMART TECH — حلول أنظمة الطاقة الشمسية" },
+      { title: "ARSH ENGINEERING — حلول أنظمة الطاقة الشمسية" },
+      { name: "description", content: "منصة عرش الهندسة للحلول التقنية الذكية لتصميم منظومات الطاقة الشمسية وإعداد عروض الأسعار ودراسات الأداء والمخططات." },
+      { property: "og:title", content: "ARSH ENGINEERING — حلول أنظمة الطاقة الشمسية" },
       { property: "og:description", content: "صمّم منظومتك واحصل على عرض سعر ودراسة أداء ومخطط واضح." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -495,7 +495,7 @@ function ActesApp() {
       } catch {
         // نكمل الإشعار بدون رقم العميل عند تعذر قراءته
       }
-      const customerName = String(clientNameRef.current || result["customer_name"] || sessionRef.current["customer_name"] || "عميل ARSH SMART TECH");
+      const customerName = String(clientNameRef.current || result["customer_name"] || sessionRef.current["customer_name"] || "عميل ARSH ENGINEERING");
       const quoteNumber = String(result["quote_number"] || sessionRef.current["quote_number"] || "");
       const lastQuote = lastQuoteRef.current;
       const total = Number(lastQuote?.total) || 0;
@@ -535,7 +535,7 @@ function ActesApp() {
 
       const lines = [
         `🔔 *${kindLabel}*`,
-        "طلب من عميل عبر تطبيق ARSH SMART TECH — يرجى التواصل معه، ولا يحتاج تأكيد أو إلغاء فاتورة.",
+        "طلب من عميل عبر تطبيق ARSH ENGINEERING — يرجى التواصل معه، ولا يحتاج تأكيد أو إلغاء فاتورة.",
         "",
         `👤 اسم العميل: ${customerName}`,
         clientPhone ? `📞 رقم العميل: ${clientPhone}` : "",
@@ -558,7 +558,7 @@ function ActesApp() {
         // نرسل بقية بيانات الطلب إذا تعذرت قراءة رقم العميل.
       }
 
-      const customerName = String(clientNameRef.current || result["customer_name"] || sessionRef.current["customer_name"] || "عميل ARSH SMART TECH");
+      const customerName = String(clientNameRef.current || result["customer_name"] || sessionRef.current["customer_name"] || "عميل ARSH ENGINEERING");
       const paymentMethod = String(result["service_needed"] || sessionRef.current["service_needed"] || "حوالة");
       const quoteNumber = String(result["quote_number"] || sessionRef.current["quote_number"] || "");
       const lastQuote = lastQuoteRef.current;
@@ -899,9 +899,9 @@ function AccountChoice({ onClient, onAdmin }: { onClient: () => void; onAdmin: (
       <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--sidebar)_90%,transparent)_0%,color-mix(in_oklab,var(--sidebar)_70%,transparent)_50%,color-mix(in_oklab,var(--sidebar)_94%,transparent)_100%)]" />
 
       <div className="relative z-10 w-full max-w-md rounded-2xl border border-border bg-card/95 p-7 text-center shadow-2xl backdrop-blur-sm sm:p-8">
-        <img src={actesLogo} alt="ARSH SMART TECH — عرش التقنية الذكية" className="mx-auto h-16 w-auto object-contain sm:h-20" />
-        <p className="mt-4 text-[11px] font-black tracking-[0.3em] text-navy" dir="ltr">ARSH SMART TECH</p>
-        <h1 className="mt-2 text-xl font-black leading-8 text-foreground sm:text-2xl">عرش التقنية الذكية</h1>
+        <img src={actesLogo} alt="ARSH ENGINEERING — عرش الهندسة للحلول التقنية الذكية" className="mx-auto h-16 w-auto object-contain sm:h-20" />
+        <p className="mt-4 text-[11px] font-black tracking-[0.3em] text-navy" dir="ltr">ARSH ENGINEERING</p>
+        <h1 className="mt-2 text-xl font-black leading-8 text-foreground sm:text-2xl">عرش الهندسة للحلول التقنية الذكية</h1>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">اختر طريقة الدخول للمتابعة</p>
 
         <button
@@ -918,7 +918,7 @@ function AccountChoice({ onClient, onAdmin }: { onClient: () => void; onAdmin: (
         >
           <ShieldCheck className="size-4" /> دخول المشرف
         </button>
-        <p className="mt-5 text-[11px] font-semibold text-muted-foreground">عرش التقنية الذكية — جميع الحقوق محفوظة</p>
+        <p className="mt-5 text-[11px] font-semibold text-muted-foreground">عرش الهندسة للحلول التقنية الذكية — جميع الحقوق محفوظة</p>
       </div>
     </main>
   );
@@ -934,10 +934,10 @@ function StartScreen({ clientName, onStart }: { clientName: string; onStart: () 
 
       <div className="relative z-10 grid h-full place-items-center overflow-y-auto px-6 py-10">
         <div className="flex w-full max-w-lg flex-col items-center text-center">
-          <img src={actesSplashLogo} alt="ARSH SMART TECH — عرش التقنية الذكية" className="h-20 w-auto object-contain lg:h-28" />
-          <p className="mt-5 text-[11px] font-black tracking-[0.34em] text-white lg:text-xs lg:tracking-[0.42em]" dir="ltr">ARSH SMART TECH</p>
+          <img src={actesSplashLogo} alt="ARSH ENGINEERING — عرش الهندسة للحلول التقنية الذكية" className="h-36 w-auto object-contain lg:h-44" />
+          <p className="mt-5 text-[11px] font-black tracking-[0.34em] text-white lg:text-xs lg:tracking-[0.42em]" dir="ltr">ARSH ENGINEERING</p>
           <h1 className="mt-3 text-2xl font-black leading-tight lg:text-4xl">
-            {clientName ? `مرحباً بك، ${clientName}` : "مرحباً بك في نظام عرش التقنية الذكية"}
+            {clientName ? `مرحباً بك، ${clientName}` : "مرحباً بك في نظام عرش الهندسة للحلول التقنية الذكية"}
           </h1>
           <p className="mt-3 max-w-md text-sm leading-7 opacity-80 lg:text-base">
             صمّم منظومتك واحصل على عرض سعر رسمي ودراسة ومخطط معتمد.
@@ -959,7 +959,7 @@ function StartScreen({ clientName, onStart }: { clientName: string; onStart: () 
             <Sparkles className="size-6" /> ابدأ
           </button>
 
-          <p className="mt-8 text-[11px] font-semibold opacity-70">عرش التقنية الذكية — جميع الحقوق محفوظة</p>
+          <p className="mt-8 text-[11px] font-semibold opacity-70">عرش الهندسة للحلول التقنية الذكية — جميع الحقوق محفوظة</p>
         </div>
       </div>
     </main>
@@ -985,7 +985,7 @@ function SettingsPanel({ open, onClose, isAdmin, clientName = "", onRestart, onS
           </div>
           <div className="flex items-center justify-between rounded-md border border-border px-4 py-3 text-sm">
             <span className="font-bold">نوع الحساب</span>
-            <span className="font-semibold text-muted-foreground">{isAdmin ? "إدارة ARSH SMART TECH" : clientName ? `عميل — ${clientName}` : "عميل"}</span>
+            <span className="font-semibold text-muted-foreground">{isAdmin ? "إدارة ARSH ENGINEERING" : clientName ? `عميل — ${clientName}` : "عميل"}</span>
           </div>
           <button type="button" onClick={onRestart} className="flex w-full items-center gap-3 rounded-md border border-border px-4 py-3 text-sm font-bold transition hover:bg-muted">
             <RotateCcw className="size-4" /> بدء محادثة جديدة من البداية
@@ -1195,8 +1195,8 @@ const CORPORATE_STATS = [
 function CorporateHero() {
   return (
     <section className="corporate-only corporate-grid shrink-0 overflow-hidden rounded-lg border border-border bg-sidebar p-3 text-sidebar-foreground">
-      <p className="text-[10px] font-bold tracking-widest text-brand" dir="ltr">ARSH SMART TECH · ENERGY SYSTEMS</p>
-      <h2 className="mt-0.5 text-base font-black">عرش التقنية الذكية</h2>
+      <p className="text-[10px] font-bold tracking-widest text-brand" dir="ltr">ARSH ENGINEERING · ENERGY SYSTEMS</p>
+      <h2 className="mt-0.5 text-base font-black">عرش الهندسة للحلول التقنية الذكية</h2>
       <p className="text-[10px] opacity-75">حلول هندسية متكاملة للطاقة الشمسية — سكني، تجاري، صناعي، زراعي.</p>
       <div className="mt-2 grid grid-cols-2 gap-2 md:grid-cols-4">
         {CORPORATE_STATS.map(({ icon: Icon, value, label }) => (
@@ -1218,7 +1218,7 @@ function CorporateWelcome({ onClient, onAdmin }: { onClient: () => void; onAdmin
     <main className="corporate-grid grid h-dvh w-full place-items-center bg-sidebar px-6 text-sidebar-foreground" dir="rtl">
       <div className="w-full max-w-md rounded-xl border border-sidebar-foreground/15 bg-card p-8 text-center text-foreground shadow-2xl">
         <div className="flex justify-center"><BrandMark /></div>
-        <p className="mt-3 text-xs text-muted-foreground">نظام عرش التقنية الذكية لأنظمة الطاقة</p>
+        <p className="mt-3 text-xs text-muted-foreground">نظام عرش الهندسة للحلول التقنية الذكية لأنظمة الطاقة</p>
         <button type="button" onClick={onClient} className="mt-6 h-12 w-full rounded-lg bg-brand text-base font-black text-brand-foreground transition hover:opacity-90">الدخول كعميل</button>
         <button type="button" onClick={onAdmin} className="mt-3 h-12 w-full rounded-lg border border-border text-base font-bold transition hover:bg-muted">دخول الإدارة</button>
       </div>
@@ -1228,18 +1228,18 @@ function CorporateWelcome({ onClient, onAdmin }: { onClient: () => void; onAdmin
 
 function BrandLockup() {
   return (
-    <div className="flex flex-col items-center gap-1 text-center" aria-label="ARSH SMART TECH — عرش التقنية الذكية">
+    <div className="flex flex-col items-center gap-1 text-center" aria-label="ARSH ENGINEERING — عرش الهندسة للحلول التقنية الذكية">
       <img src={actesMark} alt="" className="h-11 w-auto" />
-      <p className="text-[17px] font-black leading-none tracking-wide text-skyline-foreground" dir="ltr">ARSH SMART TECH</p>
-      <p className="text-[10px] font-bold leading-3 text-skyline-foreground/90">عرش التقنية الذكية</p>
+      <p className="text-[17px] font-black leading-none tracking-wide text-skyline-foreground" dir="ltr">ARSH ENGINEERING</p>
+      <p className="text-[10px] font-bold leading-3 text-skyline-foreground/90">عرش الهندسة للحلول التقنية الذكية</p>
     </div>
   );
 }
 
 function BrandMark({ compact = false, className, white = false }: { inverse?: boolean; compact?: boolean; className?: string; white?: boolean }) {
   return (
-    <div className="flex items-center" aria-label="ARSH SMART TECH">
-      <img src={white ? actesLogoWhite : actesLogo} alt="ARSH SMART TECH — عرش التقنية الذكية" className={className ?? (compact ? "h-12 w-auto" : "h-16 w-auto")} />
+    <div className="flex items-center" aria-label="ARSH ENGINEERING">
+      <img src={white ? actesLogoWhite : actesLogo} alt="ARSH ENGINEERING — عرش الهندسة للحلول التقنية الذكية" className={className ?? (compact ? "h-12 w-auto" : "h-16 w-auto")} />
     </div>
   );
 }
@@ -1250,10 +1250,10 @@ function TopBar({ isAdmin, clientName = "", onExitAdmin, onSettings, onExit }: {
     <header className="relative grid h-[68px] shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center border-b border-border bg-background px-2 text-navy shadow-[var(--shadow-soft)] sm:px-4 [&_button]:!text-navy [&_svg]:!text-navy">
       <span aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-[3px] bg-gradient-to-l from-navy via-primary to-navy" />
       <div className="flex min-w-0 items-center gap-2">
-        <img src={appIcon} alt="ARSH SMART TECH" className="size-12 shrink-0 rounded-2xl object-cover shadow-md ring-1 ring-primary/40" />
+        <img src={appIcon} alt="ARSH ENGINEERING" className="size-12 shrink-0 rounded-2xl object-cover shadow-md ring-1 ring-primary/40" />
         <div className="min-w-0 leading-tight">
-          <p className="whitespace-nowrap text-[15px] font-black text-navy sm:text-[17px]">عرش التقنية الذكية</p>
-          <p className="whitespace-nowrap text-[10px] font-black tracking-[0.18em] text-primary sm:text-[11px]" dir="ltr">ARSH SMART TECH</p>
+          <p className="whitespace-nowrap text-[15px] font-black text-navy sm:text-[17px]">عرش الهندسة</p>
+          <p className="whitespace-nowrap text-[10px] font-black text-primary sm:text-[11px]">للحلول التقنية الذكية</p>
           <p className="truncate text-[10px] font-semibold text-muted-foreground">مرحباً، <span className="font-black text-navy">{isAdmin ? "الإدارة" : clientName || "عميل"}</span></p>
         </div>
         {isAdmin && (
@@ -1400,7 +1400,7 @@ function AppFooter() {
           <span key={i} className="grid size-6 place-items-center rounded-full bg-skyline-foreground/15"><Icon className="size-3" /></span>
         ))}
       </span>
-      <span className="flex items-center gap-2">جميع الحقوق محفوظة © 2026 <span className="text-[13px] font-black">ARSH SMART TECH</span> <Sun className="size-4" /></span>
+      <span className="flex items-center gap-2">جميع الحقوق محفوظة © 2026 <span className="text-[13px] font-black">ARSH ENGINEERING</span> <Sun className="size-4" /></span>
     </footer>
   );
 }
@@ -1408,13 +1408,13 @@ function AppFooter() {
 function HomeDashboard({ onService, onProducts }: { onService: (kind: "quote" | "energy" | "support") => void; onProducts: () => void }) {
   // نسجّل نص الشاشة الرئيسية حتى يعيده زر «إعادة السماع» عند الرجوع إليها، بلا نطق تلقائي.
   useEffect(() => {
-    setScreenSpeech("الشاشة الرئيسية لعرش التقنية الذكية. يمكنك طلب عرض سعر، أو استكشاف حلول أنظمة الطاقة، أو التواصل مع الدعم الفني، أو التعرف على منتجاتنا.");
+    setScreenSpeech("الشاشة الرئيسية لعرش الهندسة للحلول التقنية الذكية. يمكنك طلب عرض سعر، أو استكشاف حلول أنظمة الطاقة، أو التواصل مع الدعم الفني، أو التعرف على منتجاتنا.");
   }, []);
   return (
     <div className="screen-enter flex min-h-0 w-full flex-col gap-2 lg:h-full">
       <CorporateHero />
       <section data-photo-section className="min-h-0 shrink overflow-hidden rounded-2xl border border-border bg-card shadow-sm lg:flex-1 lg:max-h-[30dvh]">
-        <img src={homeHero} alt="عرش التقنية الذكية" loading="eager" decoding="sync" fetchPriority="high" className="block aspect-[2064/416] w-full object-cover lg:h-full lg:w-full lg:aspect-auto" />
+        <img src={homeHero} alt="عرش الهندسة للحلول التقنية الذكية" loading="eager" decoding="sync" fetchPriority="high" className="block aspect-[1584/672] w-full object-cover lg:h-full lg:w-full lg:aspect-auto" />
       </section>
 
 
@@ -1426,12 +1426,12 @@ function HomeDashboard({ onService, onProducts }: { onService: (kind: "quote" | 
         <ServiceCard image={refCardQuote} icon={<FileText />} title="صمّم منظومتك" description="احصل على أفضل العروض والأسعار المناسبة لمشروعك." action="انطلق للتكوين" tone="brand" onClick={() => onService("quote")} />
         <ServiceCard image={refCardEnergy} icon={<Sun />} title="الدراسات الهندسية" description="اكتشف حلولنا المتكاملة لأنظمة الشمسية للمنازل والمنشآت." action="حلول الطاقة" tone="energy" onClick={() => onService("energy")} />
         <ServiceCard image={refCardSupport} icon={<Headphones />} title="خدماتنا واستشاراتنا" description="فريقنا المتخصص جاهز لمساعدتك في أي استفسار أو مشكلة فنية." action="تواصل معنا" tone="skyline" onClick={() => onService("support")} />
-        <ServiceCard image={refCardProducts} icon={<Package />} title="الأجهزة والمنتجات" description="اكتشف منتجات ARSH SMART TECH، وتعرّف على مواصفاتها واستخداماتها واطلع على الكتالوجات والأدلة." action="استكشف المنتجات" tone="navy" onClick={onProducts} />
+        <ServiceCard image={refCardProducts} icon={<Package />} title="الأجهزة والمنتجات" description="اكتشف منتجات ARSH ENGINEERING، وتعرّف على مواصفاتها واستخداماتها واطلع على الكتالوجات والأدلة." action="استكشف المنتجات" tone="navy" onClick={onProducts} />
       </section>
 
       <footer className="shrink-0 rounded-xl bg-navy px-3 py-2.5 text-center text-[11px] font-bold text-skyline-foreground lg:hidden">
         <p className="flex items-center justify-center gap-1.5"><Leaf className="size-4 text-energy" /> معاً نحو طاقة مستدامة</p>
-        <p className="mt-1 opacity-80">جميع الحقوق محفوظة © 2026 ARSH SMART TECH</p>
+        <p className="mt-1 opacity-80">جميع الحقوق محفوظة © 2026 ARSH ENGINEERING</p>
       </footer>
     </div>
   );
@@ -1446,7 +1446,7 @@ const PARTNER_LINKS = [
 function PartnersStrip() {
   return (
     <section
-      aria-label="وكلاء وشركاء ARSH SMART TECH"
+      aria-label="وكلاء وشركاء ARSH ENGINEERING"
       className="shrink-0 overflow-hidden rounded-2xl border border-border bg-card shadow-sm"
     >
       <div className="grid grid-cols-3 divide-x divide-border" dir="ltr">
@@ -2344,7 +2344,7 @@ function HourlyLoadEntry({ onSubmit }: { onSubmit: (value: string) => void }) {
 }
 
 function MediaGallery({ images }: { images: View["images"] }) {
-  return <div className={`mb-4 grid gap-2 ${images.length > 1 ? "md:grid-cols-2" : ""}`}>{images.map((image, index) => <figure data-photo-section key={index} className="overflow-hidden rounded-lg border border-border bg-muted/35"><div className="flex min-h-24 items-center justify-center p-2"><img src={image.url} alt={image.caption || "صورة من منتجات ARSH SMART TECH"} className="max-h-[210px] w-auto max-w-full object-contain" /></div>{image.caption && <figcaption className="border-t border-border bg-card px-3 py-2 text-[11px] leading-5 text-muted-foreground">{image.caption}</figcaption>}</figure>)}</div>;
+  return <div className={`mb-4 grid gap-2 ${images.length > 1 ? "md:grid-cols-2" : ""}`}>{images.map((image, index) => <figure data-photo-section key={index} className="overflow-hidden rounded-lg border border-border bg-muted/35"><div className="flex min-h-24 items-center justify-center p-2"><img src={image.url} alt={image.caption || "صورة من منتجات ARSH ENGINEERING"} className="max-h-[210px] w-auto max-w-full object-contain" /></div>{image.caption && <figcaption className="border-t border-border bg-card px-3 py-2 text-[11px] leading-5 text-muted-foreground">{image.caption}</figcaption>}</figure>)}</div>;
 }
 
 const SPEC_ICONS = [Sun, Zap, BatteryCharging, Network, Settings];
@@ -2501,7 +2501,7 @@ function QuoteCard({ quote }: { quote: NonNullable<View["quote"]> }) {
     <section className="mt-1">
       <div className="overflow-hidden rounded-md border-2 border-black bg-white font-[Arial,Helvetica,sans-serif] text-black">
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 border-b-2 border-black bg-white px-4 py-3">
-          <div className="min-w-0"><p className="text-sm font-black">عرش التقنية الذكية</p><p className="text-[11px] font-bold">عرض سعر</p></div>
+          <div className="min-w-0"><p className="text-sm font-black">عرش الهندسة للحلول التقنية الذكية</p><p className="text-[11px] font-bold">عرض سعر</p></div>
           <div className="text-left text-[11px] font-bold leading-5"><p>رقم العرض: {quote.number || "—"}</p><p>العميل: {quote.customer || "—"}</p></div>
         </div>
         <div data-quote-scroll className="overflow-x-auto">
@@ -2545,7 +2545,7 @@ function QuoteCard({ quote }: { quote: NonNullable<View["quote"]> }) {
               <span key={name} dir="ltr" className="rounded-full border border-energy/40 bg-energy/10 px-3 py-1 text-[11px] font-bold text-energy">{name}</span>
             ))}
           </div>
-          <p className="mt-2 text-[10px] leading-5 text-muted-foreground">جميع المكونات الموردة من ARSH SMART TECH أصلية ومطابقة للمعايير الدولية أعلاه.</p>
+          <p className="mt-2 text-[10px] leading-5 text-muted-foreground">جميع المكونات الموردة من ARSH ENGINEERING أصلية ومطابقة للمعايير الدولية أعلاه.</p>
         </div>
       </div>
 
