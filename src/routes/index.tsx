@@ -1248,10 +1248,10 @@ function BrandMark({ compact = false, className, white = false }: { inverse?: bo
 
 function TopBar({ isAdmin, clientName = "", onExitAdmin, onSettings, onExit }: { isAdmin: boolean; clientName?: string; onExitAdmin: () => void; onSettings: () => void; onExit: () => void }) {
   return (
-    <header className="relative grid h-[68px] shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center border-b border-border bg-background px-2 text-navy shadow-[var(--shadow-soft)] sm:h-[78px] sm:px-4 [&_button]:!text-navy [&_svg]:!text-navy">
+    <header className="relative grid h-[58px] shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center border-b border-border bg-background px-2 text-navy shadow-[var(--shadow-soft)] sm:h-[68px] sm:px-4 [&_button]:!text-navy [&_svg]:!text-navy">
       <span aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-[3px] bg-gradient-to-l from-navy via-primary to-navy" />
       <div className="flex min-w-0 items-center gap-2">
-        <img src={logoMark} alt="ARSH ENGINEERING" className="h-[54px] w-auto shrink-0 object-contain drop-shadow-md sm:h-[64px]" />
+        <img src={logoMark} alt="ARSH ENGINEERING" className="h-[42px] w-auto shrink-0 object-contain drop-shadow-md sm:h-[52px]" />
         <div className="min-w-0 leading-tight">
           <p className="whitespace-nowrap text-[15px] font-black text-navy sm:text-[17px]">عرش الهندسة</p>
           <p className="whitespace-nowrap text-[10px] font-black text-primary sm:text-[11px]">للحلول التقنية الذكية</p>
