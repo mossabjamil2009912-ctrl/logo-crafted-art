@@ -104,6 +104,9 @@ import { createOrder, createSalesRequest, setPayment, switchClient, type Payment
 import { downloadQuotePdf } from "@/lib/quote-pdf";
 import { PurchaseFlow } from "@/components/purchase-flow";
 import { NotificationsBell } from "@/components/notifications";
+import { AZIMUTH_OPTIONS } from "@/lib/pvsyst-geometry";
+import { isReleased, startStudy, usePvsystAccess, setStudyGeometry, markStudyOpened } from "@/lib/pvsyst-access";
+import { FreeStudyNote, StudyPayment, StudyWaiting } from "@/components/pvsyst-gate";
 import { OrderCenterButton } from "@/components/order-center";
 import { AdminDashboard } from "@/components/admin-dashboard";
 
@@ -2336,6 +2339,27 @@ function HourlyLoadEntry({ onSubmit }: { onSubmit: (value: string) => void }) {
             </div>
           </div>
         ))}
+      </div>
+      <div className="mt-5 rounded-lg border border-border bg-card p-4">
+        <p className="text-sm font-black">زوايا الألواح</p>
+        <p className="mt-1 text-xs text-muted-foreground">اتركها على «تلقائي» لاعتماد الزاوية المثالية لموقعك</p>
+        <p className="mt-3 text-xs font-bold">زاوية الميلان: <span className="text-brand">{tilt === null ? "تلقائي" : `${tilt}°`}</span></p>
+        <div className="mt-2 flex flex-wrap gap-2">
+          {[null, 10, 15, 20, 25, 30].map((v) => (
+            <button key={String(v)} type="button" onClick={() => setTilt(v)} className={`rounded-full border px-3 py-1.5 text-xs font-black ${tilt === v ? "border-brand bg-brand text-brand-foreground" : "border-border bg-card"}`}>
+              {v === null ? "تلقائي" : `${v}°`}
+            </button>
+          ))}
+        </div>
+        <input type="range" min={0} max={60} value={tilt ?? 15} onChange={(e) => setTilt(Number(e.target.value))} aria-label="زاوية الميلان" className="mt-3 w-full accent-primary" />
+        <p className="mt-3 text-xs font-bold">اتجاه الألواح</p>
+        <div className="mt-2 flex flex-wrap gap-2">
+          {AZIMUTH_OPTIONS.map((o) => (
+            <button key={o.value} type="button" onClick={() => setAzimuth(o.value)} className={`rounded-full border px-3 py-1.5 text-xs font-black ${azimuth === o.value ? "border-brand bg-brand text-brand-foreground" : "border-border bg-card"}`}>
+              {o.label}
+            </button>
+          ))}
+        </div>
       </div>
       <button
         type="submit"
