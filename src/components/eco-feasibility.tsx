@@ -95,8 +95,8 @@ function ProjectNameForm({ value, onChange, onSubmit }: { value: string; onChang
   );
 }
 
-export function EcoFeasibility({ mode, onSales, onBuy }: { mode: Mode; onSales?: () => void; onBuy?: (loads: string) => void }) {
-  const [step, setStep] = useState<"name" | "data" | "goal" | "result">("name");
+export function EcoFeasibility({ mode, onSales, onBuy, onResult, resume }: { mode: Mode; onSales?: () => void; onBuy?: (loads: string) => void; onResult?: (snap: { goal: Goal }) => boolean; resume?: { goal?: Goal } | null }) {
+  const [step, setStep] = useState<"name" | "data" | "goal" | "result">(resume?.goal ? "result" : "name");
   const [project, setProject] = useState("");
   useEffect(() => { try { setProject(sessionStorage.getItem(PROJECT_KEY) ?? ""); } catch { /* ignore */ } }, []);
   const [values, setValues] = useState<string[]>(() => readLoads().values ?? Array(24).fill(""));
@@ -107,7 +107,7 @@ export function EcoFeasibility({ mode, onSales, onBuy }: { mode: Mode; onSales?:
   useEffect(() => { saveLoads({ price }); }, [price]);
   useEffect(() => { saveLoads({ daily }); }, [daily]);
   const resetData = () => { clearLoads(); setValues(Array(24).fill("")); setDaily(""); setPrice("1.1"); setSame(false); };
-  const [goal, setGoal] = useState<Goal>("reduce");
+  const [goal, setGoal] = useState<Goal>(resume?.goal ?? "reduce");
   const [pick, setPick] = useState(1);
   const [open, setOpen] = useState<number | null>(null);
   const [dl, setDl] = useState<number | null>(null);
@@ -195,7 +195,7 @@ export function EcoFeasibility({ mode, onSales, onBuy }: { mode: Mode; onSales?:
         <p className="mt-1 text-xs text-muted-foreground">اختر الهدف لنعرض لك ثلاثة سيناريوهات مناسبة لمشروع {project}.</p>
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
           {(Object.keys(GOALS) as Goal[]).map((g) => (
-            <button key={g} type="button" onClick={() => { setGoal(g); setPick(1); setStep("result"); }} className="rounded-lg border border-border bg-background p-4 text-start transition hover:border-primary">
+            <button key={g} type="button" onClick={() => { if (onResult?.({ goal: g })) return; setGoal(g); setPick(1); setStep("result"); }} className="rounded-lg border border-border bg-background p-4 text-start transition hover:border-primary">
               <p className="text-sm font-black">{GOALS[g].title}</p>
               <p className="mt-1 text-[11px] text-muted-foreground">{GOALS[g].note}</p>
               <p className="mt-2 text-[11px] font-bold text-primary">{GOALS[g].levels.map((l) => `${Math.round(l.t * 100)}%`).join(" • ")}</p>
@@ -276,16 +276,17 @@ export function EcoFeasibility({ mode, onSales, onBuy }: { mode: Mode; onSales?:
 }
 
 /** دراسة جدوى لمنظومة جاهزة حدد العميل سعرها — بلا طلب عرض سعر. */
-export function EcoSystemStudy({ onSales }: { onSales?: () => void }) {
-  const [f, setF] = useState({ panel: "", panelW: "", panelN: "", inv: "", invKw: "", invN: "", bat: "", batKwh: "", batN: "", cost: "", price: "1.1" });
-  const [batType, setBatType] = useState<"bat" | "cab">("bat");
+type SysSnap = { f: Record<string, string>; batType: "bat" | "cab"; lm: "loads" | "diesel"; pf: Record<string, string> };
+export function EcoSystemStudy({ onSales, onResult, resume }: { onSales?: () => void; onResult?: (snap: SysSnap) => boolean; resume?: SysSnap | null }) {
+  const [f, setF] = useState(() => ({ panel: "", panelW: "", panelN: "", inv: "", invKw: "", invN: "", bat: "", batKwh: "", batN: "", cost: "", price: "1.1", ...(resume?.f || {}) }));
+  const [batType, setBatType] = useState<"bat" | "cab">(resume?.batType ?? "bat");
   const [manual, setManual] = useState<Set<string>>(() => new Set());
-  const [done, setDone] = useState(false);
+  const [done, setDone] = useState(Boolean(resume));
   const [project, setProject] = useState("");
-  const [named, setNamed] = useState(false);
+  const [named, setNamed] = useState(Boolean(resume));
   useEffect(() => { try { setProject(sessionStorage.getItem(PROJECT_KEY) ?? ""); } catch { /* ignore */ } }, []);
   useEffect(() => { toTop(); }, [done, named]);
-  const [lm, setLm] = useState<"loads" | "diesel">("loads");
+  const [lm, setLm] = useState<"loads" | "diesel">(resume?.lm ?? "loads");
   const [hrs, setHrs] = useState<string[]>(() => readLoads().values ?? Array(24).fill(""));
   const [total, setTotal] = useState(() => readLoads().total ?? "");
   const [one, setOne] = useState(() => readLoads().one ?? "");
@@ -293,7 +294,7 @@ export function EcoSystemStudy({ onSales }: { onSales?: () => void }) {
   const resetHrs = () => { clearLoads(); setHrs(Array(24).fill("")); setTotal(""); setOne(""); };
   const [showReport, setShowReport] = useState(false);
   const [merge, setMerge] = useState(false);
-  const [pf, setPf] = useState({ panel: "", panelW: "", panelN: "", inv: "", invKw: "", invN: "", bat: "", batKwh: "", batN: "" });
+  const [pf, setPf] = useState(() => ({ panel: "", panelW: "", panelN: "", inv: "", invKw: "", invN: "", bat: "", batKwh: "", batN: "", ...(resume?.pf || {}) }));
   const n = (v: string) => Math.max(0, Number(v) || 0);
   const kwp = (n(f.panelW) * n(f.panelN)) / 1000;
   const invKw = n(f.invKw) * n(f.invN);
@@ -384,7 +385,7 @@ export function EcoSystemStudy({ onSales }: { onSales?: () => void }) {
 
   if (!done) {
     return (
-      <form onSubmit={(e) => { e.preventDefault(); if (ok) setDone(true); }} className="rounded-lg border border-border bg-muted/35 p-5">
+      <form onSubmit={(e) => { e.preventDefault(); if (ok) { if (onResult?.({ f, batType, lm, pf })) return; setDone(true); } }} className="rounded-lg border border-border bg-muted/35 p-5">
         <p className="text-sm font-black">بيانات المنظومة — {project}</p>
         <p className="mt-1 text-xs text-muted-foreground">اكتب مكونات منظومتك الجاهزة وتكلفتها لنحسب جدواها الاقتصادية.</p>
         <div className="mt-4 grid gap-3 sm:grid-cols-3">

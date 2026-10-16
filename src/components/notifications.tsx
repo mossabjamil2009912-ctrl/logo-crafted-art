@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Bell, Check, Eye, FileText, ShieldCheck, X } from "lucide-react";
-import { useReadyStudy } from "@/lib/pvsyst-access";
+import { ecoAccess, useReadyStudy } from "@/lib/pvsyst-access";
 import {
   NOTIF_STATE_LABELS,
   PAYMENT_LABELS,
@@ -30,8 +30,13 @@ export function NotificationsBell({ isAdmin }: { isAdmin: boolean }) {
   const audience = isAdmin ? "admin" : "client";
   const items = useMemo(() => store.notifs.filter((item) => item.audience === audience), [store, audience]);
   const readyStudy = useReadyStudy();
-  const studyNotif = !isAdmin && readyStudy ? readyStudy : null;
-  const unread = items.filter((item) => item.state === "sent").length + (studyNotif && !studyNotif.opened ? 1 : 0);
+  const readyEco = ecoAccess.useReady();
+  const studyNotifs = isAdmin ? [] : [
+    readyStudy && { n: readyStudy, title: "اكتملت دراسة PVsyst لمنظومتك" },
+    readyEco && { n: readyEco, title: "اكتملت دراسة الجدوى الاقتصادية لمشروعك" },
+  ].filter(Boolean) as { n: NonNullable<typeof readyStudy>; title: string }[];
+  const studyNotif = studyNotifs[0] || null;
+  const unread = items.filter((item) => item.state === "sent").length + studyNotifs.filter((s) => !s.n.opened).length;
   const order: Order | null = orderId ? store.orders.find((item) => item.id === orderId) || null : null;
 
   const openNotif = (notif: Notif) => {
@@ -66,9 +71,9 @@ export function NotificationsBell({ isAdmin }: { isAdmin: boolean }) {
               <p className="text-sm font-black">{isAdmin ? "إشعارات الإدارة" : "إشعارات طلباتي"}</p>
               <button type="button" onClick={() => setOpen(false)} className="grid size-7 place-items-center rounded-full hover:bg-muted"><X className="size-4" /></button>
             </div>
-            {studyNotif && (
-              <div className={`mb-2 rounded-lg border p-3 text-right ${studyNotif.opened ? "border-border" : "border-brand/40 bg-brand/5"}`}>
-                <strong className="text-xs font-black">اكتملت دراسة PVsyst لمنظومتك</strong>
+            {studyNotifs.map(({ n: studyNotif, title }) => (
+              <div key={title} className={`mb-2 rounded-lg border p-3 text-right ${studyNotif.opened ? "border-border" : "border-brand/40 bg-brand/5"}`}>
+                <strong className="text-xs font-black">{title}</strong>
                 <span className="mt-1 block text-[11px] leading-5 text-muted-foreground">دراستك جاهزة، اضغط لفتحها.</span>
                 <button
                   type="button"
@@ -78,7 +83,7 @@ export function NotificationsBell({ isAdmin }: { isAdmin: boolean }) {
                   <FileText className="size-3.5" /> فتح الدراسة
                 </button>
               </div>
-            )}
+            ))}
             {items.length === 0 && !studyNotif ? (
               <p className="px-2 py-8 text-center text-xs text-muted-foreground">لا توجد إشعارات حتى الآن.</p>
             ) : (

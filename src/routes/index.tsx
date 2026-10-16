@@ -10,6 +10,7 @@ import { startVoiceWarmup } from "@/lib/voice-warmup";
 import { preloadAppImages } from "@/lib/preload-images";
 import PvsystStudy from "@/components/pvsyst-study";
 import EconomicStudy from "@/components/economic-study";
+import { TeamContact, openTeamContact } from "@/components/team-contact";
 import { EcoFeasibility, EcoSystemStudy } from "@/components/eco-feasibility";
 import SldDiagram from "@/components/sld-diagram";
 import QuoteVariants from "@/components/quote-variants";
@@ -105,7 +106,11 @@ import { downloadQuotePdf } from "@/lib/quote-pdf";
 import { PurchaseFlow } from "@/components/purchase-flow";
 import { NotificationsBell } from "@/components/notifications";
 import { AZIMUTH_OPTIONS } from "@/lib/pvsyst-geometry";
-import { isReleased, startStudy, usePvsystAccess, setStudyGeometry, markStudyOpened } from "@/lib/pvsyst-access";
+import { isReleased, startStudy, usePvsystAccess, setStudyGeometry, markStudyOpened, ecoAccess } from "@/lib/pvsyst-access";
+
+// دراسة جدوى جاهزة فُتحت من الإشعارات: تُعرض نتائجها مباشرة في نفس الخطوة
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let ecoResume: { step: string; data: any; nonce: number } | null = null;
 import { FreeStudyNote, StudyPayment, StudyWaiting } from "@/components/pvsyst-gate";
 import { OrderCenterButton } from "@/components/order-center";
 import { AdminDashboard } from "@/components/admin-dashboard";
@@ -434,6 +439,8 @@ function ActesApp() {
   const send = useCallback(async (text: string) => {
     const clean = text.trim();
     if (!clean) return;
+    // فريق عرش الهندسة: تواصل مباشر مع الإدارة عبر واتساب
+    if (clean === "team" || /^فريق عرش (الهندسة|التقنية)/.test(clean)) { stopSpeaking(); openTeamContact(); return; }
     // أي نقرة توقف النطق الحالي فوراً، ثم يُنطق الاختيار والخطوة التالية
     stopSpeaking();
     chosenRef.current = viewRef.current?.options.find((o) => o.id === clean)?.title || "";
@@ -697,9 +704,10 @@ function ActesApp() {
   // فتح دراسة PVsyst الجاهزة من الإشعارات
   useEffect(() => {
     const onOpen = (event: Event) => {
-      const snap = (event as CustomEvent).detail as { view: View; session: BotSession; step: string } | null;
+      const snap = (event as CustomEvent).detail as { view: View; session: BotSession; step: string; eco?: unknown } | null;
       if (!snap?.view) return;
-      markStudyOpened();
+      if (snap.eco) { ecoAccess.markOpened(); ecoResume = { step: snap.step, data: snap.eco, nonce: Date.now() }; }
+      else markStudyOpened();
       sessionRef.current = { ...snap.session };
       setSession(sessionRef.current);
       setStep(snap.step);
@@ -875,6 +883,7 @@ function ActesApp() {
 
           ) : null}
         </main>
+        <TeamContact />
       </div>
       <AppFooter />
       <MobileNav active={isHome ? "home" : "quote"} onNavigate={navFromMenu} onSettings={() => setSettingsOpen(true)} />
@@ -1601,6 +1610,20 @@ function QuoteWorkspace({ view, session, step, draft, setDraft, onPick, onBack, 
     if (studyLocked && (access.kind === "free" || access.kind === "credit")) startStudy(studySig, { view, session, step });
   }, [studyLocked, access.kind, studySig]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { setShowStudyOnly(studyFresh); }, [studyFresh, view.study?.number]);
+  // دراسة الجدوى الاقتصادية: نفس نظام PVsyst (الأولى مجانية، تصل بعد 3 دقائق، ثم 5$)
+  const ecoAcc = ecoAccess.useAccess();
+  const [ecoStarted, setEcoStarted] = useState(false);
+  useEffect(() => { setEcoStarted(false); if (ecoResume && ecoResume.step !== step) ecoResume = null; }, [step]);
+  const resumeNow = ecoResume && ecoResume.step === step ? ecoResume : null;
+  const startEco = (data: unknown) => {
+    const ok = ecoAccess.startStudy(`ECO-${Date.now()}`, { view, session, step, eco: data });
+    if (ok) setEcoStarted(true);
+    return ok;
+  };
+  const ecoGate = (node: ReactNode) => resumeNow ? node
+    : ecoAcc.kind === "waiting" ? <StudyWaiting kind="eco" readyAt={ecoAcc.readyAt} previous={!ecoStarted} onBack={onStudies} />
+    : ecoAcc.kind === "pay" || ecoAcc.kind === "review" ? <StudyPayment kind="eco" status={ecoAcc} customer={String(session["name"] || session["client_name"] || "")} city={String(session["city"] || "")} />
+    : <>{ecoAcc.kind === "free" && <FreeStudyNote kind="eco" />}{node}</>;
   // شاشة دراسة الجدوى الاقتصادية المستقلة
   const [showEco, setShowEco] = useState(false);
   useEffect(() => { setShowEco(false); }, [view.study?.number]);
@@ -1776,9 +1799,9 @@ function QuoteWorkspace({ view, session, step, draft, setDraft, onPick, onBack, 
                       ? <StudyPayment status={access} customer={String(session["name"] || session["client_name"] || "")} city={String(session["city"] || "")} />
                       : <>{access.kind === "free" && <FreeStudyNote />}<HourlyLoadEntry onSubmit={onPick} /></>)
                     : step === "eco_system_hours"
-                    ? <EcoSystemStudy onSales={() => onPick("team")} />
+                    ? ecoGate(<EcoSystemStudy key={resumeNow?.nonce ?? "sys"} resume={resumeNow?.data ?? null} onResult={startEco} onSales={() => onPick("team")} />)
                     : step === "eco_diesel_hours" || step === "eco_loads_hours"
-                    ? <EcoFeasibility key={step} mode={step === "eco_diesel_hours" ? "diesel" : "loads"} onBuy={(loads) => onPick(`eco_quote\n${loads}`)} onSales={() => onPick("team")} />
+                    ? ecoGate(<EcoFeasibility key={`${step}-${resumeNow?.nonce ?? ""}`} resume={resumeNow?.data ?? null} onResult={startEco} mode={step === "eco_diesel_hours" ? "diesel" : "loads"} onBuy={(loads) => onPick(`eco_quote\n${loads}`)} onSales={() => onPick("team")} />)
                     : <DataEntry value={draft} onChange={setDraft} prompt={entryPrompt(step, session)} onSubmit={submit} presets={entryPresets(step, session)} onQuick={onPick} />)}
                 {visibleOptions.length > 0 && <OptionGrid options={visibleOptions} selected={selected} projectCards={isProjectSelection} energyCards={isEnergyMenu} itemCards={isItemCards} onSelect={(value) => { onPick(value); }} />}
               </div>
