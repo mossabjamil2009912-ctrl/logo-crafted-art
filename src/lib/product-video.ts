@@ -307,8 +307,10 @@ export const PRODUCT_VIDEOS: Record<string, ProductVideo> = {
   },
 };
 
-export function getProductVideo(productId: string): ProductVideo | null {
-  return PRODUCT_VIDEOS[productId] ?? null;
+/** الفيديوهات التعريفية أُزيلت بطلب المستخدم؛ صفحات المنتجات تعرض المواصفات مباشرة. */
+export function getProductVideo(_productId: string): ProductVideo | null {
+  void PRODUCT_VIDEOS;
+  return null;
 }
 
 /** ينطق الوحدات والرموز الهندسية بالعربية حتى يقرأها التعليق الصوتي سليمة. */
