@@ -25,3 +25,16 @@ describe("PVsyst study access", () => {
     vi.useRealTimers();
   });
 });
+
+describe("Economic study access", () => {
+  it("has its own free study, then requires payment", async () => {
+    const { ecoAccess } = await import("@/lib/pvsyst-access");
+    vi.useFakeTimers();
+    expect(ecoAccess.getAccessStatus().kind).toBe("free");
+    expect(ecoAccess.startStudy("E1", {})).toBe(true);
+    expect(ecoAccess.getAccessStatus().kind).toBe("waiting");
+    vi.advanceTimersByTime(3 * 60 * 1000);
+    expect(ecoAccess.getAccessStatus().kind).toBe("pay");
+    vi.useRealTimers();
+  });
+});

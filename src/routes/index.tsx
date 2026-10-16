@@ -883,6 +883,7 @@ function ActesApp() {
 
           ) : null}
         </main>
+        <TeamContact />
       </div>
       <AppFooter />
       <MobileNav active={isHome ? "home" : "quote"} onNavigate={navFromMenu} onSettings={() => setSettingsOpen(true)} />
