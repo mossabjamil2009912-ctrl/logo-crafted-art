@@ -694,6 +694,23 @@ function ActesApp() {
     runService(kind);
   }, [hasClient, runService]);
 
+  // فتح دراسة PVsyst الجاهزة من الإشعارات
+  useEffect(() => {
+    const onOpen = (event: Event) => {
+      const snap = (event as CustomEvent).detail as { view: View; session: BotSession; step: string } | null;
+      if (!snap?.view) return;
+      markStudyOpened();
+      sessionRef.current = { ...snap.session };
+      setSession(sessionRef.current);
+      setStep(snap.step);
+      setView(snap.view);
+      setCatalog(null);
+      mainRef.current?.scrollTo({ top: 0 });
+    };
+    window.addEventListener("arsh:open-study", onOpen);
+    return () => window.removeEventListener("arsh:open-study", onOpen);
+  }, []);
+
   const handleNav = (action: (typeof NAV_ITEMS)[number]["action"]) => {
     if (action === "home") return reset();
     if (action === "quote" && !hasClient) { setLoginModal(true); return; }
