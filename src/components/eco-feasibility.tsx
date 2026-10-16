@@ -95,8 +95,8 @@ function ProjectNameForm({ value, onChange, onSubmit }: { value: string; onChang
   );
 }
 
-export function EcoFeasibility({ mode, onSales, onBuy }: { mode: Mode; onSales?: () => void; onBuy?: (loads: string) => void }) {
-  const [step, setStep] = useState<"name" | "data" | "goal" | "result">("name");
+export function EcoFeasibility({ mode, onSales, onBuy, onResult, resume }: { mode: Mode; onSales?: () => void; onBuy?: (loads: string) => void; onResult?: (snap: { goal: Goal }) => boolean; resume?: { goal?: Goal } | null }) {
+  const [step, setStep] = useState<"name" | "data" | "goal" | "result">(resume?.goal ? "result" : "name");
   const [project, setProject] = useState("");
   useEffect(() => { try { setProject(sessionStorage.getItem(PROJECT_KEY) ?? ""); } catch { /* ignore */ } }, []);
   const [values, setValues] = useState<string[]>(() => readLoads().values ?? Array(24).fill(""));
@@ -107,7 +107,7 @@ export function EcoFeasibility({ mode, onSales, onBuy }: { mode: Mode; onSales?:
   useEffect(() => { saveLoads({ price }); }, [price]);
   useEffect(() => { saveLoads({ daily }); }, [daily]);
   const resetData = () => { clearLoads(); setValues(Array(24).fill("")); setDaily(""); setPrice("1.1"); setSame(false); };
-  const [goal, setGoal] = useState<Goal>("reduce");
+  const [goal, setGoal] = useState<Goal>(resume?.goal ?? "reduce");
   const [pick, setPick] = useState(1);
   const [open, setOpen] = useState<number | null>(null);
   const [dl, setDl] = useState<number | null>(null);
@@ -195,7 +195,7 @@ export function EcoFeasibility({ mode, onSales, onBuy }: { mode: Mode; onSales?:
         <p className="mt-1 text-xs text-muted-foreground">اختر الهدف لنعرض لك ثلاثة سيناريوهات مناسبة لمشروع {project}.</p>
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
           {(Object.keys(GOALS) as Goal[]).map((g) => (
-            <button key={g} type="button" onClick={() => { setGoal(g); setPick(1); setStep("result"); }} className="rounded-lg border border-border bg-background p-4 text-start transition hover:border-primary">
+            <button key={g} type="button" onClick={() => { if (onResult?.({ goal: g })) return; setGoal(g); setPick(1); setStep("result"); }} className="rounded-lg border border-border bg-background p-4 text-start transition hover:border-primary">
               <p className="text-sm font-black">{GOALS[g].title}</p>
               <p className="mt-1 text-[11px] text-muted-foreground">{GOALS[g].note}</p>
               <p className="mt-2 text-[11px] font-bold text-primary">{GOALS[g].levels.map((l) => `${Math.round(l.t * 100)}%`).join(" • ")}</p>
