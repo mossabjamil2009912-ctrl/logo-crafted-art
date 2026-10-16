@@ -63,7 +63,10 @@ export function StudyPayment({ status, customer, city, kind = "pvsyst" }: { stat
       <p className="mt-2 text-sm text-muted-foreground">استخدمت دراستك المجانية. سعر الدراسة {STUDY_PRICE_USD} دولار فقط لكل دراسة.</p>
       {status.rejected && <p className="mt-2 text-xs font-bold text-destructive">لم يتم تأكيد العملية السابقة، تأكد من رقم المرجع وأعد الإرسال.</p>}
       <div className="mt-4 rounded-lg border border-border bg-card p-4">
-        <p className="text-xs font-bold text-muted-foreground">حوّل {STUDY_PRICE_USD}$ عبر محفظة جيب إلى الرقم:</p>
+        <div className="flex items-center justify-between gap-3">
+          <p className="text-xs font-bold text-muted-foreground">حوّل {STUDY_PRICE_USD}$ عبر محفظة جيب إلى الرقم:</p>
+          <span className="shrink-0 rounded-md bg-background px-2 py-1"><img src="/brand/jaib-logo.webp" alt="محفظة جيب" className="h-7 w-auto" /></span>
+        </div>
         <div className="mt-2 flex items-center justify-between gap-3">
           <span dir="ltr" className="text-xl font-black tracking-wider text-brand">{JEEB_NUMBER}</span>
           <button type="button" onClick={() => { void navigator.clipboard?.writeText(JEEB_NUMBER); setCopied(true); }} className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1.5 text-xs font-bold hover:border-brand">
