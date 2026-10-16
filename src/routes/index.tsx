@@ -10,6 +10,7 @@ import { startVoiceWarmup } from "@/lib/voice-warmup";
 import { preloadAppImages } from "@/lib/preload-images";
 import PvsystStudy from "@/components/pvsyst-study";
 import EconomicStudy from "@/components/economic-study";
+import { TeamContact, openTeamContact } from "@/components/team-contact";
 import { EcoFeasibility, EcoSystemStudy } from "@/components/eco-feasibility";
 import SldDiagram from "@/components/sld-diagram";
 import QuoteVariants from "@/components/quote-variants";
@@ -438,6 +439,8 @@ function ActesApp() {
   const send = useCallback(async (text: string) => {
     const clean = text.trim();
     if (!clean) return;
+    // فريق عرش الهندسة: تواصل مباشر مع الإدارة عبر واتساب
+    if (clean === "team" || /^فريق عرش (الهندسة|التقنية)/.test(clean)) { stopSpeaking(); openTeamContact(); return; }
     // أي نقرة توقف النطق الحالي فوراً، ثم يُنطق الاختيار والخطوة التالية
     stopSpeaking();
     chosenRef.current = viewRef.current?.options.find((o) => o.id === clean)?.title || "";
