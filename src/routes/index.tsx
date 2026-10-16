@@ -2295,13 +2295,17 @@ const HOUR_LABELS = Array.from({ length: 24 }, (_, hour) => {
 function HourlyLoadEntry({ onSubmit }: { onSubmit: (value: string) => void }) {
   const [values, setValues] = useState<string[]>(() => Array.from({ length: 24 }, () => ""));
   const [same, setSame] = useState(false);
+  const [tilt, setTilt] = useState<number | null>(null);
+  const [azimuth, setAzimuth] = useState(0);
   const filled = values.filter((entry) => entry.trim()).length;
 
   return (
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        if (filled === 24) onSubmit(values.map((entry, hour) => `${hour}=${entry.trim()}`).join("\n"));
+        if (filled !== 24) return;
+        setStudyGeometry(tilt, azimuth);
+        onSubmit(values.map((entry, hour) => `${hour}=${entry.trim()}`).join("\n"));
       }}
       className="rounded-lg border border-border bg-muted/35 p-5"
     >
