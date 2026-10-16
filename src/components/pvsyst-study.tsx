@@ -78,7 +78,7 @@ const COL_AR: Record<string, string> = {
 };
 
 /** ألوان تقرير PVsyst الرسمية */
-const C = { blue: "#9C7A2E", sun: "#f5a01e", violet: "#7b3fa0", red: "#c0392b", grid: "#b9c0cf", head: "#dfe4ee" };
+const C = { blue: "#1c3f94", sun: "#f5a01e", violet: "#7b3fa0", red: "#c0392b", grid: "#b9c0cf", head: "#dfe4ee", lc: "#a02bf0", ls: "#0f8a24", yf: "#8c1218" };
 
 type Props = {
   study: NonNullable<View["study"]>;
@@ -529,7 +529,7 @@ export default function PvsystStudy({ study, actions }: Props) {
                 step={1}
                 value={liveTilt}
                 onChange={(e) => setTilt(Number(e.target.value))}
-                className="mt-2 w-full accent-[#9C7A2E]"
+                className="mt-2 w-full accent-[#1c3f94]"
               />
               <div className="flex justify-between text-[9px] text-muted-foreground" dir="ltr">
                 <span>5°</span>
@@ -670,9 +670,9 @@ export default function PvsystStudy({ study, actions }: Props) {
                     onClick={() => setHover({ chart: "norm", i })}
                     style={hover?.chart === "norm" && hover.i === i ? { outline: `1px solid ${C.blue}` } : undefined}
                   >
-                    <span style={{ height: `${(n.lc / normTop) * 100}%`, background: C.violet }} />
-                    <span style={{ height: `${(n.ls / normTop) * 100}%`, background: C.red }} />
-                    <span style={{ height: `${(n.yf / normTop) * 100}%`, background: C.sun }} />
+                    <span style={{ height: `${(n.lc / normTop) * 100}%`, background: C.lc }} />
+                    <span style={{ height: `${(n.ls / normTop) * 100}%`, background: C.ls }} />
+                    <span style={{ height: `${(n.yf / normTop) * 100}%`, background: C.yf }} />
                   </div>
                 ))}
               </div>
@@ -697,15 +697,15 @@ export default function PvsystStudy({ study, actions }: Props) {
             )}
             <ul className="mt-2 space-y-0.5 text-[8.5px]">
               <li className="flex items-center gap-1">
-                <i className="inline-block size-2" style={{ background: C.violet }} /> Lc : Collection Loss (PV-array losses){" "}
+                <i className="inline-block size-2" style={{ background: C.lc }} /> Lc : Collection Loss (PV-array losses){" "}
                 {nf(avg((n) => n.lc), 2)} kWh/kWp/day
               </li>
               <li className="flex items-center gap-1">
-                <i className="inline-block size-2" style={{ background: C.red }} /> Ls : System Loss (inverter, ...){" "}
+                <i className="inline-block size-2" style={{ background: C.ls }} /> Ls : System Loss (inverter, ...){" "}
                 {nf(avg((n) => n.ls), 2)} kWh/kWp/day
               </li>
               <li className="flex items-center gap-1">
-                <i className="inline-block size-2" style={{ background: C.sun }} /> Yf : Produced useful energy (inverter output){" "}
+                <i className="inline-block size-2" style={{ background: C.yf }} /> Yf : Produced useful energy (inverter output){" "}
                 {nf(avg((n) => n.yf), 2)} kWh/kWp/day
               </li>
             </ul>
@@ -731,7 +731,7 @@ export default function PvsystStudy({ study, actions }: Props) {
                     onClick={() => setHover({ chart: "pr", i })}
                     style={hover?.chart === "pr" && hover.i === i ? { outline: `1px solid ${C.blue}` } : undefined}
                   >
-                    <span style={{ height: `${(n.pr / 1.2) * 100}%`, background: C.blue }} />
+                    <span style={{ height: `${(n.pr / 1.2) * 100}%`, background: C.yf }} />
                   </div>
                 ))}
               </div>
@@ -753,7 +753,7 @@ export default function PvsystStudy({ study, actions }: Props) {
               </div>
             )}
             <p className="mt-2 flex items-center gap-1 text-[8.5px]">
-              <i className="inline-block size-2" style={{ background: C.blue }} /> PR : Performance Ratio (Yf / Yr) ={" "}
+              <i className="inline-block size-2" style={{ background: C.yf }} /> PR : Performance Ratio (Yf / Yr) ={" "}
               {result.annualPr ? nf(result.annualPr, 3) : "—"}
             </p>
           </figure>
