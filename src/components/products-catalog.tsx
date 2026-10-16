@@ -275,7 +275,7 @@ function BrandBadge({ brand, large = false }: { brand: string; large?: boolean }
       <span className={`flex items-center font-black tracking-wide text-navy ${large ? "text-base" : "text-[10px]"}`}>
         {logo ? <img src={logo} alt={brandLabel(brand)} className={large ? "h-7 w-auto max-w-36" : "h-3.5 w-auto max-w-16"} /> : brandLabel(brand)}
       </span>
-      <img src="/brand/actes-logo-full.png" alt="ARSH ENGINEERING" className={large ? "h-10 w-auto" : "h-4 w-auto"} />
+      <img src="/brand/actes-logo-full-white.png" alt="ARSH ENGINEERING" className={large ? "h-10 w-auto" : "h-4 w-auto"} />
     </span>
   );
 }
