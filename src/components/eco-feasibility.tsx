@@ -276,16 +276,17 @@ export function EcoFeasibility({ mode, onSales, onBuy, onResult, resume }: { mod
 }
 
 /** دراسة جدوى لمنظومة جاهزة حدد العميل سعرها — بلا طلب عرض سعر. */
-export function EcoSystemStudy({ onSales }: { onSales?: () => void }) {
-  const [f, setF] = useState({ panel: "", panelW: "", panelN: "", inv: "", invKw: "", invN: "", bat: "", batKwh: "", batN: "", cost: "", price: "1.1" });
-  const [batType, setBatType] = useState<"bat" | "cab">("bat");
+type SysSnap = { f: Record<string, string>; batType: "bat" | "cab"; lm: "loads" | "diesel"; pf: Record<string, string> };
+export function EcoSystemStudy({ onSales, onResult, resume }: { onSales?: () => void; onResult?: (snap: SysSnap) => boolean; resume?: SysSnap | null }) {
+  const [f, setF] = useState(() => ({ panel: "", panelW: "", panelN: "", inv: "", invKw: "", invN: "", bat: "", batKwh: "", batN: "", cost: "", price: "1.1", ...(resume?.f || {}) }));
+  const [batType, setBatType] = useState<"bat" | "cab">(resume?.batType ?? "bat");
   const [manual, setManual] = useState<Set<string>>(() => new Set());
-  const [done, setDone] = useState(false);
+  const [done, setDone] = useState(Boolean(resume));
   const [project, setProject] = useState("");
-  const [named, setNamed] = useState(false);
+  const [named, setNamed] = useState(Boolean(resume));
   useEffect(() => { try { setProject(sessionStorage.getItem(PROJECT_KEY) ?? ""); } catch { /* ignore */ } }, []);
   useEffect(() => { toTop(); }, [done, named]);
-  const [lm, setLm] = useState<"loads" | "diesel">("loads");
+  const [lm, setLm] = useState<"loads" | "diesel">(resume?.lm ?? "loads");
   const [hrs, setHrs] = useState<string[]>(() => readLoads().values ?? Array(24).fill(""));
   const [total, setTotal] = useState(() => readLoads().total ?? "");
   const [one, setOne] = useState(() => readLoads().one ?? "");
@@ -293,7 +294,7 @@ export function EcoSystemStudy({ onSales }: { onSales?: () => void }) {
   const resetHrs = () => { clearLoads(); setHrs(Array(24).fill("")); setTotal(""); setOne(""); };
   const [showReport, setShowReport] = useState(false);
   const [merge, setMerge] = useState(false);
-  const [pf, setPf] = useState({ panel: "", panelW: "", panelN: "", inv: "", invKw: "", invN: "", bat: "", batKwh: "", batN: "" });
+  const [pf, setPf] = useState(() => ({ panel: "", panelW: "", panelN: "", inv: "", invKw: "", invN: "", bat: "", batKwh: "", batN: "", ...(resume?.pf || {}) }));
   const n = (v: string) => Math.max(0, Number(v) || 0);
   const kwp = (n(f.panelW) * n(f.panelN)) / 1000;
   const invKw = n(f.invKw) * n(f.invN);
@@ -384,7 +385,7 @@ export function EcoSystemStudy({ onSales }: { onSales?: () => void }) {
 
   if (!done) {
     return (
-      <form onSubmit={(e) => { e.preventDefault(); if (ok) setDone(true); }} className="rounded-lg border border-border bg-muted/35 p-5">
+      <form onSubmit={(e) => { e.preventDefault(); if (ok) { if (onResult?.({ f, batType, lm, pf })) return; setDone(true); } }} className="rounded-lg border border-border bg-muted/35 p-5">
         <p className="text-sm font-black">بيانات المنظومة — {project}</p>
         <p className="mt-1 text-xs text-muted-foreground">اكتب مكونات منظومتك الجاهزة وتكلفتها لنحسب جدواها الاقتصادية.</p>
         <div className="mt-4 grid gap-3 sm:grid-cols-3">
