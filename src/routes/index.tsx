@@ -104,6 +104,9 @@ import { createOrder, createSalesRequest, setPayment, switchClient, type Payment
 import { downloadQuotePdf } from "@/lib/quote-pdf";
 import { PurchaseFlow } from "@/components/purchase-flow";
 import { NotificationsBell } from "@/components/notifications";
+import { AZIMUTH_OPTIONS } from "@/lib/pvsyst-geometry";
+import { isReleased, startStudy, usePvsystAccess, setStudyGeometry, markStudyOpened } from "@/lib/pvsyst-access";
+import { FreeStudyNote, StudyPayment, StudyWaiting } from "@/components/pvsyst-gate";
 import { OrderCenterButton } from "@/components/order-center";
 import { AdminDashboard } from "@/components/admin-dashboard";
 
@@ -691,6 +694,23 @@ function ActesApp() {
     runService(kind);
   }, [hasClient, runService]);
 
+  // فتح دراسة PVsyst الجاهزة من الإشعارات
+  useEffect(() => {
+    const onOpen = (event: Event) => {
+      const snap = (event as CustomEvent).detail as { view: View; session: BotSession; step: string } | null;
+      if (!snap?.view) return;
+      markStudyOpened();
+      sessionRef.current = { ...snap.session };
+      setSession(sessionRef.current);
+      setStep(snap.step);
+      setView(snap.view);
+      setCatalog(null);
+      mainRef.current?.scrollTo({ top: 0 });
+    };
+    window.addEventListener("arsh:open-study", onOpen);
+    return () => window.removeEventListener("arsh:open-study", onOpen);
+  }, []);
+
   const handleNav = (action: (typeof NAV_ITEMS)[number]["action"]) => {
     if (action === "home") return reset();
     if (action === "quote" && !hasClient) { setLoginModal(true); return; }
@@ -848,6 +868,7 @@ function ActesApp() {
               onBack={() => send("back_step")}
               onRestart={() => send("0")}
               onHome={() => { setCatalog(null); reset(); }}
+              onStudies={() => triggerService("energy")}
               onOpenProduct={(id) => { setCatalog({ productId: id, fromQuote: true }); mainRef.current?.scrollTo({ top: 0 }); }}
             />
 
@@ -1566,11 +1587,19 @@ function StepProgress({ step, hasQuote }: { step: string; hasQuote: boolean }) {
 }
 
 
-function QuoteWorkspace({ view, session, step, draft, setDraft, onPick, onBack, onRestart, onHome, onOpenProduct }: { view: View; session: BotSession; step: string; draft: string; setDraft: (value: string) => void; onPick: (value: string) => void; onBack: () => void; onRestart: () => void; onHome: () => void; onOpenProduct?: ((id: string) => void) | undefined }) {
+function QuoteWorkspace({ view, session, step, draft, setDraft, onPick, onBack, onRestart, onHome, onStudies, onOpenProduct }: { view: View; session: BotSession; step: string; draft: string; setDraft: (value: string) => void; onPick: (value: string) => void; onBack: () => void; onRestart: () => void; onHome: () => void; onStudies: () => void; onOpenProduct?: ((id: string) => void) | undefined }) {
   const [selected, setSelected] = useState<string>("");
   // شاشة الدراسة تُعرض وحدها عند طلبها، وزر «العودة لعرض السعر» يعيد عرض الجدول
   const [showStudyOnly, setShowStudyOnly] = useState(false);
   const studyFresh = Boolean(view.study?.fresh);
+  // صلاحية دراسة PVsyst: الأولى مجانية وتصل بعد 3 دقائق كإشعار
+  const access = usePvsystAccess();
+  const studySig = view.study ? String(view.study.number || "") : "";
+  const studyLocked = studyFresh && !isReleased(studySig);
+  const pendingAt = access.kind === "waiting" ? access.readyAt : Date.now() + 180000;
+  useEffect(() => {
+    if (studyLocked && (access.kind === "free" || access.kind === "credit")) startStudy(studySig, { view, session, step });
+  }, [studyLocked, access.kind, studySig]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { setShowStudyOnly(studyFresh); }, [studyFresh, view.study?.number]);
   // شاشة دراسة الجدوى الاقتصادية المستقلة
   const [showEco, setShowEco] = useState(false);
@@ -1665,7 +1694,11 @@ function QuoteWorkspace({ view, session, step, draft, setDraft, onPick, onBack, 
 
         <div className="rounded-lg border border-border bg-card p-4 shadow-sm sm:p-6">
 
-            {ecoScreen ? (
+            {studyLocked ? (
+              access.kind === "pay" || access.kind === "review"
+                ? <StudyPayment status={access} customer={String(session["name"] || session["client_name"] || "")} city={String(session["city"] || "")} />
+                : <StudyWaiting readyAt={pendingAt} previous={access.kind === "waiting" && access.sig !== studySig} onBack={onStudies} />
+            ) : ecoScreen ? (
               <EconomicStudy
                 study={ecoScreen}
                 actions={{
@@ -1737,7 +1770,11 @@ function QuoteWorkspace({ view, session, step, draft, setDraft, onPick, onBack, 
                 {showEntry && (step === "ind_shift"
                   ? (() => { const info = shiftEntryInfo(session); return <ShiftEntry key={`shift-${info.offset}-${info.count}`} count={info.count} offset={info.offset} onSubmit={onPick} />; })()
                   : step === "pv_loads"
-                    ? <HourlyLoadEntry onSubmit={onPick} />
+                    ? (access.kind === "waiting"
+                      ? <StudyWaiting readyAt={access.readyAt} previous onBack={onStudies} />
+                      : access.kind === "pay" || access.kind === "review"
+                      ? <StudyPayment status={access} customer={String(session["name"] || session["client_name"] || "")} city={String(session["city"] || "")} />
+                      : <>{access.kind === "free" && <FreeStudyNote />}<HourlyLoadEntry onSubmit={onPick} /></>)
                     : step === "eco_system_hours"
                     ? <EcoSystemStudy onSales={() => onPick("team")} />
                     : step === "eco_diesel_hours" || step === "eco_loads_hours"
@@ -2295,13 +2332,17 @@ const HOUR_LABELS = Array.from({ length: 24 }, (_, hour) => {
 function HourlyLoadEntry({ onSubmit }: { onSubmit: (value: string) => void }) {
   const [values, setValues] = useState<string[]>(() => Array.from({ length: 24 }, () => ""));
   const [same, setSame] = useState(false);
+  const [tilt, setTilt] = useState<number | null>(null);
+  const [azimuth, setAzimuth] = useState(0);
   const filled = values.filter((entry) => entry.trim()).length;
 
   return (
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        if (filled === 24) onSubmit(values.map((entry, hour) => `${hour}=${entry.trim()}`).join("\n"));
+        if (filled !== 24) return;
+        setStudyGeometry(tilt, azimuth);
+        onSubmit(values.map((entry, hour) => `${hour}=${entry.trim()}`).join("\n"));
       }}
       className="rounded-lg border border-border bg-muted/35 p-5"
     >
@@ -2332,6 +2373,27 @@ function HourlyLoadEntry({ onSubmit }: { onSubmit: (value: string) => void }) {
             </div>
           </div>
         ))}
+      </div>
+      <div className="mt-5 rounded-lg border border-border bg-card p-4">
+        <p className="text-sm font-black">زوايا الألواح</p>
+        <p className="mt-1 text-xs text-muted-foreground">اتركها على «تلقائي» لاعتماد الزاوية المثالية لموقعك</p>
+        <p className="mt-3 text-xs font-bold">زاوية الميلان: <span className="text-brand">{tilt === null ? "تلقائي" : `${tilt}°`}</span></p>
+        <div className="mt-2 flex flex-wrap gap-2">
+          {[null, 10, 15, 20, 25, 30].map((v) => (
+            <button key={String(v)} type="button" onClick={() => setTilt(v)} className={`rounded-full border px-3 py-1.5 text-xs font-black ${tilt === v ? "border-brand bg-brand text-brand-foreground" : "border-border bg-card"}`}>
+              {v === null ? "تلقائي" : `${v}°`}
+            </button>
+          ))}
+        </div>
+        <input type="range" min={0} max={60} value={tilt ?? 15} onChange={(e) => setTilt(Number(e.target.value))} aria-label="زاوية الميلان" className="mt-3 w-full accent-primary" />
+        <p className="mt-3 text-xs font-bold">اتجاه الألواح</p>
+        <div className="mt-2 flex flex-wrap gap-2">
+          {AZIMUTH_OPTIONS.map((o) => (
+            <button key={o.value} type="button" onClick={() => setAzimuth(o.value)} className={`rounded-full border px-3 py-1.5 text-xs font-black ${azimuth === o.value ? "border-brand bg-brand text-brand-foreground" : "border-border bg-card"}`}>
+              {o.label}
+            </button>
+          ))}
+        </div>
       </div>
       <button
         type="submit"

@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { buildPvsystStudy } from "@/lib/pvsyst-engine";
 import { AZIMUTH_OPTIONS } from "@/lib/pvsyst-geometry";
+import { getStudyGeometry } from "@/lib/pvsyst-access";
 import { buildEconomics, capexFromQuoteItems, DEFAULT_TARIFF_USD } from "@/lib/pvsyst-economics";
 import { downloadPvsystReport } from "@/lib/pvsyst-pdf";
 import type { View } from "@/lib/present";
@@ -89,8 +90,8 @@ type Props = {
 export default function PvsystStudy({ study, actions }: Props) {
   // ==== تعديل اختياري لزاويتي الميلان والاتجاه ====
   const [geoOpen, setGeoOpen] = useState(false);
-  const [tilt, setTilt] = useState<number | null>(null);
-  const [azimuth, setAzimuth] = useState(0);
+  const [tilt, setTilt] = useState<number | null>(() => getStudyGeometry().tilt);
+  const [azimuth, setAzimuth] = useState(() => getStudyGeometry().azimuth);
 
   // ==== خيارات العرض ====
   const [arTerms, setArTerms] = useState(false);
