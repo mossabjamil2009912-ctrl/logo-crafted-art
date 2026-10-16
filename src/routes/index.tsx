@@ -851,6 +851,7 @@ function ActesApp() {
               onBack={() => send("back_step")}
               onRestart={() => send("0")}
               onHome={() => { setCatalog(null); reset(); }}
+              onStudies={() => triggerService("energy")}
               onOpenProduct={(id) => { setCatalog({ productId: id, fromQuote: true }); mainRef.current?.scrollTo({ top: 0 }); }}
             />
 
@@ -1569,11 +1570,19 @@ function StepProgress({ step, hasQuote }: { step: string; hasQuote: boolean }) {
 }
 
 
-function QuoteWorkspace({ view, session, step, draft, setDraft, onPick, onBack, onRestart, onHome, onOpenProduct }: { view: View; session: BotSession; step: string; draft: string; setDraft: (value: string) => void; onPick: (value: string) => void; onBack: () => void; onRestart: () => void; onHome: () => void; onOpenProduct?: ((id: string) => void) | undefined }) {
+function QuoteWorkspace({ view, session, step, draft, setDraft, onPick, onBack, onRestart, onHome, onStudies, onOpenProduct }: { view: View; session: BotSession; step: string; draft: string; setDraft: (value: string) => void; onPick: (value: string) => void; onBack: () => void; onRestart: () => void; onHome: () => void; onStudies: () => void; onOpenProduct?: ((id: string) => void) | undefined }) {
   const [selected, setSelected] = useState<string>("");
   // شاشة الدراسة تُعرض وحدها عند طلبها، وزر «العودة لعرض السعر» يعيد عرض الجدول
   const [showStudyOnly, setShowStudyOnly] = useState(false);
   const studyFresh = Boolean(view.study?.fresh);
+  // صلاحية دراسة PVsyst: الأولى مجانية وتصل بعد 3 دقائق كإشعار
+  const access = usePvsystAccess();
+  const studySig = view.study ? String(view.study.number || "") : "";
+  const studyLocked = studyFresh && !isReleased(studySig);
+  const pendingAt = access.kind === "waiting" ? access.readyAt : Date.now() + 180000;
+  useEffect(() => {
+    if (studyLocked && (access.kind === "free" || access.kind === "credit")) startStudy(studySig, { view, session, step });
+  }, [studyLocked, access.kind, studySig]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { setShowStudyOnly(studyFresh); }, [studyFresh, view.study?.number]);
   // شاشة دراسة الجدوى الاقتصادية المستقلة
   const [showEco, setShowEco] = useState(false);
@@ -1668,7 +1677,11 @@ function QuoteWorkspace({ view, session, step, draft, setDraft, onPick, onBack, 
 
         <div className="rounded-lg border border-border bg-card p-4 shadow-sm sm:p-6">
 
-            {ecoScreen ? (
+            {studyLocked ? (
+              access.kind === "pay" || access.kind === "review"
+                ? <StudyPayment status={access} customer={String(session["name"] || session["client_name"] || "")} city={String(session["city"] || "")} />
+                : <StudyWaiting readyAt={pendingAt} previous={access.kind === "waiting" && access.sig !== studySig} onBack={onStudies} />
+            ) : ecoScreen ? (
               <EconomicStudy
                 study={ecoScreen}
                 actions={{
@@ -1740,7 +1753,11 @@ function QuoteWorkspace({ view, session, step, draft, setDraft, onPick, onBack, 
                 {showEntry && (step === "ind_shift"
                   ? (() => { const info = shiftEntryInfo(session); return <ShiftEntry key={`shift-${info.offset}-${info.count}`} count={info.count} offset={info.offset} onSubmit={onPick} />; })()
                   : step === "pv_loads"
-                    ? <HourlyLoadEntry onSubmit={onPick} />
+                    ? (access.kind === "waiting"
+                      ? <StudyWaiting readyAt={access.readyAt} previous onBack={onStudies} />
+                      : access.kind === "pay" || access.kind === "review"
+                      ? <StudyPayment status={access} customer={String(session["name"] || session["client_name"] || "")} city={String(session["city"] || "")} />
+                      : <>{access.kind === "free" && <FreeStudyNote />}<HourlyLoadEntry onSubmit={onPick} /></>)
                     : step === "eco_system_hours"
                     ? <EcoSystemStudy onSales={() => onPick("team")} />
                     : step === "eco_diesel_hours" || step === "eco_loads_hours"
