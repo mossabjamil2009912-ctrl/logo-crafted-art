@@ -27,3 +27,5 @@
 - [x] Offline Windows desktop app + new app icon + offline Arabic voice
 - [x] Pylontech AR site: original order, ACTES logo
 - [x] Reconnect GitHub API in the new workspace and verify access.
+- [ ] صور المنتجات بدون خلفية
+- [ ] شعار رأس صور المنتجات: «عرش الهندسة» باللون الأبيض
